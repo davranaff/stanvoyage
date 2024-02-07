@@ -1,0 +1,146 @@
+-
+	function getImageSize(name) {
+		try { return name.match('[0-9]+(x)[0-9]+')[0].split('x'); }
+		catch ( error ) {
+			throw new Error('Error in function getImageSize:\n' + error);
+		}
+	}
+
+	//- Get menu branch by category name
+	function getMenuCategory(category) {
+		for (var i = 0; i < menu.length; i++) {
+			if (menu[i].category === category) {
+				return menu[i];
+			}
+		}
+		return undefined;
+	}
+
+	//- Any page title to *.html link
+	function nameToLink(name) {
+		try { return name.trim().replace(/\s/g, '-').replace(/[\(\)]/g, '').toLowerCase() + '.html'; }
+		catch ( error ) {
+			throw new Error('Error in function nameToLink:\n' + error);
+		}
+	}
+
+
+//- Img image
+mixin img(name, className)
+	- var size = getImageSize(name);
+	- var ext = name.split('.')[1];
+
+	img(src='images/' + name, alt='', width=size[0], height=size[1], class=className)
+
+
+//- Jpg image
+mixin jpg(name, className)
+	- var size = getImageSize(name);
+	img(src='images/' + name + '.jpg', alt='', width=size[0], height=size[1], class=className)
+
+
+//- Png image
+mixin png(name, className)
+	- var size = getImageSize(name);
+	img(src='images/' + name + '.png', alt='', width=size[0], height=size[1], class=className)
+
+
+//- Loop without indexing mixin
+mixin loop(count)
+	- for (var i = 0; i < count; i++)
+		block
+
+
+//- Parallax Section
+mixin parallax(obj)
+	.parallax-container(data-parallax-img='images/' + obj.img + '.jpg')&attributes(attributes)
+		.parallax-content(class=obj.innerClass)
+			block
+
+
+//- Breadcrumbs 
+mixin breadcrumbs(obj)
+	- var activeItemName= obj.path.pop();
+	- var category = getMenuCategory(obj.category);
+
+	// Breadcrumbs 
+	section.breadcrumbs-custom-inset
+		.breadcrumbs-custom.context-dark(class=obj.mod)
+			.container
+				h2.breadcrumbs-custom-title=activeItemName
+				ul.breadcrumbs-custom-path
+					li: a(href='index.html') Home
+					if (typeof(category) !== 'undefined' && (category.title !== activeItemName))
+						li: a(href=category.link ? category.link : nameToLink(category.title))=category.title
+						-for( var i = 0; i < obj.path.length; i++)
+							li: a(href=obj.path[i].link ? obj.path[i].link : nameToLink(obj.path[i].title))=obj.path[i].title
+
+					li.active=activeItemName
+			.box-position(style=obj.bgImage ? 'background-image: url(images/' + obj.bgImage + '.jpg);' : '')
+
+//- Logo
+mixin logo(modClass)
+	a.brand(href='index.html' class=modClass ? modClass : '')
+		+png(logo.default, 'brand-logo-dark')
+		+png(logo.inverse, 'brand-logo-light')
+mixin logo-inverse(modClass)
+	a.brand(href='index.html' class=modClass ? modClass : '')
+		+png(logo.inverse, 'logo-inverse-275x29')
+
+//- Copyright
+mixin rights(modClass)
+	// Rights
+	p.rights(class=modClass ? modClass : '')
+		span= logo.name
+		span &nbsp;
+		span &copy;&nbsp;
+		span.copyright-year
+		span &nbsp;
+		a(href='privacy-policy.html') Privacy Policy
+
+
+
+//- Social List Widget
+//- socials - an array of {link}
+//- iclass - icon class
+//- lclass - list class
+
+mixin widget-list(socials, iclass, lclass)
+	- var iclass = iclass ? " " + iclass : " icon-xxs"
+	- var lclass = lclass
+
+	ul.list-inline(class=lclass)
+		if(socials.length)
+			each link in socials
+				li: a(href=link.href class=link.icon + iclass)
+		else
+			li: a(href='#' class='icon fa fa-facebook')
+			li: a(href='#' class='icon fa fa-twitter')
+			li: a(href='#' class='icon fa fa-google-plus')
+			li: a(href='#' class='icon fa fa-instagram')
+
+
+//- Social List Widget
+mixin badge(obj)
+	if(obj.link == false)
+		.badge(class=obj.mod)
+			svg(xmlns='http://www.w3.org/2000/svg', x='0px', y='0px', width='16px', height='27px', viewbox='0 0 16 27', enable-background='new 0 0 16 27', xml:space='preserve')
+				path(d='M0,0v6c4.142,0,7.5,3.358,7.5,7.5S4.142,21,0,21v6h16V0H0z')
+			div=obj.text
+	else
+		a.badge(href='#' class=obj.mod)
+			svg(xmlns='http://www.w3.org/2000/svg', x='0px', y='0px', width='16px', height='27px', viewbox='0 0 16 27', enable-background='new 0 0 16 27', xml:space='preserve')
+				path(d='M0,0v6c4.142,0,7.5,3.358,7.5,7.5S4.142,21,0,21v6h16V0H0z')
+			div=obj.text
+
+
+
+//- Heading Panel
+mixin heading-panel(obj)
+	.heading-panel
+		.heading-panel-left
+			h1.oh-desktop.heading-panel-title: span.d-inline-block.wow.slideInLeft=obj.title
+			h4.oh-desktop.heading-panel-subtitle: span.d-inline-block.wow.slideInDown(data-wow-delay='.2s')=obj.subtitle
+		.heading-panel-decor.wow.fadeIn
+		if( obj.owlNav )
+			.oh-desktop: .owl-custom-nav.wow.slideInUp(id='owl-custom-nav-' + obj.owlNav)

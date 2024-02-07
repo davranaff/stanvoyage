@@ -1,0 +1,67 @@
+mixin footer-classic(obj)
+	footer.section.section-fluid.footer-classic(class=obj.mod)
+		.container-fluid
+			.row.row-30.justify-content-center
+				.col-md-10.col-lg-12.col-xl-4.wow.fadeInRight
+					.box-footer.box-footer-small
+						.footer-brand: a(href='index.html'): +png(logo.inverse)
+						p.text-width-medium Our design studio helps clients make wise decisions and avoid costly mistakes. Allow our designers and architectors to make your dream space a reality.
+						.contact-classic
+							.contact-classic-item: .unit.align-items-center
+								.unit-left: h6.contact-classic-title Address
+								.unit-body.contact-classic-link: a(href='#') 4730 Crystal Springs Dr, Los Angeles, CA 90027
+
+							.contact-classic-item: .unit.align-items-center
+								.unit-left: h6.contact-classic-title Phones
+								.unit-body.contact-classic-link
+									a(href='tel:#') +1 323-913-4688
+									= ', '
+									a(href='tel:#')  +1 323-888-4554
+							.contact-classic-item: .unit.align-items-center
+								.unit-left: h6.contact-classic-title E-mails
+								.unit-body.contact-classic-link
+									a(href='mailto:#')  info@demolink.org
+									= ', '
+									a(href='mailto:#')  mail@demolink.org
+
+						+widget-list([], '', 'list-inline-sm footer-social-list')
+
+				.col-md-10.col-lg-6.col-xl-4.wow.fadeInRight(data-wow-delay='.1s')
+					.box-footer
+						h3.fw-normal Questions? Contact Us
+						form.rd-form.rd-mailform(data-form-output='form-output-global', data-form-type='contact', method='post', action='bat/rd-mailform.php')
+							.form-wrap
+								input#contact-name-6.form-input(type='text' name='name' data-constraints='@Required')
+								label.form-label(for='contact-name-6') Name
+							.form-wrap
+								input#contact-email-6.form-input(type='email' name='email' data-constraints='@Email @Required')
+								label.form-label(for='contact-email-6') E-mail
+							.form-wrap
+								label.form-label(for='contact-message-6') Message
+								textarea#contact-message-6.form-input(name='message' data-constraints='@Required')
+							button.button.button-block.button-ujarak(class=obj.button ? obj.button : 'button-secondary' type='submit') Send Message
+				.col-md-10.col-lg-6.col-xl-4.wow.fadeInRight(data-wow-delay='.2s')
+					.box-footer
+						h3.fw-normal See how we work
+						ul.footer-list-category
+							li.heading-5: a(href='#') Home design
+								span
+							li.heading-5: a(href='#') Commercial design
+								span
+							li.heading-5: a(href='#') Office design
+								span
+							li.heading-5: a(href='#') Consultations
+								span
+							li.heading-5: a(href='#') Architect services
+								span
+		.container.footer-bottom-panel.wow.fadeInUp
+			// Rights
+			p.rights
+				span &copy;&nbsp;
+				span.copyright-year
+				= ' '
+				span= logo.name
+				= '. All rights reserved. '
+				a(href='privacy-policy.html') Terms of Use
+				|  and
+				a(href='privacy-policy.html')  Privacy Policy

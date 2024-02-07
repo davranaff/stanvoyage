@@ -1,0 +1,111 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+block variables
+	- var activeCategory = 'our tours'
+	- var pageName = 'Single tour'
+
+block page 
+	// Page Header
+	+header-corporate({})
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		mod: 'bg-overlay-46',
+		bgImage: 'breadcrumbs-bg'
+	})
+
+	// Single Project
+	section.section.section-sm.section-first.bg-default
+		.container
+			.row.row-50.justify-content-center
+				.col-md-6.col-lg-7
+					.row.row-30.row-lg-40(data-lightgallery='group')
+						.col-12: .oh-desktop
+							+thumbnail-joan({
+								nameImg: 'project',
+								sizeImg: '700x518',
+								numberImg: '22',
+								numberPhoto: '1',
+								nameImgOriginal: 'fullwidth-gallery-6'
+							}).wow.slideInRight
+						.col-12: .oh-desktop
+							+thumbnail-joan({
+								nameImg: 'project',
+								sizeImg: '700x518',
+								numberImg: '23',
+								numberPhoto: '2',
+								nameImgOriginal: 'gallery-image-4'
+							}).wow.slideInLeft
+						.col-12: .oh-desktop
+							+thumbnail-joan({
+								nameImg: 'project',
+								sizeImg: '700x518',
+								numberImg: '24',
+								numberPhoto: '3',
+								nameImgOriginal: 'masonry-gallery-7'
+							}).wow.slideInRight
+
+				.col-md-6.col-lg-5.position-relative
+					.single-project.single-project-4
+						.single-tour-title
+							h4.title-decoration-lines-bottom Mauritius Island, #[br.d-none.d-lg-block] Africa
+								span
+						.single-tour-price
+							.product-big-price-wrap
+								span.product-big-price $790
+						p.text-gray-500 Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Cursus in hac habitasse platea dictumst quisque.
+						p.text-gray-500 Ut venenatis tellus in metus. Sed odio morbi quis commodo odio aenean. Ut ornare lectus sit amet est. Tellus orci ac auctor augue mauris augue neque gravida. Tempor commodo ullamcorper a lacus. Fermentum dui faucibus in ornare quam viverra.
+
+						.divider.divider-30
+
+						ul.list.list-description.d-inline-block.d-md-block
+							li
+								span Country:
+								span Mauritius
+							li
+								span Cost:
+								span 890$
+							li
+								span Type:
+								span Seasonal
+							li
+								span Category:
+								span Exotic Tours
+
+						.divider.divider-30
+						.group-md.group-middle.justify-content-sm-start
+							span.social-title Share
+							div: +widget-list([], '', 'list-inline-sm social-list')
+
+
+	// Project Links
+	section.section.section-sm.section-last.bg-default
+		.container
+			.project-navigation
+				.row.row-30
+					.col-sm-6
+						+project-minimal({
+							href: '#',
+							unit: 'flex-column flex-lg-row text-lg-left',
+							img: 'single-tour-1-168x139',
+							title: "Paris,<br>France ",
+							text: 'Regular Tour'
+						})
+					.col-sm-6
+						+project-minimal({
+							href: '#',
+							unit: 'flex-column flex-lg-row-reverse text-lg-right',
+							img: 'single-tour-2-168x139',
+							title: 'Dubai,<br>UAE',
+							text: 'Exotic Tour'
+						})
+
+				a.project-navigation-arrow-prev(href='single-tour.html')
+				a.project-navigation-arrow-next(href='single-tour.html')
+
+	// Page Footer
+	include ../sections/_footer-corporate

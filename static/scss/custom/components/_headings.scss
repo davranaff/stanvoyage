@@ -1,0 +1,256 @@
+/*
+*
+* Headings
+*/
+
+//
+// Table of Contents: 
+//
+// Title Classic
+// Title Modern
+// Title Creative
+//
+
+//
+// Title Classic
+//
+.title-classic {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  @include group(32px, 15px);
+}
+
+.title-classic-title {
+  flex-shrink: 0;
+
+  > h3 { margin-top: 6px; }
+}
+
+.title-classic-text {
+  font-size: 16px;
+  padding-top: 20px;
+  border-top: 1px solid $gray-3;
+}
+
+* + .title-classic-text { margin-top: 0; }
+
+// Medium ≥576px
+@include media-breakpoint-up(sm) {
+  .title-classic {
+    text-align: left;
+    flex-direction: row;
+  }
+
+  .title-classic-text {
+    padding-top: 0;
+    padding-left: 28px;
+    border-top: none;
+    border-left: 1px solid $gray-3;
+  }
+}
+
+// Medium ≥768px
+@include media-breakpoint-up(md) {
+  .title-classic-text {
+    font-size: 18px;
+  }
+}
+
+
+
+//
+// Title Modern
+//
+.title-modern {
+  user-select: none;
+  letter-spacing: .05em;
+  > span {
+    position: absolute;
+    left: 50%;
+    font-size: 7.8em;
+    letter-spacing: 0.01em;
+    line-height: .92;
+    color: rgba($white, .07);
+    transform: translate3d(-50%, 0, 0);
+    will-change: transform;
+    animation: titleColor 3s linear infinite;
+    @include media-breakpoint-up(xs){
+      font-size: 6.8em;
+    }
+    @include media-breakpoint-up(sm){
+      font-size: 7.8em;
+    }
+  }
+}
+ .subtitle-404{
+  line-height: .90;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 2.5em;
+  display: block;
+  @include media-breakpoint-up(sm) {
+    font-size: 3.2em;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: 4em;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 7.8em;
+  }
+}
+.subtitle-503{
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 2.5em;
+  display: block;
+  @include media-breakpoint-up(sm) {
+    font-size: 3.2em;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: 4em;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 5em;
+  }
+}
+.section-single{
+  .section-503{
+    .button{
+      @include media-breakpoint-up(xl) {
+        margin-top: 120px;
+      }
+    }
+  }
+}
+h1.title-modern > span {
+  top: -95px;
+
+  // Medium ≥768px
+  @include media-breakpoint-up(md) {
+    top: -130px;
+  }
+
+  // Extra large ≥992px
+  @include media-breakpoint-up(lg) {
+    top: -123px;
+
+  }
+}
+
+h2.title-modern {
+  font-weight: 300;
+
+  > span {
+    top: -70px;
+    font-size: 5.86em;
+
+    // Medium ≥768px
+    @include media-breakpoint-up(md) {
+      top: -90px;
+    }
+
+    // Extra large ≥992px
+    @include media-breakpoint-up(lg) {
+      top: -120px;
+    }
+
+    // Extra large ≥992px
+    @include media-breakpoint-up(xl) {
+      top: -135px;
+    }
+  }
+}
+
+@keyframes titleColor {
+  50% {
+    color: rgba($white, .3);
+  }
+  100% {
+    color: rgba($white, .07);
+  }
+}
+
+
+
+// Title Custom
+.title-opacity-9 {
+  color: rgba($gray-800, .09);
+}
+
+
+
+//
+// Heading Panel
+//
+
+* + .heading-panel-subtitle { margin-top: 10px; }
+.heading-panel + .owl-services-2 { margin-top: 50px; }
+.heading-panel + .owl-quote-2 { margin-top: 35px; }
+
+// Small <576px
+@include media-breakpoint-down(sm) {
+  .heading-panel {
+    * + .owl-custom-nav { margin-top: 20px; }
+  }
+}
+
+// Medium ≥576px
+@include media-breakpoint-up(sm) {
+  .heading-panel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .heading-panel-left {
+    position: relative;
+    text-align: left;
+    margin-top: 4px;
+    padding-left: 110px;
+  }
+
+  .heading-panel-decor {
+    font-size: 0;
+    line-height: 0;
+    flex-grow: 1;
+    height: 0;
+    margin: 0 10px;
+    border-top: 1px solid $gray-35;
+  }
+
+  .heading-panel-title {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    color: rgba($gray-800, .09);
+    transform: translate3d(0, -50%, 0);
+  }
+
+  * + .heading-panel-subtitle { margin-top: 0; }
+}
+
+// Medium ≥768px
+@include media-breakpoint-up(md) {
+  .heading-panel-left {
+    padding-left: 160px;
+    margin-top: 8px;
+  }
+}
+
+// Large ≥992px
+@include media-breakpoint-up(lg) {
+  .heading-panel { padding: 10px 0; }
+  .heading-panel-left { padding-left: 200px; }
+}
+
+// Extra large ≥1200px
+@include media-breakpoint-up(xl) {
+  .heading-panel { padding-bottom: 30px; }
+  .heading-panel-left { padding-left: 240px; }
+  .heading-panel-title { top: 60%; }
+}

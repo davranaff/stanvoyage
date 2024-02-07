@@ -1,0 +1,209 @@
+/*
+*
+* Utilities custom
+*/
+.height-fill {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
+	> * {
+		flex-grow: 1;
+		flex-shrink: 0;
+	}
+}
+
+// Object inline 
+.object-inline {
+	white-space: nowrap;
+	> * {
+		display: inline-block;
+		min-width: 20px;
+		vertical-align: top;
+		white-space: normal;
+	}
+
+	> * + * {
+		margin-left: 5px;
+	}
+}
+
+.oh {
+	position: relative;
+	overflow: hidden;
+}
+
+.desktop {
+	// Large ≥992px
+	@include media-breakpoint-up(lg) {
+		.oh-desktop {
+			overflow: hidden;
+		}
+	}
+}
+
+// Section relative
+.section-relative {
+	position: relative;
+}
+
+
+// Text width
+
+.text-width-extra-small { max-width: 320px; }
+.text-width-small { max-width: 430px; }
+.text-width-medium { max-width: 600px; }
+.text-width-large { max-width: 650px; }
+.text-width-extra-large { max-width: 715px; }
+
+.text-center {
+	[class*='text-width-'] {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// Medium <768px
+@include media-breakpoint-down(md) {
+	[class*='text-width-'] {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+// Rights
+p.rights {
+	font-size: 14px;
+	letter-spacing: .025em;
+	font-weight: 500;
+	color: $gray-500;
+	a {
+		color: inherit;
+
+		&:hover {
+			color: $primary;
+		}
+	}
+}
+
+// JSColor Workaround
+[style*='z-index: 1000;'] {
+	z-index: $zindex-layout-panel + 1 !important;
+}
+
+.text-block {
+	> * {
+		margin-left: 4px;
+		margin-right: 4px;
+	}
+}
+
+
+// Inset
+.inset-top-10 { padding-top: 10px; }
+.inset-top-18 { padding-top: 18px; }
+
+
+// Offset
+
+// Medium ≥992px
+@include media-breakpoint-up(lg) {
+	.offset-top-lg-24 { margin-top: 24px; }
+
+	.desktop {
+		.offset-negative-1 { margin-top: -35px; }
+	}
+}
+
+// Extra large ≥1200px
+@include media-breakpoint-up(xl) {
+	.offset-right-xl-15 { margin-right: 15px; }
+	.offset-top-xl-26 { margin-top: 26px; }
+	.offset-left-xl-45 { margin-left: 45px; }
+	.offset-left-xl-65 { margin-left: 65px; }
+	.offset-left-xl-70 { margin-left: 70px; }
+}
+
+
+// Box Width
+
+.box-width-lg-470 {
+	// Large ≥992px
+	@include media-breakpoint-up(lg) {
+		max-width: 470px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+
+
+// gutters
+
+.gutters-4 {
+	margin-left: -2px;
+	margin-right: -2px;
+
+	[class*='col-'] {
+		padding-left: 2px;
+		padding-right: 2px;
+	}
+}
+
+.gutters-10 {
+	margin-left: -5px;
+	margin-right: -5px;
+
+	[class*='col-'] {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+
+.gutters-14 {
+	margin-left: -7px;
+	margin-right: -7px;
+
+	[class*='col-'] {
+		padding-left: 7px;
+		padding-right: 7px;
+	}
+}
+
+
+
+.breadcrumbs-custom {
+	position: relative;
+	overflow: hidden;
+}
+
+// box position
+.box-position {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: calc(100% + 150px);
+	height: calc(100% + 150px);
+	will-change: transform;
+	animation: bgPos 100s linear infinite;
+	transform: translate3d(-75px, -75px, 0) rotate(0.001deg);
+	background-position: 50% 50%;
+	background-size: cover;
+	z-index: -1;
+}
+
+@keyframes bgPos {
+	25% {
+		transform: translate3d(-150px, -150px, 0) rotate(0.001deg);
+	}
+
+	75% {
+		transform: translate3d(0, 0, 0) rotate(0.001deg);
+	}
+}
+
+
+
+// Order
+.order-negative-2 { order: -2; }

@@ -1,0 +1,109 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-quote
+include ../components/_ui-box-icon
+
+block variables
+  - var activeCategory = 'pages'
+  - var pageName = 'Icons with Text'
+
+block page 
+  // Page Header
+  +header-corporate({})
+
+  +breadcrumbs({
+    category: activeCategory,
+    path: [pageName],
+    mod: 'bg-overlay-60',
+    bgImage: 'breadcrumbs-bg'
+  })
+
+  // Icons #1
+  section.section.section-sm.section-first.bg-default
+    .container
+      h3 #1
+      .row.row-40.box-ordered
+        .col-sm-6.col-lg-3
+          +box-icon-creative({
+            icon: 'fl-bigmug-line-circular224',
+            title: 'Focus on our clients',
+            text: 'Aliquam malesuada bibendum arcu vitae. A erat nam at lectus urna duis .'
+          })
+        .col-sm-6.col-lg-3
+          +box-icon-creative({
+            icon: 'fl-bigmug-line-paintbrush9',
+            title: 'Intuitive and easy',
+            text: 'Porta non pulvinar neque laoreet suspendisse. Mollis nunc sed risus in.'
+          })
+        .col-sm-6.col-lg-3
+          +box-icon-creative({
+            icon: 'fl-bigmug-line-hot67',
+            title: 'Non-trivial ideas',
+            text: 'Dolor magna eget lorem ipsum. Vitae aliquet ullamcorper risus nullam eget.'
+          })
+        .col-sm-6.col-lg-3
+          +box-icon-creative({
+            icon: 'fl-bigmug-line-chat55',
+            title: 'Full tour support',
+            text: 'Venenatis a condimentum vitae sapien pellentesque habitant morbi tristique.'
+          })
+
+
+  // Icons #2
+  section.section.section-sm.bg-default
+    .container
+      h3 #2
+      .row.row-40
+        .col-md-6.col-lg-4
+          +box-icon-modern({
+            icon: 'fl-bigmug-line-paintbrush9',
+            title: 'Best Service',
+            text: 'Morbi enim nunc faucibus a pellentesque sit amet. Aliquam eleifend mi in nulla posuere sollicitudin. Lacus vestibulum sed arcu non.'
+          })
+        .col-md-6.col-lg-4
+          +box-icon-modern({
+            icon: 'fl-bigmug-line-cropping1',
+            title: 'Great Reputation',
+            text: 'Fermentum dui faucibus in ornare. Sed faucibus turpis in eu mi. Amet consectetur adipiscing elit duis tristique sollicitudin nibh sit.'
+          })
+        .col-md-6.col-lg-4
+          +box-icon-modern({
+            icon: 'fl-bigmug-line-chat55',
+            title: 'Safety & Security',
+            text: 'Mattis rhoncus urna neque justo nec ultrices dui. In massa tempor nec feugiat nisl pretium fusce. Tortor pretium viverra potenti nullam.'
+          })
+  ='\n'
+
+  // Icons #3
+  section.section.section-sm.section-last.bg-default
+    .container
+      h3 #3
+      .row.row-40
+        .col-sm-6.col-lg-4
+          +box-icon-classic({
+            align: 'flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left',
+            icon: 'fl-bigmug-line-airplane86',
+            title: 'Transfer from airport',
+            text: 'Id donec ultrices tincidunt arcu non sodales neque. Ut porttitor leo a diam sollicitudin.'
+          })
+        .col-sm-6.col-lg-4
+          +box-icon-classic({
+            align: 'flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left',
+            icon: 'fl-bigmug-line-giftbox54',
+            title: 'Nice gifts for every client',
+            text: 'Scelerisque in dictum non consectetur a erat. Proin fermentum leo vel orci porta non.'
+          })
+        .col-sm-6.col-lg-4
+          +box-icon-classic({
+            align: 'flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left',
+            icon: 'fl-bigmug-line-hot67',
+            title: '-20% for the 1st tour',
+            text: 'Pretium quam vulputate dignissim suspendisse in est ante in. Bibendum ut tristique quis ipsum.'
+          })
+  ='\n'
+
+  // Page Footer
+  include ../sections/_footer-corporate

@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Breadcrumbs -->
+    <section class="breadcrumbs-custom-inset">
+        <div class="breadcrumbs-custom context-dark bg-overlay-46">
+            <div class="container">
+                <h2 class="breadcrumbs-custom-title">Single tour</h2>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'tours' %}">Our Tours</a></li>
+                    <li class="active">{{ tour.name }}</li>
+                </ul>
+            </div>
+            <div class="box-position" style="background-image: url(images/breadcrumbs-bg.jpg);"></div>
+        </div>
+    </section>
+    <!-- Single Project-->
+    <section class="section section-sm section-first bg-default">
+        <div class="container">
+            <div class="row row-50 justify-content-center">
+                <div class="col-md-6 col-lg-7">
+                    <div class="row row-30 row-lg-40" data-lightgallery="group">
+                        <div class="col-12">
+                            <div class="oh-desktop">
+                                <!-- Thumbnail Joan-->
+                                <article class="thumbnail thumbnail-joan wow slideInRight"><a
+                                        class="thumbnail-joan-figure"
+                                        href="{{ tour.preview_image.url }}"
+                                        data-lightgallery="item"><img src="{{ tour.preview_image.url }}" alt=""
+                                                                      width="700" height="518"/></a>
+                                    <div class="thumbnail-joan-caption">
+                                        <h5 class="thumbnail-joan-title">Preview image</h5>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="oh-desktop">
+                                <!-- Thumbnail Joan-->
+                                <article class="thumbnail thumbnail-joan wow slideInLeft"><a
+                                        class="thumbnail-joan-figure"
+                                        href="images/gallery-image-4-1200x800-original.jpg"
+                                        data-lightgallery="item"><img src="images/project-23-700x518.jpg" alt=""
+                                                                      width="700" height="518"/></a>
+                                    <div class="thumbnail-joan-caption">
+                                        <h5 class="thumbnail-joan-title">Photo name #2</h5>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="oh-desktop">
+                                <!-- Thumbnail Joan-->
+                                <article class="thumbnail thumbnail-joan wow slideInRight"><a
+                                        class="thumbnail-joan-figure"
+                                        href="images/masonry-gallery-7-1200x800-original.jpg"
+                                        data-lightgallery="item"><img src="images/project-24-700x518.jpg" alt=""
+                                                                      width="700" height="518"/></a>
+                                    <div class="thumbnail-joan-caption">
+                                        <h5 class="thumbnail-joan-title">Photo name #3</h5>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-5 position-relative">
+                    <div class="single-project single-project-4">
+                        <div class="single-tour-title">
+                            <h4 class="title-decoration-lines-bottom">{{ tour.name }}, <br class="d-none d-lg-block">
+                                {{ tour.country.name }}<span></span></h4>
+                        </div>
+                        <div class="single-tour-price">
+                            <div class="product-big-price-wrap"><span class="product-big-price">${{ tour.price }}</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-500">
+                            {{ tour.description|safe }}
+                        </p>
+                        <div class="divider divider-30"></div>
+                        <ul class="list list-description d-inline-block d-md-block">
+                            <li><span>Country:</span><span>{{ tour.country.name }}</span></li>
+                            <li><span>Cost:</span><span>{{ tour.price }}$</span></li>
+                            <li><span>Type:</span><span>{{ tour.type.type }}</span></li>
+                            <li><span>Category:</span><span>Tour Category</span></li>
+                        </ul>
+                        <div class="divider divider-30"></div>
+                        <div class="group-md group-middle justify-content-sm-start"><span
+                                class="social-title">Share</span>
+                            <div>
+                                <ul class="list-inline list-inline-sm social-list">
+                                    <li><a class="icon fa fa-facebook" href="#"></a></li>
+                                    <li><a class="icon fa fa-twitter" href="#"></a></li>
+                                    <li><a class="icon fa fa-google-plus" href="#"></a></li>
+                                    <li><a class="icon fa fa-instagram" href="#"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Project Links-->
+    <section class="section section-sm section-last bg-default">
+        <div class="container">
+            <div class="project-navigation">
+                <div class="row row-30">
+                    {% if prev_tour %}
+                        <div class="col-sm-6">
+                            <div class="project-minimal">
+                                <div class="unit unit-spacing-lg align-items-center flex-column flex-lg-row text-lg-left">
+                                    <div class="unit-left">
+                                        <a class="project-minimal-figure" href="{% url 'tour_detail' prev_tour.slug %}"><img
+                                            src="{{ prev_tour.preview_image.url }}" alt="" width="168"
+                                            height="139"/></a>
+                                    </div>
+                                    <div class="unit-body">
+                                        <p class="project-minimal-text">{{ prev_tour.type.type }}</p>
+                                        <div class="project-minimal-title"><a
+                                                href="{% url 'tour_detail' prev_tour.slug %}">{{ prev_tour.name }},<br>{{ prev_tour.country.name }}
+                                        </a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if next_tour %}
+                        <div class="col-sm-6">
+                            <div class="project-minimal">
+                                <div class="unit unit-spacing-lg align-items-center flex-column flex-lg-row-reverse text-lg-right">
+                                    <div class="unit-left"><a class="project-minimal-figure" href="{% url 'tour_detail' next_tour.slug %}"><img
+                                            src="{{ next_tour.preview_image.url }}" alt="" width="168"
+                                            height="139"/></a>
+                                    </div>
+                                    <div class="unit-body">
+                                        <p class="project-minimal-text">{{ next_tour.type.type }}</p>
+                                        <div class="project-minimal-title"><a
+                                                href="{% url 'tour_detail' next_tour.slug %}">{{ next_tour.name }},<br>{{ next_tour.country.name }}
+                                        </a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

@@ -1,0 +1,111 @@
+/*
+*
+* Grid modules
+*/
+
+//
+// Grid demonstration
+//
+.grid-demonstration {
+	text-align: left;
+
+	@include media-breakpoint-down(xxl) {
+
+		p {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+}
+
+.grid-demonstration-fullwidth {
+	line-height: 1.86;
+
+	* + p {	margin-top: 12px; }
+}
+
+.grid-demonstration-boxed {
+	line-height: 1.8;
+
+	* + p {	margin-top: 22px; }
+}
+
+//
+// Grid system bordered
+//
+.grid-system-bordered {
+
+	[class*='col'] {
+		padding-bottom: 15px;
+		border-bottom: 1px solid $gray-13;
+	}
+
+	@include media-breakpoint-up(sm) {
+		[class*='col'] {
+			padding-bottom: 30px;
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		[class*='col'] {
+			padding-bottom: 45px;
+		}
+	}
+}
+
+//
+// Grid system outline
+//
+.grid-system-outline {
+	.row {
+		border: 1px solid $gray-13;
+
+		&:not(:last-child) {
+			border-bottom-width: 0;
+		}
+	}
+
+	[class*='col']:not(:last-child) {
+		border-right: 1px solid $gray-200;
+		margin-right: -1px;
+	}
+
+	* + .row {
+		margin-top: 45px;
+	}
+	.row + .row {
+		margin-top: 0;
+	}
+}
+
+// Custom Grid
+//
+// Change $enable-grid-classes-custom: true
+// that would generate custom grid (example: 10 columns)
+
+$enable-grid-classes-custom: false;
+
+@mixin make-grid-columns-custom($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+	@each $breakpoint in map-keys($breakpoints) {
+		$infix: breakpoint-infix($breakpoint, $breakpoints);
+
+		@include media-breakpoint-up($breakpoint, $breakpoints) {
+			@for $i from 1 through $columns {
+				.col#{$infix}-#{$i} {
+					@include make-col($i, $columns);
+				}
+			}
+		}
+	}
+}
+
+@if $enable-grid-classes-custom {
+	.row-ten {
+		@include make-grid-columns-custom(10);
+	}
+
+	.row-xl-ten {
+		@include make-grid-columns-custom(10, 30px, (xl: map-get($grid-breakpoints, xl), xlg: map-get($grid-breakpoints, xlg), xxl: map-get($grid-breakpoints, xxl)));
+	}
+}

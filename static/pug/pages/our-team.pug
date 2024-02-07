@@ -1,0 +1,129 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-box-team
+include ../sections/_header-corporate
+include ../components/_ui-posts
+
+block variables
+  - var activeCategory = 'about'
+  - var pageName = 'Our Team'
+
+block page 
+  // Page Header
+  +header-corporate({})
+
+  +breadcrumbs({
+    category: activeCategory,
+    path: [pageName],
+    mod: 'bg-overlay-46',
+    bgImage: 'breadcrumbs-bg'
+  })
+
+  // Team #1
+  section.section.section-sm.section-first.bg-default
+    .container
+      h3 #1
+      .row.row-sm.row-30.justify-content-center
+        .col-md-6.col-lg-5.col-xl-4
+          +team-classic({
+            img: 'team-1-370x406',
+            name: 'Peter McMillan',
+            status: 'Travel Agent'
+          })
+        .col-md-6.col-lg-5.col-xl-4
+          +team-classic({
+            img: 'team_9-370x406',
+            name: 'Jill Peterson',
+            status: 'Tour Consultant'
+          })
+        .col-md-6.col-lg-5.col-xl-4
+          +team-classic({
+            img: 'team_11-370x406',
+            name: 'Sam Robinson',
+            status: 'PR Manager'
+          })
+
+  // Team #2
+  section.section.section-sm.bg-default
+    .container
+      h3 #2
+      .row.row-xs.row-40.justify-content-center.justify-content-lg-start
+        .col-sm-6.col-md-5.col-lg-3
+          +team-modern({
+            img: 'user-1-118x118',
+            name: 'Diana Robinson',
+            status: 'Founder, Owner'
+          })
+        .col-sm-6.col-md-5.col-lg-3
+          +team-modern({
+            img: 'user-2-118x118',
+            name: 'Peter McMillan',
+            status: 'Travel Agent'
+          })
+        .col-sm-6.col-md-5.col-lg-3
+          +team-modern({
+            img: 'user-3-118x118',
+            name: 'Jill Peterson',
+            status: 'Tour Consultant'
+          })
+        .col-sm-6.col-md-5.col-lg-3
+          +team-modern({
+            img: 'user-4-118x118',
+            name: 'James Smith',
+            status: 'PR Manager'
+          })
+  // Team #3
+  section.section.section-sm.bg-default
+    .container
+      h3 #3
+      .row.row-sm.row-50
+        .col-md-6.col-lg-5.col-xl-4
+          +team-creative({
+            img: 'team-4-370x366',
+            name: 'Jill Peterson',
+            status: 'Tour consultant'
+          })
+        .col-md-6.col-lg-5.col-xl-4
+          +team-creative({
+            img: 'team-5-370x366',
+            name: 'James Smith',
+            status: 'PR Manager'
+          })
+        .col-md-6.col-lg-5.col-xl-4
+          +team-creative({
+            img: 'team-6-370x366',
+            name: 'Diana Robinson',
+            status: 'Founder, Owner'
+          })
+  // Team #4
+  section.section.section-sm.section-last.bg-default
+    .container
+      h3 #4
+      .row.row-30.justify-content-center.justify-content-lg-start
+        .col-sm-6.col-md-5.col-lg-4.col-xl-3
+          +team-nikki({
+            img: 'team-7-270x248',
+            name: 'Diana Robinson',
+            status: 'Founder, Owner'
+          })
+        .col-sm-6.col-md-5.col-lg-4.col-xl-3
+          +team-nikki({
+            img: 'team-8-270x248',
+            name: 'James Smith',
+            status: 'PR Manager'
+          })
+        .col-sm-6.col-md-5.col-lg-4.col-xl-3
+          +team-nikki({
+            img: 'team-9-270x248',
+            name: 'Jill Peterson',
+            status: 'Tour Consultant'
+          })
+        .col-sm-6.col-md-5.col-lg-4.col-xl-3
+          +team-nikki({
+            img: 'team-10-270x248',
+            name: 'Peter McMillan',
+            status: 'Travel Agent'
+          })
+  // Page Footer
+  include ../sections/_footer-corporate

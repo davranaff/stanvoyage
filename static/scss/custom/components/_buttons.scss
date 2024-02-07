@@ -1,0 +1,498 @@
+/*
+*
+* Buttons
+*/
+
+// Button General Styles
+
+.button {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	min-width: 200px;
+	@include btn-size($input-btn-padding-y, $input-btn-padding-x, $input-btn-font-size, $input-btn-line-height);
+	border: 2px solid;
+	font-family: $btn-font-family;
+	font-weight: $btn-font-weight;
+	letter-spacing: normal;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: center;
+	cursor: pointer;
+	vertical-align: middle;
+	user-select: none;
+	transition: 250ms all ease-in-out;
+}
+
+.button-block {
+	display: block;
+	width: 100%;
+}
+
+//
+// Appearance style
+//
+
+.button-default {
+	@include btn-variant($gray-300, $gray-700, $gray-700, $white, $primary, $primary);
+}
+
+.button-primary {
+	@include btn-variant($white, $primary, $primary, $white, $gray-800, $gray-800);
+}
+
+.button-secondary {
+	@include btn-variant($white, $primary, $primary, $white, $gray-800, $gray-800);
+}
+
+.button-secondary-4 {
+	@include btn-variant($white, $secondary, $secondary, $white, $gray-800, $gray-800);
+}
+
+.button-white {
+	@include btn-variant($gray-800, $white, $white, $white, $secondary, $secondary);
+}
+
+.button-gray-100 {
+	@include btn-variant($gray-800, $gray-100, $gray-100, $gray-800, darken($gray-100, 5%), darken($gray-100, 5%));
+}
+
+.button-gray-4 {
+	@include btn-variant($gray-800, $gray-4, $gray-4, $white, $gray-800, $gray-800);
+}
+
+.button-gray-7 {
+	@include btn-variant($white, $gray-7, $gray-7, $gray-800, $white, $white);
+}
+
+.button-gray-8 {
+	@include btn-variant($white, $gray-8, $gray-8, $white, $secondary, $secondary);
+}
+
+.button-gray-11 {
+	@include btn-variant($white, $gray-11, $gray-11, $gray-800, $white, $white);
+}
+
+.button-gray-14 {
+	@include btn-variant($white, $gray-14, $gray-14, $gray-800, $white, $white);
+}
+
+.button-gray-31 {
+	@include btn-variant($white, $gray-31, $gray-31, $white, $gray-800, $gray-800);
+}
+
+.button-gray-32 {
+	@include btn-variant($white, $gray-32, $gray-32, $white, $gray-800, $gray-800);
+}
+
+// Outline
+.button-default-outline {
+	@include btn-variant($white, transparent, $white, $white, $secondary, $secondary);
+}
+
+.button-default-outline-2 {
+	@include btn-variant($gray-800, transparent, $primary, $white, $secondary, $secondary);
+}
+
+.button-white-outline {
+	@include btn-variant($white, transparent, $white, $white, $primary, $primary);
+}
+.button-black-outline {
+	@include btn-variant($gray-800, transparent, $gray-800, $gray-800, $primary, $primary);
+}
+
+.button-ghost {
+	border: 0;
+	background-color: transparent;
+
+	&:hover {
+		color: $white;
+		background: $primary;
+	}
+}
+
+// Social
+.button-facebook {
+	@include btn-variant($white-invariable, $facebook, $facebook, $white-invariable, $facebook-darken, $facebook-darken);
+}
+
+.button-twitter {
+	@include btn-variant($white-invariable, $twitter, $twitter, $white-invariable, $twitter-darken, $twitter-darken);
+}
+
+.button-google {
+	@include btn-variant($white-invariable, $google, $google, $white-invariable, $google-darken, $google-darken);
+}
+
+// Btn with shadow
+.button-shadow {
+	box-shadow: 0 9px 21px 0 rgba($gray-300, 0.15);
+
+	&:hover {
+		box-shadow: 0 9px 10px 0 rgba($gray-300, 0.15);
+	}
+
+	&:focus,
+	&:active {
+		box-shadow: none;
+	}
+}
+
+//
+// Button effects
+//
+.button-ujarak {
+	position: relative;
+	z-index: 0;
+	transition: background .4s, border-color .4s, color .4s;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 101%;
+		height: 101%;
+		background: $secondary;
+		z-index: -1;
+		opacity: 0;
+		transform: scale3d(0.7, 1, 1);
+		transition: transform 0.42s, opacity 0.42s;
+		border-radius: inherit;
+	}
+
+	&,
+	&::before {
+		transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	}
+
+	&:hover {
+		transition: background .4s .4s, border-color .4s 0s, color .2s 0s;
+
+		&::before {
+			opacity: 1;
+			transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+		}
+	}
+}
+
+//
+// Button Sizes
+//
+
+.button-xs {
+	padding: 8px 17px;
+}
+
+.button-sm {
+	@include btn-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, 12px, $input-btn-line-height-sm);
+}
+
+.button-md {
+	min-width: 140px;
+	@include btn-size($input-btn-padding-y-md, $input-btn-padding-x-md, 16px, $input-btn-line-height-md);
+
+	&.button-gradient,
+	&.button-wapasha,
+	&.button-pipaluk {
+		padding: ($input-btn-padding-y-md + 2) ($input-btn-padding-x-md + 2) $input-btn-padding-y-md;
+	}
+}
+
+.button-lg {
+	padding: $input-btn-padding-y-lg $input-btn-padding-x-lg $input-btn-padding-y-lg - 2;
+	line-height: $input-btn-line-height-lg;
+
+	&.button-gradient,
+	&.button-wapasha,
+	&.button-pipaluk {
+		padding: ($input-btn-padding-y-lg + 2) ($input-btn-padding-x-lg + 2) $input-btn-padding-y-lg;
+	}
+}
+
+.button-xl {
+	@include btn-size(16px, 50px, 16px, 28px);
+
+	@include media-breakpoint-up(lg) {
+		padding: 20px 80px;
+	}
+}
+
+//
+// Button Shapes
+//
+
+.button-circle {
+	border-radius: 30px;
+}
+
+.button-round-1 {
+	border-radius: 5px;
+}
+
+.button-round-2 {
+	border-radius: 10px;
+}
+
+//
+// Button Icon styles
+//
+.button {
+	&.button-icon {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		vertical-align: middle;
+
+		.icon {
+			position: relative;
+			display: inline-block;
+			top: -1px;
+			vertical-align: middle;
+			color: inherit;
+			font-size: 14px;
+			line-height: 1;
+		}
+
+		&-left {
+			.icon {
+				padding-right: 8px;
+			}
+		}
+
+		&-right {
+			flex-direction: row-reverse;
+			.icon {
+				padding-left: 8px;
+			}
+		}
+
+		&.button-link {
+			.icon {
+				top: 5px;
+				font-size: 1em;
+			}
+		}
+
+		&.button-xs {
+			.icon {
+				top: .05em;
+				font-size: 1.2em;
+				padding-right: 8px;
+			}
+
+			.button-icon-right {
+				padding-left: 8px;
+			}
+		}
+
+		&.button-facebook,
+		&.button-twitter,
+		&.button-google {
+			.icon {
+				font-size: 18px; }
+		}
+	}
+}
+
+//
+// Bootstrap buttons
+//
+
+.btn-primary {
+	border-radius: 3px;
+	font-family: $btn-font-family;
+	font-weight: $btn-font-weight;
+	letter-spacing: .05em;
+	text-transform: uppercase;
+	transition: .33s;
+
+	&,
+	&:active,
+	&:focus {
+		color: $white;
+		background: $primary;
+		border-color: $primary;
+	}
+
+	&:hover {
+		color: $white;
+		background: $black;
+		border-color: $black;
+	}
+}
+
+
+// Button Pipaluk
+.button-pipaluk {
+	position: relative;
+	overflow: visible;
+	padding: 14px 35px 15px;
+	border: none;
+	z-index: 1;
+
+	&::before {
+	  position: absolute;
+	  content: '';
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+		z-index: -1;
+		transition: all .3s ease-in-out;
+	}
+
+	&::after {
+	  position: absolute;
+		content: '';
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border-width: 2px;
+		border-style: solid;
+		opacity: 0;
+		visibility: hidden;
+		transition: all .2s ease 0s;
+		transform: scale(1.05);
+		will-change: transform;
+		z-index: -1;
+	}
+
+	&.button-circle {
+		&::before,
+		&::after {
+		  border-radius: inherit;
+		}
+	}
+
+	&:hover,
+	&:active {
+
+		&::before {
+			opacity: 0;
+			visibility: hidden;
+			transform: scale(0.9);
+			transition-duration: .2s;
+		}
+
+		&::after {
+			opacity: 1;
+			visibility: visible;
+			transform: none;
+			transition-duration: .3s;
+			transition-delay: .1s;
+		}
+	}
+}
+
+
+
+// Button Wapasha
+.button-wapasha {
+	position: relative;
+	overflow: visible;
+	padding: ($input-btn-padding-y + 2) ($input-btn-padding-x + 2) $input-btn-padding-y;
+	border: none;
+	z-index: 1;
+
+	&::before,
+	&::after {
+		position: absolute;
+		content: '';
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border-width: 2px;
+		border-style: solid;
+	}
+
+	&::before {
+		opacity: 1;
+		visibility: visible;
+		transition: all .3s ease;
+		z-index: -1;
+	}
+
+	&::after {
+		opacity: 0;
+		visibility: hidden;
+		transition: all .2s ease;
+		transform: translate3d(8px, -8px, 0);
+		will-change: transform;
+		z-index: -1;
+	}
+
+	&:hover,
+	&:active {
+
+		&::before {
+			opacity: 0;
+			visibility: hidden;
+			transform: translate3d(-8px, 8px, 0);
+			transition-duration: .2s;
+		}
+
+		&::after {
+			opacity: 1;
+			visibility: visible;
+			transform: none;
+			transition-duration: .3s;
+		}
+	}
+}
+
+
+.button-social {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	@include group(14px, 14px);
+
+	> * {
+		min-width: 175px;
+		flex-grow: 1;
+	}
+
+	* + .button {	margin-top: 0; }
+}
+
+
+
+
+.button-width-170 {
+	min-width: 170px;
+}
+
+// Extra large ≥1200px
+@include media-breakpoint-up(xl) {
+	.button-width-xl-230 {
+		min-width: 230px;
+	}
+
+	.button-width-xl-310 {
+		min-width: 310px;
+	}
+}
+
+
+
+// Button Gradient
+.button-gradient {
+	border: none;
+	padding: ($input-btn-padding-y + 2) ($input-btn-padding-x + 2) $input-btn-padding-y;
+	background-size: auto 200%;
+}
+
+.button-primary-gradient {
+	background-image: $gradient-1;
+	background-repeat: no-repeat;
+	@include btn-variant($white, $primary, transparent, $white, $secondary, transparent);
+
+	&:hover,
+	&:active {
+		background-position: 50% 100%;
+	}
+}

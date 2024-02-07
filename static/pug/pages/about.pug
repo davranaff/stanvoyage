@@ -1,0 +1,164 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-progress-bar-linear
+include ../components/_ui-progress-circle
+include ../components/_ui-quote
+include ../components/_ui-counters
+include ../components/_ui-posts
+
+block variables
+	- var activeCategory = 'about'
+	- var pageName = 'About'
+
+block page
+	// Page Header
+	+header-corporate({})
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		mod: 'bg-overlay-60',
+		bgImage: 'breadcrumbs-bg'
+	})
+
+	// Why choose us
+	section.section.section-sm.section-first.bg-default.text-md-start
+		.container
+			.row.row-50.justify-content-center.align-items-xl-center
+				.col-md-10.col-lg-5.col-xl-6: +jpg('about-1-519x564')
+				.col-md-10.col-lg-7.col-xl-6
+					h1.text-spacing-25.fw-normal.title-opacity-9 Why choose us
+					// Bootstrap tabs
+					#tabs-4.tabs-custom.tabs-horizontal.tabs-line
+						// Nav tabs
+						ul.nav.nav-tabs
+							li.nav-item(role='presentation'): a.nav-link.active(href='#tabs-4-1' data-bs-toggle='tab') Experience
+							li.nav-item(role='presentation'): a.nav-link(href='#tabs-4-2' data-bs-toggle='tab') Skills
+							li.nav-item(role='presentation'): a.nav-link(href='#tabs-4-3' data-bs-toggle='tab') Mission
+
+						// Tab panes
+						.tab-content
+							div#tabs-4-1.tab-pane.fade.show.active
+								p Aliquam malesuada bibendum arcu vitae elementum curabitur. A erat nam at lectus urna duis convallis convallis tellus. Sit amet consectetur adipiscing elit pellentesque.
+								+progress-bar-linear({
+									mod: 'progress-secondary',
+									title: "Tours",
+									valueTo: "79"
+								})
+								+progress-bar-linear({
+									mod: 'progress-orange',
+									title: "Excursions",
+									valueTo: "72"
+								})
+								+progress-bar-linear({
+									title: "Hotel Bookings",
+									valueTo: "88"
+								})
+
+							div#tabs-4-2.tab-pane.fade
+								.row.row-40.justify-content-center.text-center.inset-top-10
+									.col-sm-4
+										+progress-circle({
+											title: 'Tours',
+											value: 90
+										})
+									.col-sm-4
+										+progress-circle({
+											title: 'Excursions',
+											value: 60
+										})
+									.col-sm-4
+										+progress-circle({
+											title: 'Hotel Booking',
+											value: 87
+										})
+								.group-md.group-middle
+									a.button.button-width-xl-230.button-primary.button-pipaluk(href='#') Get in touch
+									a.button.button-black-outline.button-width-xl-230(href='#') Read more
+
+							div#tabs-4-3.tab-pane.fade
+								p Orci nulla pellentesque dignissim enim sit. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. Nibh mauris cursus mattis molestie a iaculis at erat pellentesque.
+								.text-center.text-sm-start.offset-top-30.tab-height
+									ul.row-16.list-0.list-custom.list-marked.list-marked-sm.list-marked-secondary
+										li Lorem ipsum
+										li Consectetur adipiscing
+										li Sed do eiusmod
+										li Tempor incididunt
+										li Sem fringilla
+										li Ut venenatis
+								.group-md.group-middle
+									a.button.button-width-xl-230.button-primary.button-pipaluk(href='#') Get in touch
+									a.button.button-black-outline.button-md(href='#') Download presentation
+
+	// Latest Projects
+	section.section.section-sm.section-fluid.bg-default
+		.container
+			h3 Destinations
+			// Owl Carousel
+		.owl-carousel.owl-classic.owl-timeline(data-items='1', data-md-items='2', data-lg-items='3', data-xl-items='4', data-margin='30', data-autoplay='false', data-nav='true', data-dots='true')
+			.item
+				+thumbnail-mary({
+					titleNone: true,
+					nameImg: 'gallery-image',
+					numberImg: '11',
+					sizeImg: '420x308',
+					nameImgOriginal: 'gallery-image-11',
+					nameProject: 'France',
+				})
+			.item
+				+thumbnail-mary({
+					titleNone: true,
+					nameImg: 'gallery-image',
+					numberImg: '12',
+					sizeImg: '420x308',
+					nameImgOriginal: 'gallery-image-12',
+					nameProject: 'Italy'
+				})
+			.item
+				+thumbnail-mary({
+					titleNone: true,
+					nameImg: 'gallery-image',
+					numberImg: '13',
+					sizeImg: '420x308',
+					nameImgOriginal: 'gallery-image-13',
+					nameProject: 'Egypt'
+				})
+			.item
+				+thumbnail-mary({
+					titleNone: true,
+					nameImg: 'gallery-image',
+					numberImg: '14',
+					sizeImg: '420x308',
+					nameImgOriginal: 'gallery-image-14',
+					nameProject: 'Dubai'
+				})
+			.item
+				+thumbnail-mary({
+					titleNone: true,
+					nameImg: 'gallery-image',
+					numberImg: '15',
+					sizeImg: '420x308',
+					nameImgOriginal: 'gallery-image-15',
+					nameProject: 'Benidorm'
+				})
+			.item
+				+thumbnail-mary({
+					titleNone: true,
+					nameImg: 'gallery-image',
+					numberImg: '16',
+					sizeImg: '420x308',
+					nameImgOriginal: 'gallery-image-16',
+					nameProject: 'Africa'
+				})
+
+	// What people Say
+	section.section.section-sm.section-last.bg-default
+		.container
+			h3 What people Say
+			include ../sections/_carousel-testimonials
+	//Counters
+	include ../sections/_section-counter-classic
+	// Page Footer
+	include ../sections/_footer-corporate

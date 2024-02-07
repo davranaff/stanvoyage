@@ -1,0 +1,80 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-card
+block variables
+  - var activeCategory = 'pages'
+  - var pageName = 'FAQ'
+
+block page 
+  // Page Header
+  +header-corporate({})
+
+  +breadcrumbs({
+    category: activeCategory,
+    path: [pageName],
+    mod: 'bg-overlay-41',
+    bgImage: 'breadcrumbs-bg'
+  })
+
+  // Section FAQ
+  section.section.section-xl.bg-default
+    .container
+      // Bootstrap collapse
+      .row.row-15.align-items-start.card-group-custom.card-group-corporate(id='accordion2' role='tablist' aria-multiselectable='false')
+        .col-lg-6
+          +card({
+            show: true,
+            cardClass: 'card-corporate',
+            parentId: 'accordion2',
+            number: '1',
+            header: 'What are the advantages of purchasing a website template?'
+          })
+            p Pharetra vel turpis nunc eget lorem dolor sed viverra ipsum. Diam phasellus vestibulum lorem sed risus ultricies. Aenean et tortor at risus viverra adipiscing. Aliquet enim tortor at auctor urna.
+
+          +card({
+            cardClass: 'card-corporate',
+            parentId: 'accordion2',
+            number: '4',
+            header: 'In what formats are your templates available?'
+          })
+            p Posuere ac ut consequat semper viverra nam libero justo laoreet. Iaculis eu non diam phasellus vestibulum lorem sed risus ultricies. Varius quam quisque id diam vel.
+
+          +card({
+            cardClass: 'card-corporate',
+            parentId: 'accordion2',
+            number: '3',
+            header: 'How can I pay for my order?'
+          })
+            p Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Dignissim suspendisse in est ante in. Hendrerit gravida rutrum quisque non tellus orci.
+
+        .col-lg-6
+          +card({
+            cardClass: 'card-corporate',
+            parentId: 'accordion2',
+            number: '2',
+            header: 'Do you provide any scripts with your templates or could you do some custom programming?'
+          })
+            p Lacus vestibulum sed arcu non odio euismod lacinia. Pellentesque elit ullamcorper dignissim cras. Ultrices eros in cursus turpis massa tincidunt dui. Nunc pulvinar sapien et ligula ullamcorper malesuada proin.
+
+          +card({
+            cardClass: 'card-corporate',
+            parentId: 'accordion2',
+            number: '5',
+            header: 'What am I allowed to do with the templates?'
+          })
+            p Commodo odio aenean sed adipiscing diam. Sed euismod nisi porta lorem mollis aliquam. Diam donec adipiscing tristique risus nec feugiat in fermentum. Amet est placerat in egestas erat imperdiet sed euismod.
+
+          +card({
+            cardClass: 'card-corporate',
+            parentId: 'accordion2',
+            number: '6',
+            header: 'What is a unique/non-unique purchase?'
+          })
+            p Facilisis gravida neque convallis a cras semper auctor neque. Morbi leo urna molestie at elementum eu facilisis sed. Duis tristique sollicitudin nibh sit amet commodo nulla.
+  ='\n'
+
+  // Page Footer
+  include ../sections/_footer-corporate

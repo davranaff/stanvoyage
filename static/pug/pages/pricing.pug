@@ -1,0 +1,87 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-quote
+
+block variables
+  - var activeCategory = 'pages'
+  - var pageName = 'Pricing'
+
+block page 
+  // Page Header
+  +header-corporate({})
+
+  +breadcrumbs({
+    category: activeCategory,
+    path: [pageName],
+    mod: 'bg-overlay-60',
+    bgImage: 'breadcrumbs-bg'
+  })
+
+  // Section Pricing
+  section.section.section-sm.section-first.bg-default
+    .container
+      h3 White
+      include ../sections/_pricing-list
+  ='\n'
+
+  // Section Pricing
+  section.section.section-sm.section-last.bg-default
+    .container
+      h3 Black
+      .row.row-30.justify-content-center
+        .col-md-6.col-lg-5.col-xl-4
+          .box-pricing.box-pricing-black
+            .box-pricing-body
+              h5.box-pricing-title Basic
+              h3.box-pricing-price $9.00
+              .box-pricing-time Per Month
+              .box-pricing-divider
+                .divider
+                span Basic
+              ul.box-pricing-list
+                li.active Regular tours
+                li Seasonal tours
+                li Exotic tours
+                li Excursions
+                li Tour guide
+            .box-pricing-button: a.button.button-lg.button-block.button-gray-4(href='#') Get started
+        .col-md-6.col-lg-5.col-xl-4
+          .box-pricing.box-pricing-black.box-pricing-popular
+            .box-pricing-body
+              h5.box-pricing-title Standard
+              h3.box-pricing-price $19.99
+              .box-pricing-time Per Month
+              .box-pricing-divider
+                .divider
+                span Standard
+              ul.box-pricing-list
+                li.active Regular tours
+                li.active Seasonal tours
+                li.active Exotic tours
+                li Excursions
+                li Tour guide
+            .box-pricing-button: a.button.button-lg.button-block.button-primary(href='#') Get started
+            .box-pricing-badge popular
+        .col-md-6.col-lg-5.col-xl-4
+          .box-pricing.box-pricing-black
+            .box-pricing-body
+              h5.box-pricing-title Premium
+              h3.box-pricing-price $30.00
+              .box-pricing-time Per Month
+              .box-pricing-divider
+                .divider
+                span Premium
+              ul.box-pricing-list
+                li.active Regular tours
+                li.active Seasonal tours
+                li.active Exotic tours
+                li.active Excursions
+                li.active Tour guide
+            .box-pricing-button: a.button.button-lg.button-block.button-gray-4(href='#') Get started
+  ='\n'
+
+  // Page Footer
+  include ../sections/_footer-corporate

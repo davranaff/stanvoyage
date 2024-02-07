@@ -1,0 +1,28 @@
+//- box comment
+
+mixin box-comment(obj)
+  .box-comment
+    .unit.unit-spacing-md.flex-column.flex-md-row.align-items-lg-center
+      .unit-left
+        a.box-comment-figure(href='#'): +jpg(obj.img)
+      .unit-body
+        .group-sm.group-justify
+          div
+            .group-sm.group-middle
+              p.box-comment-author: a(href='#')=obj.author
+              if(obj.postComment == true)
+                .box-comment-reply: a(href='#') Reply
+              else
+                .box-rating
+                  span.icon.fa.fa-star
+                  span.icon.fa.fa-star
+                  span.icon.fa.fa-star
+                  span.icon.fa.fa-star
+                  span.icon.fa.fa-star-half-o
+
+          .box-comment-time
+            time(datetime=obj.datetime)=obj.time
+
+        p.box-comment-text=obj.text
+
+    block

@@ -1,0 +1,33 @@
+//- box icon
+
+mixin counter-creative(obj)
+  .counter-creative(class=obj.mod)
+    .counter-creative-number
+      span.counter=obj.number
+    h6.counter-creative-title=obj.title
+
+mixin counter-modern(obj)
+  .counter-modern(class=obj.mod)&attributes(attributes)
+    .counter-modern-body
+      .counter-modern-number
+        span.counter=obj.number
+        if(obj.symbol)
+          span.symbol=obj.symbol
+      .counter-modern-decor
+      h4.counter-modern-title!=obj.title
+
+mixin counter-classic(obj)
+  .counter-classic(class=obj.mod)
+    .counter-classic-number
+      span.counter=obj.number
+      if(obj.symbol)
+        span.symbol=obj.symbol
+    h5.counter-classic-title=obj.title
+
+mixin counter-amy(obj)
+  .counter-amy(class=obj.mod)
+    .counter-amy-number
+      span.counter=obj.number
+      if(obj.symbol)
+        span.symbol=obj.symbol
+    h6.counter-amy-title=obj.title

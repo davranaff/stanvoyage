@@ -1,0 +1,308 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Swiper-->
+    <section class="section swiper-container swiper-slider swiper-slider-corporate swiper-pagination-style-2"
+             data-direction="vertical" data-swiper='{"autoplay":{"delay":5000},"simulateTouch":"true"}'>
+        <div class="swiper-wrapper text-start">
+            <div class="swiper-slide context-dark" data-slide-bg="{% static 'static_images/samarkand.jpg' %}">
+                <div class="swiper-slide-caption section-md">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h6 class="text-uppercase" data-caption-animate="fadeInRight"
+                                    data-caption-delay="0">Enjoy the Best Destinations with Our Travel Agency</h6>
+                                <h2 class="oh fw-light" data-caption-animate="slideInUp" data-caption-delay="100">
+                                    <span>Explore</span><span class="fw-bold"> The World</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide context-dark" data-slide-bg="{% static 'static_images/bukhara.jpg' %}">
+                <div class="swiper-slide-caption section-md">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h6 class="text-uppercase" data-caption-animate="fadeInRight"
+                                    data-caption-delay="0">A team of professional Travel Experts</h6>
+                                <h2 class="oh fw-light" data-caption-animate="slideInUp" data-caption-delay="100">
+                                    <span>Trust</span><span class="fw-bold"> Our Experience</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide context-dark" data-slide-bg="{% static 'static_images/tashkent.jpeg' %}">
+                <div class="swiper-slide-caption section-md">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h6 class="text-uppercase" data-caption-animate="fadeInRight"
+                                    data-caption-delay="0">Build your Next Holiday Trip with Us</h6>
+                                <h2 class="oh fw-light" data-caption-animate="slideInUp" data-caption-delay="100">
+                                    <span>Create</span><span class="fw-bold"> Your Tour</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Swiper Pagination-->
+        <div class="swiper-pagination"></div>
+    </section>
+    <!-- Section Box Categories-->
+    <section class="section section-lg section-top-1 bg-gray-4">
+        <div class="container offset-negative-1">
+            <div class="box-categories cta-box-wrap">
+                <div class="box-categories-content">
+                    <div class="row justify-content-center">
+                        {% for hot_tour in hot_tours %}
+                            <div class="col-md-4 wow fadeInDown col-9" data-wow-delay=".2s">
+                                <ul class="list-marked-2 box-categories-list">
+                                    <li>
+                                        <a href="single-tour.html"><img src="{{ hot_tour.preview_image.url }}" alt=""
+                                                                        width="368" height="420"/></a>
+                                        <h5 class="box-categories-title">{{ hot_tour.name }}</h5>
+                                    </li>
+                                </ul>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <a class="link-classic wow fadeInUp" href="{% url 'tours' %}">Other Tours<span></span></a>
+            <!-- Owl Carousel-->
+        </div>
+    </section>
+    <!--	Our Services-->
+    <section class="section section-sm">
+        <div class="container">
+            <h3>Our Services</h3>
+            <div class="row row-30">
+                <div class="col-sm-6 col-lg-4">
+                    <article class="box-icon-classic">
+                        <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                            <div class="unit-left">
+                                <div class="box-icon-classic-icon fl-bigmug-line-equalization3"></div>
+                            </div>
+                            <div class="unit-body">
+                                <h5 class="box-icon-classic-title"><a href="services.html">Personalized Matching</a>
+                                </h5>
+                                <p class="box-icon-classic-text">Our unique matching system lets you find just the
+                                    tour you want for your next holiday.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="box-icon-classic">
+                        <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                            <div class="unit-left">
+                                <div class="box-icon-classic-icon fl-bigmug-line-circular220"></div>
+                            </div>
+                            <div class="unit-body">
+                                <h5 class="box-icon-classic-title"><a href="services.html">Wide Variety of Tours</a>
+                                </h5>
+                                <p class="box-icon-classic-text">We offer a wide variety of personally picked tours
+                                    with destinations all over the globe.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="box-icon-classic">
+                        <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                            <div class="unit-left">
+                                <div class="box-icon-classic-icon fl-bigmug-line-favourites5"></div>
+                            </div>
+                            <div class="unit-body">
+                                <h5 class="box-icon-classic-title"><a href="services.html">Highly Qualified
+                                    Service</a></h5>
+                                <p class="box-icon-classic-text">Our tour managers are qualified, skilled, and
+                                    friendly to bring you the best service.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="box-icon-classic">
+                        <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                            <div class="unit-left">
+                                <div class="box-icon-classic-icon fl-bigmug-line-headphones32"></div>
+                            </div>
+                            <div class="unit-body">
+                                <h5 class="box-icon-classic-title"><a href="services.html">24/7 Support</a></h5>
+                                <p class="box-icon-classic-text">You can always get professional support from our
+                                    staff 24/7 and ask any question you have.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="box-icon-classic">
+                        <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                            <div class="unit-left">
+                                <div class="box-icon-classic-icon fl-bigmug-line-hot67"></div>
+                            </div>
+                            <div class="unit-body">
+                                <h5 class="box-icon-classic-title"><a href="services.html">Handpicked Hotels</a>
+                                </h5>
+                                <p class="box-icon-classic-text">Our team offers only the best selection of
+                                    affordable and luxury hotels to our clients.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="box-icon-classic">
+                        <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                            <div class="unit-left">
+                                <div class="box-icon-classic-icon fl-bigmug-line-wallet26"></div>
+                            </div>
+                            <div class="unit-body">
+                                <h5 class="box-icon-classic-title"><a href="services.html">Best Price Guarantee</a>
+                                </h5>
+                                <p class="box-icon-classic-text">If you find tours that are cheaper than ours, we
+                                    will compensate the difference.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hot tours-->
+    <section class="section section-sm bg-default">
+        <div class="container">
+            <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Hot Tours</span></h3>
+            <div class="row row-sm row-40 row-md-50">
+                {% for hot_tour in hot_tours %}
+                    <div class="col-sm-6 col-md-12 wow fadeInRight">
+                        <!-- Product Big-->
+                        <article class="product-big">
+                            <div class="unit flex-column flex-md-row align-items-md-stretch">
+                                <div class="unit-left"><a class="product-big-figure" href="single-tour.html"><img
+                                        src="{{ hot_tour.preview_image.url }}" alt="" width="600" height="366"/></a>
+                                </div>
+                                <div class="unit-body">
+                                    <div class="product-big-body">
+                                        <h5 class="product-big-title"><a href="single-tour.html">{{ hot_tour.name }}</a>
+                                        </h5>
+                                        <div class="group-sm group-middle justify-content-start">
+                                            <div class="product-big-rating"><span
+                                                    class="icon material-icons-star"></span><span
+                                                    class="icon material-icons-star"></span><span
+                                                    class="icon material-icons-star"></span><span
+                                                    class="icon material-icons-star"></span><span
+                                                    class="icon material-icons-star"></span></div>
+                                        </div>
+                                        <p class="product-big-text">{{ hot_tour.description|safe }}</p><a
+                                            class="button button-black-outline button-ujarak"
+                                            href="{% url 'tour_detail' hot_tour.slug %}">Buy
+                                        This Tour</a>
+                                        <div class="product-big-price-wrap"><span
+                                                class="product-big-price">${{ hot_tour.price }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- Section Subscribe-->
+    <section class="section bg-default text-center offset-top-50">
+        <div class="parallax-container" data-parallax-img="{% static 'static_images/bukhara.jpg' %}">
+            <div class="parallax-content section-xl section-inset-custom-1 context-dark bg-overlay-2-21">
+                <div class="container">
+                    <h2 class="heading-2 oh fw-normal wow slideInDown"><span class="d-block fw-sbold">First-class Impressions</span><span
+                            class="d-block fw-light">are Waiting for You!</span></h2>
+                    <p class="text-width-medium text-spacing-75 wow fadeInLeft" data-wow-delay=".1s">Our agency
+                        offers travelers various tours and excursions with destinations all over the world. Browse
+                        our website to find your dream tour!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- What people say-->
+    <section class="section section-md bg-gray-4">
+        <div class="container">
+            <h3 class="wow fadeInLeft">What People Say</h3>
+            <div class="row row-xxl row-70 justify-content-center">
+                {% for people_say in people_says %}
+                    <div class="col-sm-10 col-md-6 col-lg-5 col-xl-4 wow fadeInRight">
+                        <!-- Quote Creative-->
+                        <article class="quote-creative"><a class="quote-creative-figure" href="#"><img
+                                class="img-circles" src="{{ people_say.avatar.url }}" alt="" width="87"
+                                height="87"/></a>
+                            <div class="quote-creative-text">
+                                <p class="q">{{ people_say.comment }}</p>
+                            </div>
+                            <h5 class="quote-creative-cite"><a
+                                    href="#">{{ people_say.first_name }} {{ people_say.last_name }}</a></h5>
+                        </article>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!-- Latest blog posts-->
+    <section class="section section-sm section-last bg-default">
+        <div class="container">
+            <h3 class="oh-desktop"><span class="d-inline-block wow slideInUp">Latest Blog Posts</span></h3>
+            <!-- Owl Carousel-->
+            <div class="owl-carousel owl-posts owl-posts-2" data-items="1" data-md-items="2" data-autoplay="5000"
+                 data-margin="30" data-dots="true" data-animation-in="fadeIn" data-animation-out="fadeOut">
+                {% for latest_blog in latest_blogs %}
+                    <!-- Post Aria-->
+                    <article class="post post-aria post-aria-2"><a class="post-aria-figure" href="blog-post.html"><img
+                            src="{{ latest_blog.image.url }}" alt="" width="568" height="492"/></a>
+                        <div class="post-aria-footer">
+                            <h4 class="post-aria-title"><a
+                                    href="{% url 'blog_detail' latest_blog.slug %}">{{ latest_blog.title }}</a></h4>
+                            <div class="post-aria-time">
+                                <time datetime="{{ latest_blog.created_at }}">{{ latest_blog.created_at }}</time>
+                            </div>
+                            <ul class="list-inline group-sm post-aria-list-social">
+                                <li><a class="icon fa fa-facebook" href="#"></a></li>
+                                <li><a class="icon fa fa-twitter" href="#"></a></li>
+                                <li><a class="icon fa fa-google-plus" href="#"></a></li>
+                                <li><a class="icon fa fa-instagram" href="#"></a></li>
+                            </ul>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!--	Instagrram wondertour-->
+    <section class="section section-sm section-top-0 section-fluid section-relative bg-gray-4">
+        <div class="container-fluid">
+            <h6 class="gallery-title">Gallery</h6>
+            <!-- Owl Carousel-->
+            <div class="owl-carousel owl-classic owl-dots-secondary" data-items="1" data-sm-items="2"
+                 data-md-items="3" data-lg-items="4" data-xl-items="5" data-xxl-items="6" data-stage-padding="15"
+                 data-xxl-stage-padding="0" data-margin="30" data-autoplay="true" data-nav="true" data-dots="true">
+                {% for gallery in galleries %}
+                    <!-- Thumbnail Classic-->
+                    <article class="thumbnail thumbnail-mary">
+                        <div class="thumbnail-mary-figure"><img src="{{ gallery.image.url }}" alt=""
+                                                                width="270" height="195"/>
+                        </div>
+                        <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60"
+                                                               href="{{ gallery.image.url }}"
+                                                               data-lightgallery="item"><img
+                                src="{{ gallery.image.url }}" alt="" width="270" height="195"/></a>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}

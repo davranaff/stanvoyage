@@ -1,0 +1,40 @@
+//- Team
+
+mixin team-classic(obj)
+  // Team Classic
+  article.team-classic(class=obj.mod)
+    a.team-classic-figure(href='#'): +jpg(obj.img)
+    .team-classic-caption
+      h5.team-classic-name: a(href='#')=obj.name
+      p.team-classic-status=obj.status
+
+mixin team-modern(obj)
+  // Team Modern
+  article.team-modern(class=obj.mod)
+    .team-modern-header
+      a.team-modern-figure(href='#'): +jpg(obj.img, 'img-circles')
+      svg(x='0px', y='0px', width='270px', height='70px', viewbox='0 0 270 70', enable-background='new 0 0 270 70', xml:space='preserve')
+        g: path(fill='#161616', d='M202.085,0C193.477,28.912,166.708,50,135,50S76.523,28.912,67.915,0H0v70h270V0H202.085z')
+    .team-modern-caption
+      h6.team-modern-name: a(href='#')=obj.name
+      p.team-modern-status=obj.status
+      h6.team-modern-phone: a(href='tel:#')=obj.phone ? obj.phone : '+1 323-913-4688'
+
+mixin team-creative(obj)
+  // Team Creative
+  article.team-creative(class=obj.mod)
+    a.team-creative-figure(href='#'): +jpg(obj.img)
+    .team-creative-caption
+      h5.team-creative-name: a(href='#')=obj.name
+      p.team-creative-status=obj.status
+      .team-creative-decor-bottom
+      .team-creative-decor-left
+
+mixin team-nikki(obj)
+  // Team Nikki
+  article.team-nikki(class=obj.mod)
+    a.team-nikki-figure(href='#'): +jpg(obj.img)
+    .team-nikki-caption
+      h5.team-nikki-name: a(href='#')=obj.name
+      p.team-nikki-status=obj.status
+      .team-nikki-arrow

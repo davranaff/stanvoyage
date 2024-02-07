@@ -1,0 +1,37 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-box-icon
+
+block variables
+  - var activeCategory = 'contacts'
+  - var pageName = 'Contact Us'
+
+block page 
+  // Page Header
+  +header-corporate({})
+
+  // RD Google Map
+  section.section.section-fluid
+    include ../sections/_section-gmap
+  ='\n'
+
+  // Contact information
+  section.section.section-sm.section-first.bg-default
+    include ../sections/_contact-information
+  ='\n'
+
+  // Contact Form
+  section.section.section-sm.section-last.bg-default.text-start
+    .container
+      article.title-classic
+        div.title-classic-title: h3 Get in touch
+        div.title-classic-text: p If you have any questions, just fill in the contact form, and we will answer you shortly.
+
+      include ../sections/_contact-form-2
+  ='\n'
+
+  // Page Footer
+  include ../sections/_footer-corporate

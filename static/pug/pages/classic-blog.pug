@@ -1,0 +1,73 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-pagination
+include ../components/_ui-quote
+
+block variables
+  - var activeCategory = 'blog'
+  - var pageName = 'Classic blog'
+
+block page 
+  // Page Header
+  +header-corporate({})
+
+  +breadcrumbs({
+    category: activeCategory,
+    path: [pageName],
+    mod: 'bg-overlay-39',
+    bgImage: 'breadcrumbs-bg'
+  })
+
+  // Classic blog
+  section.section.section-xl.bg-default.text-md-start
+    .container
+      .row.row-70
+        .col-lg-8
+          +post-classic({
+            title: 'Top 10 Hotels: Rating by Our Travel Experts',
+            badge: { mod: 'badge-secondary', text: 'News' },
+            time: { datetime: '2022-11-30', dateText: 'Nov 30, 2022' },
+            img: 'post-1-770x430'
+          })
+
+          +post-classic({
+            title: 'Your Personal Guide to 5 Best Places on Earth',
+            badge: {mod: 'badge-primary', text: 'Traveling'},
+            time: {datetime: '2022-11-30', dateText: 'Nov 30, 2022'},
+            owl: [
+              { img: 'post-4-770x430' },
+              { img: 'post-3-770x430' },
+              { img: 'post-2-770x430' }
+            ]
+          })
+
+          +post-classic({
+            title: 'How to Find the Best Travel Deals',
+            badge: { mod: 'badge-secondary', text: 'News' },
+            time: {datetime: '2022-11-30', dateText: 'Nov 30, 2022'},
+            video: 'https://player.vimeo.com/video/71330910'
+          })
+
+          +post-classic({
+            title: '5 Places to Visit in Montana for Superb Hiking',
+            badge: {mod: 'badge-secondary', text: 'News'},
+            time: {datetime: '2022-11-30', dateText: 'Nov 30, 2022'},
+            gallery: {
+              img: 'post-5-470x430',
+              img2: 'post-6-270x204',
+              img3: 'post-7-270x204'
+              }
+          })
+
+          .pagination-wrap
+            +pagination-bootstrap(null, 1, 4)
+
+        .col-lg-4
+          include ../sections/_post-sidebar
+
+
+  // Page Footer
+  include ../sections/_footer-corporate

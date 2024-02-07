@@ -1,0 +1,30 @@
+// Counter Classic
+section.section.section-fluid.bg-default
+	+parallax({
+		img: 'bg-counter-2',
+		innerClass: 'section-xl context-dark bg-overlay-26'
+	})
+		.container
+			.row.row-50.justify-content-center.border-classic
+				.col-sm-6.col-md-5.col-lg-3
+					+counter-classic({
+						number: '12',
+						title: 'Awards'
+					})
+				.col-sm-6.col-md-5.col-lg-3
+					+counter-classic({
+						number: '194',
+						title: 'Tours'
+					})
+				.col-sm-6.col-md-5.col-lg-3
+					+counter-classic({
+						number: '2',
+						symbol: 'k',
+						title: 'Travelers'
+					})
+				.col-sm-6.col-md-5.col-lg-3
+					+counter-classic({
+						number: '25',
+						title: 'Team members'
+					})
+='\n'

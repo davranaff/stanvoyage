@@ -1,0 +1,72 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-box-icon
+include ../sections/_header-corporate
+include ../components/_ui-posts
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Services'
+
+block page 
+	// Page Header
+	+header-corporate({})
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName + ' #1'],
+		mod: 'bg-overlay-68',
+		bgImage: 'breadcrumbs-bg'
+	})
+
+	// Section-services
+	section.section.section-xl.bg-default
+		.container
+			.row.row-40
+				.col-sm-6.col-lg-4
+					+box-icon-classic({
+						align: 'flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left',
+						icon: 'fl-bigmug-line-equalization3',
+						title: 'Personalized Matching',
+						text: 'Our unique matching system lets you find just the tour you want for your next holiday.'
+					})
+				.col-sm-6.col-lg-4
+					+box-icon-classic({
+						align: 'flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left',
+						icon: 'fl-bigmug-line-circular220',
+						title: 'Wide Variety of Tours',
+						text: 'We offer a wide variety of personally picked tours with destinations all over the globe.'
+					})
+				.col-sm-6.col-lg-4
+					+box-icon-classic({
+						align: 'flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left',
+						icon: 'fl-bigmug-line-favourites5',
+						title: 'Highly Qualified Service',
+						text: 'Our tour managers are qualified, skilled, and friendly to bring you the best service.'
+					})
+				.col-sm-6.col-lg-4
+					+box-icon-classic({
+						align: 'flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left',
+						icon: 'fl-bigmug-line-headphones32',
+						title: '24/7 Support',
+						text: 'You can always get professional support from our staff 24/7 and ask any question you have.'
+					})
+				.col-sm-6.col-lg-4
+					+box-icon-classic({
+						align: 'flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left',
+						icon: 'fl-bigmug-line-hot67',
+						title: 'Handpicked Hotels',
+						text: 'Our team offers only the best selection of affordable and luxury hotels to our clients.'
+					})
+				.col-sm-6.col-lg-4
+					+box-icon-classic({
+						align: 'flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left',
+						icon: 'fl-bigmug-line-wallet26',
+						title: 'Best Price Guarantee',
+						text: 'If you find tours that are cheaper than ours, we will compensate the difference.'
+					})
+
+	='\n'
+
+	// Page Footer
+	include ../sections/_footer-corporate

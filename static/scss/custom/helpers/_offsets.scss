@@ -1,0 +1,214 @@
+/*
+*
+* Offsets
+*/
+
+// Elements offset
+* + p {
+	margin-top: 15px;
+}
+
+// Headings + Headings
+h1 + h2 { margin-top: 4px; }
+h2 + h3 { margin-top: 9px; }
+h3 + h4 { margin-top: 13px; }
+h4 + h5 { margin-top: 19px; }
+h5 + h6 { margin-top: 27px; }
+
+// Headings + Paragraph
+h1 + p { margin-top: 4px; }
+h2 + p { margin-top: 15px; }
+h3 + p { margin-top: 20px; }
+h4 + p { margin-top: 16px; }
+h5 + p { margin-top: 17px; }
+h6 + p { margin-top: 17px; }
+
+h3.fw-normal + p { margin-top: 16px; }
+
+// Paragraph + Headings
+p + h2,
+p + .heading-2 {
+	margin-top: 15px;
+}
+
+// Tags + Tags
+p + p {
+	margin-top: 12px;
+}
+
+img + p {
+	margin-top: 15px;
+}
+
+h3 + img {
+	margin-top: 40px;
+}
+
+// Classes
+* + .row { margin-top: 40px; }
+* + .row-xxs {	margin-top: 10px; }
+* + .row-xs {	margin-top: 20px; }
+* + .row-sm {	margin-top: 30px; }
+* + .row-lg {	margin-top: 50px; }
+* + .row-xl {	margin-top: 60px; }
+* + .row-xxl {	margin-top: 70px; }
+
+* + .owl-carousel {	margin-top: 30px; }
+* + .offset-top-30 {	margin-top: 30px; }
+* + .offset-top-50 {	margin-top: 50px; }
+
+* + .big {
+	margin-top: 20px;
+}
+
+//* + .text-block {
+//	margin-top: 30px;
+//}
+
+* + .button { margin-top: 30px; }
+* + .button-wrap {	margin-top: 35px; }
+
+// Tags + Classes
+h3 + .section-relative {	margin-top: 35px; }
+h4 + .instafeed { margin-top: 2px; }
+
+// Classes + Tags
+.row + h3,
+.row + .heading-3 {
+	margin-top: 80px;
+}
+
+// Classes + Classes
+.container + .container {
+	margin-top: 35px;
+}
+
+.row + .row { margin-top: 35px; }
+.row + .button-wrap { margin-top: 45px; }
+
+// Media offsets
+@include media-breakpoint-up(xl) {
+
+	.container + .container {
+		margin-top: 60px;
+	}
+	.row + .row {
+		margin-top: 60px;
+	}
+}
+
+// Range spacing
+.row-0 {
+	@include grid-offset(0px);
+}
+
+.row-4 {
+	@include grid-offset(4px);
+}
+
+.row-6 {
+	@include grid-offset(6px);
+}
+
+.row-10 {
+	@include grid-offset(10px);
+}
+
+.row-14 {
+	@include grid-offset(14px);
+}
+
+.row-15 {
+	@include grid-offset(15px);
+}
+
+.row-16 {
+	@include grid-offset(16px);
+}
+
+.row-20 {
+	@include grid-offset(20px);
+}
+
+.row-30 {
+	@include grid-offset(30px);
+}
+
+.row-40 {
+	@include grid-offset(40px);
+}
+
+.row-50 {
+	@include grid-offset(50px);
+}
+
+.row-55 {
+	@include grid-offset(55px);
+}
+
+.row-60 {
+	@include grid-offset(60px);
+}
+
+.row-70 {
+	@include grid-offset(70px);
+}
+
+.row-90 {
+	@include grid-offset(90px);
+}
+
+@include media-breakpoint-up(md) {
+	.row-md-50 {
+		@include grid-offset(50px);
+	}
+
+	.row-md-80 {
+		@include grid-offset(80px);
+	}
+}
+
+@include media-breakpoint-up(lg) {
+
+	.row-lg-40 {
+		@include grid-offset(40px);
+	}
+
+	.row-lg-80 {
+		@include grid-offset(80px);
+	}
+
+	.row-lg-90 {
+		@include grid-offset(90px);
+	}
+}
+
+// Extra large ≥1200px
+@include media-breakpoint-up(xl) {
+	.row-xl-24 {
+		@include grid-offset(24px);
+	}
+}
+
+
+// context offset
+.box-typography {
+
+	// Headings + Paragraph
+	h1 + p { margin-top: 16px; }
+	h2 + p { margin-top: 16px; }
+	h3 + p { margin-top: 16px; }
+	h4 + p { margin-top: 16px; }
+	h5 + p { margin-top: 16px; }
+	h6 + p { margin-top: 16px; }
+
+	// Large ≥992px
+	@include media-breakpoint-up(lg) {
+		// Headings + Paragraph
+		h1 + p { margin-top: 4px; }
+		h2 + p { margin-top: 8px; }
+		h3 + p { margin-top: 8px; }
+		h5 + p { margin-top: 17px; }
+		h6 + p { margin-top: 17px; }
+	}
+}

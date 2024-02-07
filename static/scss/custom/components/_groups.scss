@@ -1,0 +1,84 @@
+/*
+* Element groups
+*/
+
+html {
+	.group {
+		@include group(15px, 20px);
+	}
+
+	.group-xs {
+		@include group(9px, 11px);
+	}
+
+	.group-sm {
+		@include group(12px);
+	}
+
+	.group-md {
+		@include group(17px);
+	}
+
+	.group-xmd {
+		@include group(22px);
+	}
+
+	.group-lg {
+		@include group(30px, 20px);
+	}
+
+	.group-xl {
+		@include group(30px);
+	}
+
+	.group-justify {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.group-sm-justify {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+
+		// Medium ≥576px
+		@include media-breakpoint-up(sm) {
+			justify-content: space-between;
+		}
+	}
+
+	.group-lg-justify {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		
+		// Medium ≥992px
+		@include media-breakpoint-up(lg) {
+			justify-content: space-between;
+		}
+	}
+
+	// Mods
+	.group-middle {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+
+		// Medium ≥768px
+		@include media-breakpoint-up(md) {
+			justify-content: flex-start;
+		}
+	}
+}
+
+
+* + .group-sm { margin-top: 40px; }
+* + .group-md { margin-top: 40px; }
+* + .group-xl { margin-top: 40px; }
+
+.row + .group-md { margin-top: 35px; }

@@ -1,0 +1,31 @@
+//- Counter Amy
+.col-md-6.col-lg-5.col-xl-4.text-center
+  a(href='about-us.html').text-img: span.counter 10
+.col-sm-8.col-md-6.col-lg-5.col-xl-4
+  .text-width-extra-small.offset-top-lg-24.wow.fadeInUp
+    h3.title-decoration-lines-left Years of experience
+    p.text-gray-500 Faucibus ornare suspendisse sed nisi. Purus sit amet volutpat consequat mauris nunc congue nisi vitae.
+    a.button.button-secondary.button-pipaluk(href='#') Get in touch
+.col-sm-10.col-md-8.col-lg-6.col-xl-4.wow.fadeInRight(data-wow-delay='.1s')
+  .row.justify-content-center.border-2-column.offset-top-xl-26
+    .col-9.col-sm-6
+      +counter-amy({
+        number: '2',
+        symbol: 'k',
+        title: 'Clients'
+      })
+    .col-9.col-sm-6
+      +counter-amy({
+        number: '40',
+        title: 'Monthly Tours'
+      })
+    .col-9.col-sm-6
+      +counter-amy({
+        number: '12',
+        title: 'Awards'
+      })
+    .col-9.col-sm-6
+      +counter-amy({
+        number: '26',
+        title: 'Employees'
+      })

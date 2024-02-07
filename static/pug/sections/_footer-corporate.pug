@@ -1,0 +1,49 @@
+footer.section.footer-corporate.context-dark
+	.footer-corporate-inset: .container: .row.row-40.justify-content-lg-between
+		.col-sm-6.col-md-12.col-lg-3.col-xl-4: .oh-desktop: .wow.slideInRight(data-wow-delay='0s')
+			h6.text-spacing-100.text-uppercase Contact us
+			ul.footer-contacts.d-inline-block.d-sm-block
+				li: .unit
+					.unit-left: span.icon.fa.fa-phone
+					.unit-body: a.link-phone(href='tel:#') +1 323-913-4688
+				li: .unit
+					.unit-left: span.icon.fa.fa-envelope
+					.unit-body: a.link-aemail(href='mailto:#') info@demolink.org
+				li: .unit
+					.unit-left: span.icon.fa.fa-location-arrow
+					.unit-body: a.link-location(href='#') 4730 Crystal Springs Dr, Los Angeles, CA 90027
+
+		.col-sm-6.col-md-5.col-lg-3.col-xl-4: .oh-desktop: .wow.slideInDown(data-wow-delay='0s')
+			h6.text-spacing-100.text-uppercase Popular news
+			+post-minimal-2({
+				title: 'Your Personal Guide to 5 Best Places to Visit on Earth',
+				time: {datetime: '2022-05-04', dateText: 'May 04, 2022'}
+			})
+			+post-minimal-2({
+				title: 'Top 10 Hotels: Rating by Wonder Tour Travel Experts',
+				time: {datetime: '2022-05-04', dateText: 'May 04, 2022'}
+			})
+
+		.col-sm-11.col-md-7.col-lg-5.col-xl-4: .oh-desktop: .wow.slideInLeft(data-wow-delay='0s')
+			h6.text-spacing-100.text-uppercase Quick links
+			ul.row-6.list-0.list-marked.list-marked-md.list-marked-secondary.list-custom-2
+				li: a(href='about.html') About us
+				li: a(href='our-tours.html') Our Tours
+				li: a(href='our-team.html') Our Team
+				li: a(href='grid-gallery.html') Gallery
+				li: a(href='classic-blog.html') Blog
+			.group-md.group-middle.justify-content-sm-start
+				a.button.button-lg.button-primary.button-ujarak(href='#') Get in touch
+
+	.footer-corporate-bottom-panel: .container: .row.justfy-content-xl-space-berween.row-10.align-items-md-center2
+		.col-sm-6.col-md-4.text-sm-end.text-md-center: div: +widget-list([], '', 'list-inline-sm footer-social-list-2')
+		.col-sm-6.col-md-4.order-sm-first
+			// Rights
+			p.rights
+				span &copy;&nbsp;
+				span.copyright-year
+				= ' '
+				span= logo.name
+				= '. All rights reserved'
+				span .
+		.col-sm-6.col-md-4.text-md-end: p.rights: a(href='privacy-policy.html') Privacy Policy

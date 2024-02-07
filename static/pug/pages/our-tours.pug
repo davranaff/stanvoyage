@@ -1,0 +1,57 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-pagination
+include ../components/_ui-product
+block variables
+	- var activeCategory = 'our tours'
+	- var pageName = 'Our tours'
+
+block page
+	// Page Header
+	+header-corporate({})
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		mod: 'bg-overlay-46',
+		bgImage: 'breadcrumbs-bg'
+	})
+
+	section.section.section-xl.bg-default
+		.container
+			.row-sm.row-40.row-md-50.justify-content-center
+				.col-sm-12.col-md-12.wow.fadeInRight
+					+product-big({
+						img: 'product-big-1-600x366',
+						title: 'Spain, Benidorm',
+						text: 'Amet nisl purus in mollis nunc sed id. Mi proin sed libero enim sed faucibus. Pretium fusce id velit ut. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus.',
+						price: '790'
+					})
+				.col-sm-12.col-md-12.wow.fadeInLeft
+					+product-big({
+						img: 'product-big-2-600x366',
+						title: 'Mauritius Island, Africa',
+						text: 'Lacus luctus accumsan tortor posuere ac ut consequat semper. Ornare suspendisse sed nisi lacus sed. Vel pretium lectus quam id leo in vitae. Auctor elit sed vulputate mi.',
+						price: '790'
+					})
+				.col-sm-12.col-md-12.wow.fadeInLeft
+					+product-big({
+						img: 'product-big-3-600x366',
+						title: 'Julian Alps',
+						text: 'Accumsan in nisl nisi scelerisque. Consequat interdum varius sit amet mattis. Ultricies leo integer malesuada nunc vel risus commodo viverra. Id velit ut tortor pretium.',
+						price: '2300'
+					})
+				.col-sm-6.col-md-12.wow.fadeInLeft
+				+product-big({
+					img: 'product-big-4-600x366',
+					title: 'Mediterranean Coast, France',
+					text: 'Amet massa vitae tortor condimentum. Dignissim enim sit amet venenatis urna cursus eget nunc. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam.',
+					price: '1800'
+				})
+
+				+pagination-bootstrap(null, 1, 4)
+	// Page Footer
+	include ../sections/_footer-corporate

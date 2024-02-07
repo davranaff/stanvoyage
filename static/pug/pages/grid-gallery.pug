@@ -1,0 +1,93 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+block variables
+	- var activeCategory = 'gallery'
+	- var pageName = 'Grid gallery'
+
+block page 
+	// Page Header
+	+header-corporate({})
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		mod: 'bg-overlay-48',
+		bgImage: 'breadcrumbs-bg'
+	})
+
+	// Grid Gallery
+	section.section.section-xl.bg-default.text-center.isotope-wrap
+		.container
+			.isotope-filters.isotope-filters-horizontal
+				//- Isotope Filters
+				button.isotope-filters-toggle.button.button-md.button-icon.button-icon-right.button-black-outline.button-wapasha(data-custom-toggle='#isotope-1', data-custom-toggle-hide-on-blur='true')
+					span.icon.fa.fa-caret-down
+					| Filter
+				ul#isotope-1.isotope-filters-list
+					li: a.active(href='#', data-isotope-filter='*', data-isotope-group='gallery') All
+					li: a(href='#', data-isotope-filter='Type 1', data-isotope-group='gallery') Destinations
+					li: a(href='#', data-isotope-filter='Type 2', data-isotope-group='gallery') Excursions
+					li: a(href='#', data-isotope-filter='Type 3', data-isotope-group='gallery') Tours
+			.row.row-50.isotope(data-isotope-layout='fitRows', data-isotope-group='gallery', data-lightgallery='group')
+				.col-md-6.col-lg-4.isotope-item(data-filter='Type 3')
+					+thumbnail-modern({
+						mod: 'thumbnail-sm',
+						nameImg: 'fullwidth-gallery',
+						sizeImg: '420x350',
+						numberImg: '1',
+						title: 'Peyto Lake Tour',
+						subtitle: 'Canada'
+					})
+				.col-md-6.col-lg-4.isotope-item(data-filter='Type 2')
+					+thumbnail-modern({
+						mod: 'thumbnail-sm',
+						nameImg: 'fullwidth-gallery',
+						sizeImg: '420x350',
+						numberImg: '2',
+						title: 'Maldives Adventure Tour',
+						subtitle: 'Maldives'
+					})
+				.col-md-6.col-lg-4.isotope-item(data-filter='Type 1')
+					+thumbnail-modern({
+						mod: 'thumbnail-sm',
+						nameImg: 'fullwidth-gallery',
+						sizeImg: '420x350',
+						numberImg: '3',
+						title: 'Lake Como Family Tour',
+						subtitle: 'Italy'
+					})
+				.col-md-6.col-lg-4.isotope-item(data-filter='Type 3')
+					+thumbnail-modern({
+						mod: 'thumbnail-sm',
+						nameImg: 'fullwidth-gallery',
+						sizeImg: '420x350',
+						numberImg: '4',
+						title: 'Private Charters for Surfers',
+						subtitle: 'USA'
+					})
+				.col-md-6.col-lg-4.isotope-item(data-filter='Type 2')
+					+thumbnail-modern({
+						mod: 'thumbnail-sm',
+						nameImg: 'fullwidth-gallery',
+						sizeImg: '420x350',
+						numberImg: '5',
+						title: 'Discover Costa Rica',
+						subtitle: 'Costa Rica'
+					})
+				.col-md-6.col-lg-4.isotope-item(data-filter='Type 1')
+					+thumbnail-modern({
+						mod: 'thumbnail-sm',
+						nameImg: 'fullwidth-gallery',
+						sizeImg: '420x350',
+						numberImg: '6',
+						title: 'India Sightseeing Tour',
+						subtitle: 'India'
+					})
+
+			.button-wrap: button.button.button-md.button-black-outline.button-wapasha Load More
+
+	// Page Footer
+	include ../sections/_footer-corporate

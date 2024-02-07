@@ -1,0 +1,79 @@
+//- box icon
+
+mixin box-icon-creative(obj)
+  article.box-icon-creative(class=obj.mod)
+    .box-icon-creative-header
+      .box-icon-creative-icon(class=obj.icon)
+      .box-icon-creative-decor
+      .box-icon-creative-count.box-ordered-item
+    h5.box-icon-creative-title: a(href='#')=obj.title
+    p.box-icon-creative-text=obj.text
+
+mixin box-icon-modern(obj)
+  article.box-icon-modern(class=obj.mod)
+    .box-icon-modern-icon(class=obj.icon)
+    h5.box-icon-modern-title: a(href='#')=obj.title
+    .box-icon-modern-decor
+    p.box-icon-modern-text=obj.text
+
+mixin box-icon-classic(obj)
+  article.box-icon-classic(class=obj.mod)&attributes(attributes)
+    .unit.box-icon-classic-body(class=obj.align)
+      .unit-left
+        .box-icon-classic-icon(class=obj.icon)
+      .unit-body
+        h5.box-icon-classic-title: a(href='services.html')=obj.title
+        p.box-icon-classic-text=obj.text
+
+mixin box-icon-leah(obj)
+  article.box-icon-leah(class=obj.mod)
+    .box-icon-leah-icon(class=obj.icon)
+    h5.box-icon-leah-title: a(href='#')=obj.title
+    p.box-icon-leah-text=obj.text
+    .box-icon-leah-count.box-ordered-item
+
+mixin box-contacts(obj)
+  article.box-contacts(class=obj.mod)
+    .box-contacts-body
+      .box-contacts-icon(class=obj.icon)
+      .box-contacts-decor
+      if(obj.address)
+        each addressItem in obj.address
+          p.box-contacts-link: a(href='#')=addressItem.text
+      else if(obj.tel)
+        each telItem in obj.tel
+          p.box-contacts-link: a(href='tel:#')=telItem.text
+      else
+        each mailItem in obj.mail
+          p.box-contacts-link: a(href='mailto:#')=mailItem.text
+
+mixin box-icon-ruby(obj)
+  article.box-icon-ruby(class=obj.mod)&attributes(attributes)
+    .unit.box-icon-ruby-body(class=obj.align)
+      .unit-left
+        .box-icon-ruby-icon(class=obj.icon)
+      .unit-body
+        h5.box-icon-ruby-title: a(href='single-service.html')=obj.title
+        p.box-icon-ruby-text=obj.text
+
+//- Blurb
+  @param {object} obj - properties storage object
+  @param {string} obj.icon - blurb icon class
+  @param {string} obj.title
+  @param {string} [obj.iconStyle] - icon inline styles
+  @param {string} [obj.link]
+  @param {string} [obj.description]
+mixin blurb( obj )
+  - obj = obj || {};
+  .blurb&attributes( attributes )
+    .blurb-path
+      svg( x='0px', y='0px', width='134px', height='52px', viewBox='0 0 134 52' )
+        path.fill( d='M134,52V0c-7.514,29.653-35.18,51.643-67.1,51.984C34.98,51.643,7.514,29.653,0,0v52' )
+        path.stroke( stroke='#000000', stroke-miterlimit='10', d='M134,0c-7.514,29.653-35.08,51.643-67,51.984 C35.08,51.643,7.514,29.653,0,0' )
+      .blurb-icon: +jpg(obj.img)
+  .blurb-content
+    .blurb-title= obj.title
+    if ( obj.description )
+      .blurb-inner= obj.description
+    .blurb-link.text-uppercase
+      a( href='tel:#')=obj.link

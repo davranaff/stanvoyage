@@ -1,0 +1,170 @@
+/*
+*
+* Typography
+*/
+
+//
+// Body
+//
+
+body {
+	font-family: $font-family-sans-serif-1;
+	font-size: $font-size-body;
+	line-height: $line-height-base;
+	font-weight: $font-weight-base;
+	letter-spacing: normal;
+	color: $body-color;
+	background-color: $body-bg;
+	-webkit-text-size-adjust: none;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+//
+// Headings
+//
+#{headings()} {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-weight: $headings-font-weight;
+	font-family: $headings-font-family;
+	letter-spacing: normal;
+	color: $headings-color;
+
+	a {
+		color: inherit;
+
+		&:hover {
+			color: $primary;
+		}
+	}
+}
+
+h1,
+.heading-1 {
+	font-size: 40px;
+	line-height: 0.88;
+	font-weight: 400;
+	letter-spacing: .075em;
+
+	@include media-breakpoint-up(md) {
+		font-size: 46px;
+	}
+
+	@include media-breakpoint-up(lg) {
+		font-size: 54px;
+	}
+
+	@include media-breakpoint-up(xl) {
+		font-size: 64px;
+		line-height: 1.2;
+	}
+}
+
+h2,
+.heading-2 {
+	font-size: 32px;
+	line-height: 1.2;
+
+	@include media-breakpoint-up(md) {
+		font-size: 36px;
+	}
+
+	@include media-breakpoint-up(lg) {
+		font-size: 40px;
+	}
+
+	@include media-breakpoint-up(xl) {
+		font-size: 48px;
+		line-height: 1.2;
+	}
+}
+
+h3,
+.heading-3 {
+	font-size: 28px;
+	line-height: 1.2;
+	@include media-breakpoint-up(md) {
+		font-size: 30px;
+	}
+
+	@include media-breakpoint-up(lg) {
+		font-size: 36px;
+		line-height: 1.2;
+	}
+}
+
+h4,
+.heading-4 {
+	font-size: 20px;
+	line-height: 1.2;
+
+	@include media-breakpoint-up(md) {
+		font-size: 24px;
+		line-height: 1.2;
+	}
+}
+
+h5,
+.heading-5 {
+	font-size: 21px;
+	line-height: 1.2;
+	font-weight: 500;
+}
+
+h6,
+.heading-6 {
+	font-size: 18px;
+	line-height: 1.2;
+	font-weight: 500;
+}
+
+//
+// Emphasis
+//
+small,
+.small {
+	display: block;
+	font-size: $font-size-sm;
+	line-height: $line-height-sm;
+}
+
+mark,
+.mark {
+	padding: $mark-padding;
+	color: $mark-color;
+	background: $mark-bg;
+}
+
+// Big text
+.big {
+	font-size: $font-size-lg;
+	line-height: $line-height-lg;
+}
+
+.lead {
+	font-size: $lead-font-size;
+	line-height: $lead-line-height;
+	font-weight: $lead-font-weight;
+}
+
+code {
+	padding: $code-padding-y $code-padding-x;
+	border-radius: $border-radius-sm;
+	font-size: $code-font-size;
+	color: $code-color;
+	background: $code-bg;
+}
+
+//
+// Paragraph
+//
+p {
+	[data-bs-toggle='tooltip'] {
+		color: $gray-400;
+	}
+
+	[style*='max-width'] {
+		display: inline-block;
+	}
+}
+

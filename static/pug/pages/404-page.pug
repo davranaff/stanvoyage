@@ -1,0 +1,28 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = '404 Page'
+
+block title
+	title=pageName
+
+block page
+	section.section.section-single.section-404.novi-background.bg-overlay-3-41.novi-background.context-dark
+		.section-single-inner
+			//-Page Header
+			include ../sections/_section-header-base-transparent
+			//- Page Main
+			.section-single-main
+				.container
+
+					h1.title-modern.text-uppercase
+						span 404
+					span.subtitle-404 Page not found
+					p.big.text-spacing-25 You may have mistyped the address or the page may have moved.
+					a.button.button-primary.button-ujarak(href='index.html') Go to home page
+
+			//-Page Footer
+			include ../sections/_section-footer-base-transparent
+
+		.box-position(style='background-image: url(images/bg-single-page.jpg);')

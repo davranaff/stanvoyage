@@ -1,0 +1,55 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-quote
+block variables
+  - var activeCategory = 'pages'
+  - var pageName = 'Buttons'
+
+block page 
+  // Page Header
+  +header-corporate({})
+
+  +breadcrumbs({
+    category: activeCategory,
+    path: [pageName],
+    mod: 'bg-overlay-60',
+    bgImage: 'breadcrumbs-bg'
+  })
+
+  // Button Sizes
+  section.section.section-sm.section-first.bg-default.text-md-start
+    .container
+      h3 Button Sizes
+      .group-sm.group-middle
+        .button.button-lg.button-primary.button-pipaluk Large size
+        .button.button-primary.button-pipaluk Default size
+        .button.button-md.button-primary.button-pipaluk Medium size
+  ='\n'
+
+  // Button Shapes
+  section.section.section-sm.bg-default.text-md-start
+    .container
+      h3 Button Shapes
+      .group-sm.group-middle
+        .button.button-primary.button-pipaluk Square
+        .button.button-primary.button-pipaluk.button-circle Circle
+  ='\n'
+
+  // Buttons with Icons
+  section.section.section-sm.section-last.bg-default.text-md-start
+    .container
+      h3 Button with Icon
+      .group-sm.group-middle
+        .button.button-icon.button-icon-left.button-primary.button-pipaluk
+          span.icon.fa.fa-plus
+          | Add to cart
+        .button.button-icon.button-icon-left.button-primary.button-wapasha
+          span.icon.fa.fa-plus
+          | Add to cart
+  ='\n'
+
+  // Page Footer
+  include ../sections/_footer-corporate

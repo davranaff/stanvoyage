@@ -1,0 +1,176 @@
+/*
+*
+* Video
+*/
+
+// Video Classic
+
+.video-classic {
+	position: relative;
+	max-width: 570px;
+	margin-left: auto;
+	margin-right: auto;
+
+	.video-classic-play {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate3d(-50%, -50%, 0);
+	}
+}
+
+.video-classic-play {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
+	height: 60px;
+	padding: 0;
+	border: none;
+	background: transparent;
+	border-radius: 50%;
+	transition: all .3s ease;
+	cursor: pointer;
+	z-index: 1;
+	
+	> span {
+		display: inline-block;
+		width: 0;
+		height: 0;
+		margin-left: 2px;
+		border-style: solid;
+		border-width: 6.5px 0 6.5px 12px;
+		border-color: transparent transparent transparent $gray-800;
+		transition: all .3s ease;
+		z-index: 0;
+	}
+
+	&::before,
+	&::after {
+	  position: absolute;
+	  content: '';
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+		border-radius: 50%;
+		will-change: transform;
+		transition: inherit;
+		z-index: -1;
+	}
+	
+	&::before {
+		background: rgba($white, .61);
+	}
+
+	&::after {
+		background: $primary;
+		transform: scale(.7);
+		opacity: 0;
+	}
+	
+	&:hover {
+		
+		> span { border-left-color: $white; }
+
+		&::before {
+			transform: scale(1.2);
+		}
+
+		&::after {
+			opacity: 1;
+			transform: none;
+		}
+	}
+}
+
+.video-classic-play-2 {
+	width: 100px;
+	height: 100px;
+
+	&::before {
+		background: rgba($gray-800, .61);
+	}
+
+	> span {
+		border-left-color: $white;
+		border-width: 11.5px 0 11.5px 20px;
+	}
+}
+
+
+
+// Video Modern
+.video-modern {
+
+	* + .video-classic-play {	margin-top: 24px; }
+}
+
+.video-modern-subtitle {
+	font-weight: 300;
+	color: $primary;
+}
+
+.video-modern-text {
+	font-size: 16px;
+	line-height: 1.5;
+	letter-spacing: 0;
+	font-weight: 500;
+}
+
+* + .video-modern-title { margin-top: 4px; }
+* + .video-modern-text { margin-top: 10px; }
+
+
+// Modal Video
+.modal-video {
+	align-items: center;
+
+	&.show { display: flex !important; }
+
+	.modal-dialog {
+		width: 100%;
+	}
+
+	.modal-content {
+		display: block;
+		font-size: 0;
+		line-height: 0;
+		border: none;
+		border-radius: 0;
+		background: transparent;
+	}
+
+	.modal-header {
+		display: block;
+		padding: 0;
+		border: none;
+	}
+
+	.modal-body { padding: 0; }
+	
+	video { width: 100%; }
+
+	.close {
+		position: relative;
+		color: $white;
+		font-size: 30px;
+		font-weight: 400;
+		text-shadow: none;
+		cursor: pointer;
+		z-index: 1;
+	}
+	
+	// Medium ≥576px
+	@include media-breakpoint-up(sm) {
+		.modal-dialog {
+			max-width: 80%;
+		} 
+	}
+
+	// Extra large ≥1200px
+	@include media-breakpoint-up(xl) {
+		.modal-dialog { max-width: 60%; }
+	} 
+}

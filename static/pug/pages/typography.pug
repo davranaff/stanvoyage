@@ -1,0 +1,112 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-quote
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Typography'
+
+block page 
+	// Page Header
+	+header-corporate({})
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		mod: 'bg-overlay-60',
+		bgImage: 'breadcrumbs-bg'
+	})
+
+	// Base typography
+	section.section.section-sm.section-first.bg-default.text-start
+		.container
+			.row.row-40.flex-lg-row-reverse.justify-content-xl-between
+				.col-xl-5.d-none.d-xl-block
+					.offset-left-xl-45
+						h1 H1 Heading
+						h2 H2 Heading
+						h3 H3 Heading
+						h4 H4 Heading
+						h5 H5 Heading
+						h6 H6 Heading
+
+				.col-xl-7
+					ul.list-xl.box-typography
+						li
+							h1 H1 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+
+						li
+							h2 H2 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+
+						li
+							h3 H3 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+
+						li
+							h4 H4 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+
+						li
+							h5 H5 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+						li
+							h6 H6 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+
+
+	// HTML Text Elements
+	section.section.section-sm.bg-default.text-start
+		.container
+			h3 HTML Text Elements
+			p.text-block Welcome to our wonderful world.
+				span.fw-bold This is a bold text
+				mark This is a highlighted text
+				| We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login
+				span.tooltip-custom(data-bs-toggle='tooltip' data-bs-placement="top" title="Default text") Tooltips
+				| widgets, you will definitely have a great experience of using our web page.
+				span.text-strike This is a strikethrough text
+				span.text-underline This is an underlined text.
+				a(href='#') Link
+				a(href='#').link-hover Hover link
+				a(href='#').link-active Press link
+	='\n'
+
+	// Lists and Blockquote
+	section.section.section-sm.section-last.bg-default.text-start
+		.container
+			.row.row-60.row-md-80.row-lg-90
+				.col-lg-8.col-xl-6
+					h3 Ordered & Unordered Lists
+					.row.row-sm.row-30
+						.col-sm-6
+							ul.list-marked
+								li Consulting
+								li Customer Service
+								li Innovation
+								li Management
+								li Ethics
+
+						.col-sm-6
+							ol.list-ordered
+								li Consulting
+								li Customer Service
+								li Innovation
+								li Management
+								li Ethics
+
+				.col-lg-8.col-xl-6
+					.offset-left-xl-65
+						h3 Blockquote
+						+quote-classic({
+							text: 'We use only trusted, verified content, so you can believe our every word.',
+							author: 'Catherine Williams'
+						})
+	='\n'
+
+	// Page Footer
+	include ../sections/_footer-corporate

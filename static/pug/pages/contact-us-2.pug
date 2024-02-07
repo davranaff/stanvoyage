@@ -1,0 +1,40 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-box-icon
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Contact Us 2'
+
+block page 
+	// Page Header
+	+header-corporate({})
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		mod: 'bg-overlay-24',
+		bgImage: 'breadcrumbs-bg'
+	})
+
+	// Contact information
+	section.section.section-sm.section-first.bg-default
+		include ../sections/_contact-information
+	='\n'
+
+	// Contact Form and Gmap
+	section.section.section-sm.section-last.bg-default.text-md-start
+		.container
+			.row.row-50
+				.col-lg-6.section-map-small
+					include ../sections/_section-gmap
+				.col-lg-6
+					h4.text-spacing-50 Get in Touch
+					include ../sections/_contact-form
+	='\n'
+
+	// Page Footer
+	include ../sections/_footer-corporate

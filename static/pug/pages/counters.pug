@@ -1,0 +1,151 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-counters
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Counters'
+
+block page 
+	// Page Header
+	+header-corporate({})
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		mod: 'bg-overlay-53',
+		bgImage: 'breadcrumbs-bg'
+	})
+
+
+	//Counters 1
+	section.section.section-md.section-first.bg-default
+		.container
+			.row.row-30(data-lightgallery='group').justify-content-center
+				.col-md-6.col-lg-5.col-xl-4.col-8
+					+thumbnail-info({
+						nameImg: 'thumnails-info',
+						numberImg: '1',
+						sizeImg: '370x303',
+						number: '12',
+						description: 'International Awards'
+					})
+				.col-md-6.col-lg-5.col-xl-4.col-8
+					+thumbnail-info({
+						nameImg: 'thumnails-info',
+						numberImg: '1',
+						sizeImg: '370x303',
+						number: '500',
+						symbol: '+',
+						description: 'Happy Customers'
+					})
+				.col-md-6.col-lg-5.col-xl-4.col-8
+					+thumbnail-info({
+						nameImg: 'thumnails-info',
+						numberImg: '1',
+						sizeImg: '370x303',
+						number: '42',
+						description: 'Team Members'
+					})
+
+	//Counters 2
+	section.section.section-fluid
+		+parallax({
+			img: 'bg-counter-2',
+			innerClass: 'section-xl context-dark bg-overlay-26'
+		})
+			.container
+				.row.row-50.justify-content-center.border-classic
+					.col-sm-6.col-md-5.col-lg-3
+						+counter-classic({
+							number: '12',
+							title: 'Awards'
+						})
+					.col-sm-6.col-md-5.col-lg-3
+						+counter-classic({
+							number: '194',
+							title: 'Reviews'
+						})
+					.col-sm-6.col-md-5.col-lg-3
+						+counter-classic({
+							number: '2',
+							symbol: 'k',
+							title: 'sold vouchers'
+						})
+					.col-sm-6.col-md-5.col-lg-3
+						+counter-classic({
+							number: '25',
+							title: 'Team members'
+						})
+	//Counters 3
+	section.section.section-xl.bg-default
+		.container
+			.row.row-50.justify-content-center.border-classic.border-classic-big
+				.col-sm-6.col-md-5.col-lg-3
+					+counter-creative({
+						icon: 'fl-bigmug-line-trophy55',
+						number: '12',
+						title: 'Awards'
+					})
+				.col-sm-6.col-md-5.col-lg-3
+					+counter-creative({
+						icon: 'fl-bigmug-line-up104',
+						number: '2',
+						symbol: 'k',
+						title: 'Reviews'
+					})
+				.col-sm-6.col-md-5.col-lg-3
+					+counter-creative({
+						icon: 'fl-bigmug-line-sun81',
+						number: '679',
+						title: 'Happy clients'
+					})
+				.col-sm-6.col-md-5.col-lg-3
+					+counter-creative({
+						icon: 'fl-bigmug-line-user143',
+						number: '42',
+						title: 'Team members'
+					})
+	//Counters 4
+	section.section.section-fluid
+		+parallax({
+			img: 'bg-counter-3',
+			innerClass: 'section-xl context-dark'
+		}).bg-overlay-54
+			.container
+				.row.row-30.justify-content-center
+					.col-sm-6.col-md-3
+						+counter-classic({
+							mod: 'counter-abby',
+							number: '12',
+							title: 'awards'
+						})
+					.col-sm-6.col-md-3
+						+counter-classic({
+							mod: 'counter-abby',
+							number: '594',
+							title: 'Happy clients'
+						})
+					.col-sm-6.col-md-3
+						+counter-classic({
+							mod: 'counter-abby',
+							number: '5',
+							symbol:'k',
+							title: 'sold vouchers'
+						})
+					.col-sm-6.col-md-3
+						+counter-classic({
+							mod: 'counter-abby',
+							number: '25',
+							title: 'Team members'
+						})
+	// Counter Amy
+	section.section.section-xl.bg-default
+		.container
+			.row.row-50.justify-content-center.align-items-center.align-items-lg-start.text-start
+				include ../sections/_section-counter-amy
+	// Page Footer
+	include ../sections/_footer-corporate

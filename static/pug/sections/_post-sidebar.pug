@@ -1,0 +1,67 @@
+// Post Sidebar
+.post-sidebar.post-sidebar-inset
+  .row.row-lg.row-60
+    .col-sm-6.col-lg-12
+      .post-sidebar-item
+        // RD Search Form
+        form.rd-search.form-search.form-post-search(action='search-results.html', method='GET')
+          .form-wrap
+            label.form-label(for="search-form") Search the blog...
+            input#search-form.form-input(type='text', name='s', autocomplete='off')
+            button(type="submit").button-search.fl-bigmug-line-search74
+
+      .post-sidebar-item
+        h5 Categories
+        .post-sidebar-item-inset
+          ul.list.list-categories
+            li: a(href='#').active All Categories
+            li: a(href='#') Traveling
+            li: a(href='#') Tips
+            li: a(href='#') Itineraries
+            li: a(href='#') News
+
+      .post-sidebar-item
+        h5 Popular posts
+        .post-sidebar-item-inset
+          +post-minimal({
+            img: 'post-8-232x138',
+            title: 'Top 10 Hotels: Rating by Our Travel Experts'
+          })
+          +post-minimal({
+            img: 'post-9-232x138',
+            title: 'Your Personal Guide to 5 Best Places on Earth'
+          })
+
+    .col-sm-6.col-lg-12
+      .post-sidebar-item
+        h5 Comments
+        .post-sidebar-item-inset
+          +quote-minimal({
+            text: 'Aliquet bibendum enim facilisis gravida neque convallis.',
+            author: 'Jessica Brown',
+            source: '28 Great Places in the USA'
+          })
+          +quote-minimal({
+            text: 'Vitae aliquet nec ullamcorper sit amet risus nullam eget.',
+            author: 'Adam Williams',
+            source: 'Best New York Itinerary'
+          })
+
+      .post-sidebar-item
+        h5 Popular tags
+        .post-sidebar-item-inset
+          .group-xs.group-middle.justify-content-start
+            +badge({ mod: 'badge-white', text: 'News' })
+            +badge({ mod: 'badge-white', text: 'Tips' })
+            +badge({ mod: 'badge-white', text: 'Traveling' })
+            +badge({ mod: 'badge-white', text: 'Ideas' })
+      .post-sidebar-item
+        h5 Newsletter
+        .post-sidebar-item-inset
+          // RD Mailform
+          form.rd-form.rd-mailform(data-form-output="form-output-global", data-form-type='subscribe', method='post', action='bat/rd-mailform.php')
+            .form-wrap
+              input.form-input(id="subscribe-form-4-email" type="email" name="email" data-constraints="@Email @Required")
+              label.form-label(for="subscribe-form-4-email") Enter Your E-mail
+            .form-button
+              button.button.button-block.button-primary.button-pipaluk(type="submit") Subscribe

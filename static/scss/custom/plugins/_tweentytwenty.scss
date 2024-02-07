@@ -1,0 +1,236 @@
+// Twentytwenty - Before after image plugin
+//-----------------------
+
+.twentytwenty-horizontal .twentytwenty-handle:before, .twentytwenty-horizontal .twentytwenty-handle:after, .twentytwenty-vertical .twentytwenty-handle:before, .twentytwenty-vertical .twentytwenty-handle:after {
+	content: " ";
+	display: block;
+	background: $white;
+	position: absolute;
+	z-index: 30;
+	box-shadow: 0 0 12px rgba(51, 51, 51, 0.5);
+}
+
+.twentytwenty-horizontal .twentytwenty-handle:before, .twentytwenty-horizontal .twentytwenty-handle:after {
+	width: 2px;
+	height: 9999px;
+	left: 50%;
+	margin-left: -1px;
+}
+
+.twentytwenty-vertical .twentytwenty-handle:before, .twentytwenty-vertical .twentytwenty-handle:after {
+	width: 9999px;
+	height: 2px;
+	top: 50%;
+	margin-top: -1px;
+}
+
+.twentytwenty-before-label, .twentytwenty-after-label, .twentytwenty-overlay {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.twentytwenty-before-label, .twentytwenty-after-label, .twentytwenty-overlay {
+	transition-duration: 0.5s;
+}
+
+.twentytwenty-before-label, .twentytwenty-after-label {
+	transition-property: opacity;
+}
+
+.twentytwenty-before-label:before, .twentytwenty-after-label:before {
+	color: $white;
+	font-size: 13px;
+	letter-spacing: 0.1em;
+}
+
+.twentytwenty-before-label:before, .twentytwenty-after-label:before {
+	position: absolute;
+	background: rgba($white, 0.2);
+	line-height: 38px;
+	padding: 0 20px;
+	border-radius: 2px;
+}
+
+.twentytwenty-horizontal .twentytwenty-before-label:before, .twentytwenty-horizontal .twentytwenty-after-label:before {
+	top: 50%;
+	margin-top: -19px;
+}
+
+.twentytwenty-vertical .twentytwenty-before-label:before, .twentytwenty-vertical .twentytwenty-after-label:before {
+	left: 50%;
+	margin-left: -45px;
+	text-align: center;
+	width: 90px;
+}
+
+.twentytwenty-left-arrow, .twentytwenty-right-arrow, .twentytwenty-up-arrow, .twentytwenty-down-arrow {
+	position: absolute;
+	color: $primary;
+	font-family: $fa;
+	font-size: 24px;
+	line-height: 47px;
+
+	&::before {
+		display: inline-block;
+	}
+}
+
+.twentytwenty-container {
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	width: auto;
+	z-index: 0;
+	overflow: hidden;
+	position: relative;
+	-moz-user-select: none;
+}
+
+.twentytwenty-container img {
+	max-width: 100%;
+	position: absolute;
+	top: 0;
+	display: block;
+}
+
+.twentytwenty-container.active .twentytwenty-overlay, .twentytwenty-container.active :hover.twentytwenty-overlay {
+	background: rgba($black, 0);
+}
+
+.twentytwenty-container.active .twentytwenty-overlay .twentytwenty-before-label,
+.twentytwenty-container.active .twentytwenty-overlay .twentytwenty-after-label, .twentytwenty-container.active :hover.twentytwenty-overlay .twentytwenty-before-label,
+.twentytwenty-container.active :hover.twentytwenty-overlay .twentytwenty-after-label {
+	opacity: 0;
+}
+
+.twentytwenty-container * {
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.twentytwenty-before-label {
+	opacity: 0;
+}
+
+.twentytwenty-before-label:before {
+	content: "Before";
+}
+
+.twentytwenty-after-label {
+	opacity: 0;
+}
+
+.twentytwenty-after-label:before {
+	content: "After";
+}
+
+.twentytwenty-horizontal .twentytwenty-before-label:before {
+	right: 10px;
+}
+
+.twentytwenty-horizontal .twentytwenty-after-label:before {
+	left: 10px;
+}
+
+.twentytwenty-vertical .twentytwenty-before-label:before {
+	top: 10px;
+}
+
+.twentytwenty-vertical .twentytwenty-after-label:before {
+	bottom: 10px;
+}
+
+.twentytwenty-overlay {
+	transition-property: background;
+	background: rgba($black, 0);
+	z-index: 25;
+}
+
+.twentytwenty-overlay:hover {
+	background: rgba($black, 0.5);
+}
+
+.twentytwenty-overlay:hover .twentytwenty-after-label {
+	opacity: 1;
+}
+
+.twentytwenty-overlay:hover .twentytwenty-before-label {
+	opacity: 1;
+}
+
+.twentytwenty-before {
+	z-index: 20;
+}
+
+.twentytwenty-after {
+	z-index: 10;
+}
+
+.twentytwenty-handle {
+	height: 47px;
+	width: 47px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -25.5px;
+	margin-top: -25.5px;
+	border: 2px solid $white;
+	background: $white;
+	border-radius: 1000px;
+	box-shadow: 0 0 12px rgba(51, 51, 51, 0.5);
+	z-index: 40;
+	cursor: pointer;
+}
+
+.twentytwenty-horizontal .twentytwenty-handle:before {
+	bottom: 50%;
+	margin-bottom: 22px;
+	box-shadow: 0 3px 0 $white, 0 0 12px rgba(51, 51, 51, 0.5);
+}
+
+.twentytwenty-horizontal .twentytwenty-handle:after {
+	top: 50%;
+	margin-top: 22px;
+	box-shadow: 0 -3px 0 $white, 0 0 12px rgba(51, 51, 51, 0.5);
+}
+
+.twentytwenty-vertical .twentytwenty-handle:before {
+	left: 50%;
+	margin-left: 22px;
+	box-shadow: 3px 0 0 $white, 0 0 12px rgba(51, 51, 51, 0.5);
+}
+
+.twentytwenty-vertical .twentytwenty-handle:after {
+	right: 50%;
+	margin-right: 22px;
+	box-shadow: -3px 0 0 $white, 0 0 12px rgba(51, 51, 51, 0.5);
+}
+
+.twentytwenty-left-arrow {
+	left: 50%;
+	margin-left: -13px;
+
+	&::before { content: '\f104';	}
+}
+
+.twentytwenty-right-arrow {
+	right: 50%;
+	margin-right: -13px;
+
+	&::before { content: '\f105';	}
+}
+
+.twentytwenty-up-arrow {
+	top: 50%;
+	margin-top: -13px;
+
+	&::before { content: '\f106';	}
+}
+
+.twentytwenty-down-arrow {
+	bottom: 50%;
+	margin-bottom: -13px;
+
+	&::before { content: '\f107';	}
+}

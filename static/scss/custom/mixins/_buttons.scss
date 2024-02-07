@@ -1,0 +1,92 @@
+// Custom button variants
+@mixin btn-variant($clr, $bg, $bd, $clr-hover, $bg-hover, $bd-hover) {
+	&,
+	&:focus {
+		color: $clr;
+		background-color: $bg;
+		border-color: $bd;
+	}
+
+	&:hover,
+	&:active {
+		color: $clr-hover;
+		background-color: $bg-hover;
+		border-color: $bd-hover;
+	}
+
+	&.button-ujarak {
+		&::before {
+			background: $bg-hover;
+		}
+	}
+
+	&.button-pipaluk {
+
+		&,
+		&:focus {
+			background: transparent;
+
+			&::before {
+				background: $bg;
+				border-color: $bd-hover;
+			}
+
+			&::after {
+				border-color: $bd-hover;
+			}
+		}
+
+		&:hover,
+		&:active {
+			color: $bd-hover;
+			background: transparent;
+		}
+	}
+
+	&.button-wapasha {
+
+		&,
+		&:focus {
+			color: $bd;
+			background: transparent;
+
+			&::before {
+				border-color: $bd;
+			}
+			
+			&::after {
+				border-color: $bd-hover;
+			}
+		}
+
+		&:hover,
+		&:active {
+			color: $bd-hover;
+			background: transparent;
+		}
+	}
+}
+
+// Button sizes
+@mixin btn-size($padding-vertical, $padding-horizontal, $font-size, $line-height) {
+	padding: $padding-vertical $padding-horizontal $padding-vertical - 2;
+	font-size: $font-size;
+	line-height: $line-height;
+}
+
+// Reset Button
+@mixin reset-button() {
+	background: none;
+	border: none;
+	display: inline-block;
+	padding: 0;
+	outline: none;
+	outline-offset: 0;
+	cursor: pointer;
+	-webkit-appearance: none;
+
+	&::-moz-focus-inner {
+		border: none;
+		padding: 0;
+	}
+}

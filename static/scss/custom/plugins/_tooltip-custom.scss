@@ -1,0 +1,45 @@
+/*
+*
+* Tooltop Custom
+*/
+
+//
+// Base class
+//
+.tooltip {
+	font-size: $font-size-body;
+	line-height: 1.2;
+	letter-spacing: .05em;
+	z-index: $zindex-tooltip;
+
+	&.bs-tooltip-top {
+
+		.arrow::before {
+			border-top-color: $tooltip-arrow-color;
+		}
+	}
+	&.bs-tooltip-right {
+
+		.arrow::before {
+			border-right-color: $tooltip-arrow-color;
+		}
+	}
+	&.bs-tooltip-bottom {
+
+		.arrow::before {
+			border-bottom-color: $tooltip-arrow-color;
+		}
+	}
+	&.bs-tooltip-left {
+
+		.arrow::before {
+			border-left-color: $tooltip-arrow-color;
+		}
+	}
+}
+
+// Wrapper for the tooltip content
+.tooltip-inner {
+	padding: $tooltip-padding-y $tooltip-padding-x;
+	background-color: $tooltip-bg;
+}

@@ -1,0 +1,21 @@
+//- Contact forms
+form.rd-form.rd-form-variant-2.rd-mailform(data-form-output='form-output-global', data-form-type='contact', method='post', action='bat/rd-mailform.php')
+	.row.row-14.gutters-14
+		.col-md-4
+			.form-wrap
+				input#contact-your-name-2.form-input(type='text' name='name' data-constraints='@Required')
+				label.form-label(for='contact-your-name-2') Your Name
+		.col-md-4
+			.form-wrap
+				input#contact-email-2.form-input(type='email' name='email' data-constraints='@Email @Required')
+				label.form-label(for='contact-email-2') E-mail
+		.col-md-4
+			.form-wrap
+				input#contact-phone-2.form-input(type='text' name='phone' data-constraints='@Numeric')
+				label.form-label(for='contact-phone-2') Phone
+		.col-12
+			.form-wrap
+				label.form-label(for='contact-message-2') Message
+				textarea#contact-message-2.form-input.textarea-lg(name='message' data-constraints='@Required')
+
+	button.button.button-primary.button-pipaluk(type='submit') Send Message

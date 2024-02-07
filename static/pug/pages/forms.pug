@@ -1,0 +1,188 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-inline-subscribe-form
+
+block variables
+  - var activeCategory = 'pages'
+  - var pageName = 'Forms'
+
+block page 
+  // Page Header
+  +header-corporate({})
+
+  +breadcrumbs({
+    category: activeCategory,
+    path: [pageName],
+    mod: 'bg-overlay-55',
+    bgImage: 'breadcrumbs-bg'
+  })
+
+  // Contact Form #1 and Login
+  section.section.section-xl.bg-default.text-md-start
+    .container
+      .row.row-50.justify-content-md-center
+        .col-md-10.col-lg-6
+          h4.text-spacing-50 Contact Form #1
+          include ../sections/_contact-form
+
+        .col-md-10.col-lg-6
+          #card-l-r.card-login-register
+            .card-top-panel
+              .card-top-panel-left
+                h4.card-title.card-title-login Login
+                h4.card-title.card-title-register Register
+
+              .card-top-panel-right
+                span.card-subtitle
+                  span.card-subtitle-login Register now
+                  span.card-subtitle-register Sign in
+                button.card-toggle(data-custom-toggle='#card-l-r')
+                  span.card-toggle-circle
+
+            .card-form.card-form-login
+
+              .button-social
+                a.button.button-icon.button-icon-left.button-facebook.button-pipaluk(href='#')
+                  span.icon.fa.fa-facebook
+                  | Facebook
+                a.button.button-icon.button-icon-left.button-twitter.button-pipaluk(href='#')
+                  span.icon.fa.fa-twitter
+                  | Twitter
+                a.button.button-icon.button-icon-left.button-google.button-pipaluk(href='#')
+                  span.icon.fa.fa-google-plus
+                  | Google+
+
+              .text-decoration-lines.text-center
+                span.text-decoration-lines-content or
+
+              form.rd-form.rd-mailform
+                .form-wrap
+                  label.form-label(for='form-login-name-1') Login
+                  input#form-login-name-1.form-input(type='text' name='form-input' data-constraints='@Required')
+                .form-wrap
+                  label.form-label(for='form-login-password-1') Password
+                  input#form-login-password-1.form-input(type='password' name='password' data-constraints='@Required')
+                label.checkbox-inline
+                  input(name='input-checkbox-1' value='checkbox-1' type='checkbox')
+                  | Remember Me
+
+                button.button.button-block.button-primary.button-pipaluk(type="submit") Sign in
+
+            .card-form.card-form-register
+
+              .button-social
+                a.button.button-icon.button-icon-left.button-facebook.button-pipaluk(href='#')
+                  span.icon.fa.fa-facebook
+                  | Facebook
+                a.button.button-icon.button-icon-left.button-twitter.button-pipaluk(href='#')
+                  span.icon.fa.fa-twitter
+                  | Twitter
+                a.button.button-icon.button-icon-left.button-google.button-pipaluk(href='#')
+                  span.icon.fa.fa-google-plus
+                  | Google+
+
+              .text-decoration-lines.text-center
+                span.text-decoration-lines-content or
+
+              form.rd-form.rd-mailform(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+                .form-wrap
+                  label.form-label(for="form-register-email") E-mail
+                  input#form-register-email.form-input(type="email" name="email" data-constraints="@Email @Required")
+                .form-wrap
+                  label.form-label(for='form-login-password-2') Password
+                  input#form-login-password-2.form-input(type='password' name='password' data-constraints='@Required')
+                .form-wrap
+                  label.form-label(for='form-login-password-3') Repeat Password
+                  input#form-login-password-3.form-input(type='password' name='password' data-constraints='@Required')
+                button.button.button-block.button-primary.button-pipaluk(type="submit") Register
+  ='\n'
+
+  // Section Subscribe
+  section.section.section-fluid.text-center
+    +parallax({
+      img: 'parallax-2-1920x850',
+      innerClass: 'section-xl section-inset-custom-1 context-dark bg-overlay-2-21'
+    })
+      .container
+        h3.oh.fw-normal: span.d-inline-block.wow.slideInDown Sign Up for 25% Discount
+        p.text-width-medium.text-spacing-75.wow.fadeInLeft(data-wow-delay='.1s') Morbi enim nunc faucibus a pellentesque sit amet. Aliquam eleifend mi in nulla posuere sollicitudin. Lacus vestibulum sed arcu non odio euismod lacinia at quis.
+        +inline-subscribe-form({customUnique: '1'})
+  ='\n'
+
+  // Contact Form #2
+  section.section.section-md.section-first.bg-default.text-md-start
+    .container
+      h4.text-spacing-50 Contact Form #2
+      include ../sections/_contact-form-2
+  ='\n'
+
+  // Contact Us (with reCAPTCHA)
+  section.section.section-sm.bg-default.text-md-start
+    .container
+      .row.row-50.justify-content-center
+        .col-md-11.col-lg-9.col-xl-7
+          h4.text-spacing-50 Contact Form (with reCAPTCHA)
+          form.rd-form.rd-mailform(data-form-output='form-output-global', data-form-type='contact', method='post', action='bat/rd-mailform.php')
+            .row.row-14.gutters-14
+              .col-sm-6
+                .form-wrap
+                  input#contact-first-name-3.form-input(type='text' name='name' data-constraints='@Required')
+                  label.form-label(for='contact-first-name-3') First Name
+
+              .col-sm-6
+                .form-wrap
+                  input#contact-last-name-3.form-input(type='text' name='name' data-constraints='@Required')
+                  label.form-label(for='contact-last-name-3') Last Name
+
+              .col-12
+                .form-wrap
+                  input#contact-email-3.form-input(type='email' name='email' data-constraints='@Email @Required')
+                  label.form-label(for='contact-email-3') E-mail
+
+              .col-12
+                .form-wrap
+                  label.form-label(for='contact-message-3') Message
+                  textarea#contact-message-3.form-input(name='message' data-constraints='@Required')
+
+              .col-md-6
+                .form-wrap.form-wrap-recaptcha
+                  // Google captcha
+                  .recaptcha#captcha1(data-sitekey='6LfZlSETAAAAAC5VW4R4tQP8Am_to4bM3dddxkEt')
+
+              .col-md-6
+                button.button.button-block.button-primary.button-pipaluk(type='submit') Send Message
+  ='\n'
+
+  // Section Mailchimp
+  section.section.section-sm.bg-default.text-center
+    .container
+      h3.fw-normal MailChimp
+      p.text-width-medium.text-spacing-75 Sign up to our newsletter and be the first to know about latest news, special offers, events, and discounts.
+      // RD Mailform
+      form.rd-form.mailchimp-mailform.rd-form-inline(data-form-output='form-output-global' action='https://templatemonster.us1.list-manage.com/subscribe/post?u=1e39a6d114a4cc130a4edbe43&id=9fc9ef194a' method='post')
+        .form-wrap
+          label.form-label(for='mailchimp-email') Enter your e-mail
+          input#mailchimp-email.form-input(type='email' name='email' data-constraints='@Email @Required')
+        .form-button
+          button.button.button-primary(type='submit') Subscribe
+  ='\n'
+
+  // Section Campaign Monitor
+  section.section.section-sm.section-last.bg-default.text-center
+    .container
+      h3.fw-normal Campaign Monitor
+      p.text-width-medium.text-spacing-75 Sign up to our newsletter and be the first to know about latest news, special offers, events, and discounts.
+      // Campaign Monitor
+      form.rd-form.campaign-mailform.rd-form-inline(data-form-output='form-output-global' action='https://templatermonster.createsend.com/t/j/s/zjjikd/' method='post')
+        .form-wrap
+          label.form-label(for='campaign-email') Enter your E-mail
+          input#campaign-email.form-input(type='email' name='cm-zjjikd-zjjikd' data-constraints='@Email @Required')
+        .form-button
+          button.button.button-primary(type='submit') Subscribe
+  ='\n'
+
+  // Page Footer
+  include ../sections/_footer-corporate

@@ -1,0 +1,29 @@
+extends  ../_skeleton
+
+block variables
+  - var activeCategory = 'pages'
+  - var pageName = '503 Page'
+
+block title
+  title=pageName
+
+block page
+  section.section.section-single.section-503.novi-background.bg-overlay-3-41.novi-background.context-dark
+    .section-single-inner
+      //-Page Header
+      include ../sections/_section-header-base-transparent
+
+      //- Page Main
+      .section-single-main.section-503
+        .container
+          h1.title-modern
+            span 503
+          span.subtitle-503 Service is Temporary Unavailable
+          p.big.text-spacing-25 Sorry, we're offline right now to make our site even better.
+          p.big.text-spacing-25 Please, come back later and check what we've been up to.
+          a.button.button-primary.button-ujarak(href='index.html') Go to home page
+
+      //-Page Footer
+      include ../sections/_section-footer-base-transparent
+
+    .box-position(style='background-image: url(images/bg-single-page.jpg);')

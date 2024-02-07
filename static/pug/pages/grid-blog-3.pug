@@ -1,0 +1,60 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-pagination
+
+block variables
+	- var activeCategory = 'blog'
+	- var pageName = 'Grid blog 3'
+
+block page 
+	// Page Header
+	+header-corporate({})
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		mod: 'bg-overlay-39',
+		bgImage: 'breadcrumbs-bg'
+	})
+
+	// Grid blog
+	section.section.section-xl.bg-default.text-md-start
+		.container
+			.row.row-60.justify-content-center
+				.col-sm-9.col-md-6.col-lg-6
+					+post-aria({
+						img: 'post-22-570x492',
+						title: 'Top 10 Hotels: Rating by Wonder Tour Travel Experts',
+						time: {datetime: '2022-05-17', dateText: 'May 17, 2022'}
+					})
+
+				.col-sm-9.col-md-6.col-lg-6
+					+post-aria({
+						img: 'post-23-570x492',
+						title: 'Your Personal Guide to 5 Best Places to Visit on Earth',
+						time: {datetime: '2022-05-12', dateText: 'May 12, 2022'}
+					})
+
+				.col-sm-9.col-md-6.col-lg-6
+					+post-aria({
+						img: 'post-24-570x492',
+						title: 'How to Find the Best Travel Deals for Your Next Trip',
+						time: {datetime: '2022-05-17', dateText: 'May 17, 2022'}
+					})
+
+				.col-sm-9.col-md-6.col-lg-6
+					+post-aria({
+						img: 'post-25-570x492',
+						title: '12 Things Not to Do When You Travel Abroad This Year',
+						time: {datetime: '2022-05-12', dateText: 'May 12, 2022'}
+					})
+
+			.pagination-wrap
+				+pagination-bootstrap(null, 1, 4)
+	='\n'
+
+	// Page Footer
+	include ../sections/_footer-corporate

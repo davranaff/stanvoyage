@@ -1,0 +1,58 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-pagination
+
+block variables
+  - var activeCategory = 'blog'
+  - var pageName = 'Grid blog'
+
+block page 
+  // Page Header
+  +header-corporate({})
+
+  +breadcrumbs({
+    category: activeCategory,
+    path: [pageName],
+    mod: 'bg-overlay-39',
+    bgImage: 'breadcrumbs-bg'
+  })
+
+  // Grid blog
+  section.section.section-xl.bg-default.text-md-start
+    .container
+      .row.row-60
+        include ../sections/_section-grid-blog
+
+        .col-sm-6.col-lg-4
+          +post-modern({
+            img: 'post-13-370x307',
+            time: {datetime: '2022-07-04', dateNumber: '04', dateMonth: 'July'},
+            title: '12 Important Travel Tips',
+            text: 'Iaculis eu non diam phasellus vestibulum lorem sed risus ultricies. Varius quam quisque id diam vel sagittis aliquam malesuada bibendum.'
+          })
+
+        .col-sm-6.col-lg-4
+          +post-modern({
+            img: 'post-14-370x307',
+            time: {datetime: '2022-07-17', dateNumber: '17', dateMonth: 'July'},
+            title: '5 Places to Visit in Montana',
+            text: 'Lacus vestibulum sed arcu non odio euismod lacinia. Pellentesque elit ullamcorper dignissim cras. Ultrices eros in cursus turpis massa dui.'
+          })
+
+        .col-sm-6.col-lg-4
+          +post-modern({
+            img: 'post-15-370x307',
+            time: {datetime: '2022-07-22', dateNumber: '22', dateMonth: 'July'},
+            title: 'What to Do in San Francisco',
+            text: 'Commodo odio aenean sed adipiscing diam. Sed euismod nisi porta lorem mollis aliquam. Diam donec adipiscing tristique risus nec feugiat in .'
+          })
+
+      .pagination-wrap
+        +pagination-bootstrap(null, 1, 4)
+  ='\n'
+
+  // Page Footer
+  include ../sections/_footer-corporate

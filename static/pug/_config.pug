@@ -1,0 +1,114 @@
+-
+	var
+	html_class = "wide wow-animation",
+	fonts = "//fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7CPoppins:400%7CTeko:300,400",
+	subscribeFormCounter = 0,
+	uniquePrefix = 0,
+	commentsFormCounter = 0,
+		logo = {
+			default: 'logo-default.-188x19',
+			inverse: 'logo-inverse-275x29',
+			defaultDecor: 'logo-default.-188x19',
+			defaultFurniture: 'logo-default.-188x19',
+			defaultFlooring: 'logo-default.-188x19',
+			defaultInterior: 'logo-default.-188x19',
+			defaultLandscape: 'logo-default.-188x19',
+			defaultWindow: 'logo-default.-188x19',
+			name: 'Wonder Tour'
+		},
+		links = {
+			post: 'blog-post.html',
+			getTemplate: '#get-template'
+		},
+		colors = {
+			primary: '#01b3a7',
+			secondary: '#50ba87',
+			orange: '#e7a855'
+		},
+		menu = [
+			{
+				title: 'Home',
+				category: 'home',
+				link: 'index.html'
+			},
+			{
+				title: 'About',
+				category: 'about',
+				link: 'about.html',
+				dropdown: [
+					{title: 'Our Team'}
+				]
+			},
+			{
+				title: 'Our Tours',
+				category: 'our tours',
+				link: 'our-tours.html',
+				dropdown: [
+					{title: 'Single tour'}
+				]
+			},
+			{
+				title: 'Gallery',
+				category: 'gallery',
+				link: '#',
+				dropdown: [
+					{title: 'Grid Gallery'},
+					{title: 'Full width Gallery'},
+					{title: 'Masonry Gallery'},
+					{title: 'Full Width Masonry Gallery'}
+				]
+			},
+			{
+				title: 'Blog',
+				category: 'blog',
+				link: '#',
+				dropdown: [
+					{title: 'Classic Blog'},
+					{title: 'Grid Blog'},
+					{title: 'Grid Blog 2'},
+					{title: 'Grid Blog 3'},
+					{title: 'Blog Post'}
+				]
+			},
+			{
+				title: 'Contact Us',
+				category: 'contacts'
+			},
+			{
+				title: 'Pages',
+				category: 'pages',
+				link: '#',
+				megamenu: [
+					{
+						title: 'Elements',
+						list: [
+							{title: 'Typography'},
+							{title: 'Buttons'},
+							{title: 'Forms'},
+							{title: 'Tabs and Accordions'},
+							{title: 'Counters'},
+							{title: 'Icons with Text'},
+							{title: 'Progress Bars'},
+							{title: 'Grid System'},
+							{title: 'Privacy policy'}
+						]
+					},
+					{
+						title: 'Additional pages',
+						list: [
+							{title: 'Services'},
+
+
+							{title: 'Testimonials'},
+							{title: '404 Page'},
+							{title: '503 Page'},
+							{title: 'Pricing'},
+							{title: 'Coming Soon'},
+							{title: 'Contact Us 2'},
+							{title: 'FAQ'},
+							{title: 'Search results'}
+						]
+					}
+				]
+			}
+		];

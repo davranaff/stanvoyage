@@ -1,0 +1,55 @@
+//- quote
+
+mixin quote-classic(obj)
+  // Quote Classic
+  article.quote-classic(class=obj.mod)
+    .quote-classic-text: p.q=obj.text
+    if(obj.author)
+      h6.quote-classic-cite=obj.author
+
+mixin quote-modern(obj)
+  // Quote Modern
+  article.quote-modern(class=obj.mod)
+    .unit.unit-spacing-md.align-items-center
+      .unit-left: a.quote-modern-figure(href='#'): +jpg(obj.img, 'img-circles')
+      .unit-body
+        h5.quote-modern-cite: a(href='#')=obj.author
+        p.quote-modern-status=obj.status
+    .quote-modern-text: p.q=obj.text
+
+mixin quote-creative(obj)
+  // Quote Creative
+  article.quote-creative(class=obj.mod)
+    a.quote-creative-figure(href='#'): +jpg(obj.img, 'img-circles')
+    .quote-creative-text: p.q=obj.text
+    h5.quote-creative-cite: a(href='#')=obj.author
+
+mixin quote-nancy(obj)
+  // Quote Nancy
+  article.quote-nancy(class=obj.mod)
+    .quote-nancy-content
+      .quote-nancy-figure: +jpg(obj.img, '')
+      .quote-nancy-body
+        .quote-nancy-quote: h4.q=obj.quote
+        p.quote-nancy-text=obj.text
+        .unit.unit-spacing-sm.align-items-center
+          .unit-left: +jpg(obj.imgUser, 'img-circles')
+          .unit-body
+            h5.quote-nancy-cite=obj.author
+            p.quote-nancy-status=obj.status
+
+mixin quote-lisa(obj)
+  // Quote Lisa
+  article.quote-lisa(class=obj.mod)
+    .quote-lisa-body
+      a.quote-lisa-figure(href='#'): +jpg(obj.img, 'img-circles')
+      .quote-lisa-text: p.q=obj.text
+      h5.quote-lisa-cite: a(href='#')=obj.author
+      p.quote-lisa-status=obj.status
+
+mixin quote-minimal(obj)
+  // Quote Minimal
+  article.quote-minimal(class=obj.mod)
+    .quote-minimal-text: p.q=obj.text
+    h6.quote-minimal-cite=obj.author + ' on'
+      span.quote-minimal-source: a(href='#')=obj.source

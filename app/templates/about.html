@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="breadcrumbs-custom-inset">
+        <div class="breadcrumbs-custom context-dark bg-overlay-60">
+            <div class="container">
+                <h2 class="breadcrumbs-custom-title">About</h2>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="active">About</li>
+                </ul>
+            </div>
+            <div class="box-position" style="background-image: url({% static 'static_images/samarkand.jpg' %});"></div>
+        </div>
+    </section>
+    <!-- Why choose us-->
+    <section class="section section-sm section-first bg-default text-md-start">
+        <div class="container">
+            <div class="row row-50 justify-content-center align-items-xl-center">
+                <div class="col-md-10 col-lg-5 col-xl-6"><img src="{{ about_data.image.url }}" alt="" width="519"
+                                                              height="564"/>
+                </div>
+                <div class="col-md-10 col-lg-7 col-xl-6">
+                    <h1 class="text-spacing-25 fw-normal title-opacity-9">Why choose us</h1>
+                    <!-- Bootstrap tabs-->
+                    <div class="tabs-custom tabs-horizontal tabs-line" id="tabs-4">
+                        <!-- Nav tabs-->
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item" role="presentation"><a class="nav-link active" href="#tabs-4-1"
+                                                                        data-bs-toggle="tab">About</a></li>
+                        </ul>
+                        <!-- Tab panes-->
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="tabs-4-1">
+                                <p>{{ about_data.description|safe }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest Projects-->
+    <section class="section section-sm section-fluid bg-default">
+        <div class="container">
+            <h3>Destinations</h3>
+            <!-- Owl Carousel-->
+        </div>
+        <div class="owl-carousel owl-classic owl-timeline" data-items="1" data-md-items="2" data-lg-items="3"
+             data-xl-items="4" data-margin="30" data-autoplay="false" data-nav="true" data-dots="true">
+            {% for destination in destinations %}
+                <div class="item">
+                    <!-- Thumbnail Classic-->
+                    <article class="thumbnail thumbnail-mary">
+                        <div class="thumbnail-mary-figure"><img src="{{ destination.image.url }}" alt="" width="420"
+                                                                height="308"/>
+                        </div>
+                        <div class="thumbnail-mary-caption"><a class="icon fl-bigmug-line-zoom60"
+                                                               href="{{ destination.image.url }}"
+                                                               data-lightgallery="item"><img
+                                src="{{ destination.image.url }}" alt="" width="420" height="308"/></a>
+                        </div>
+                    </article>
+                    <div class="thumbnail-mary-description">
+                        <h5 class="thumbnail-mary-project"><a href="single-tour.html">{{ destination.name }}</a></h5>
+                        <span
+                                class="thumbnail-mary-decor"></span>
+                        <h5 class="thumbnail-mary-time">
+                        </h5>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </section>
+    <!-- What people Say-->
+    <section class="section section-sm section-last bg-default">
+        <div class="container">
+            <h3>What people Say</h3>
+            <!-- Owl Carousel-->
+            <div class="owl-carousel owl-modern" data-items="1" data-stage-padding="15" data-margin="30"
+                 data-dots="true" data-animation-in="fadeIn" data-animation-out="fadeOut" data-autoplay="true">
+                {% for people_say in people_says %}
+                    <!-- Quote Lisa-->
+                    <article class="quote-lisa">
+                        <div class="quote-lisa-body"><a class="quote-lisa-figure" href="#"><img class="img-circles"
+                                                                                                src="{{ people_say.avatar.url }}"
+                                                                                                alt="" width="100"
+                                                                                                height="100"/></a>
+                            <div class="quote-lisa-text">
+                                <p class="q">{{ people_say.comment }}</p>
+                            </div>
+                            <h5 class="quote-lisa-cite"><a href="#">{{ people_say.first_name }} {{ people_say.last_name }}</a></h5>
+                            <p class="quote-lisa-status">Regular Client</p>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!--Counters-->
+    <!-- Counter Classic-->
+    <section class="section section-fluid bg-default">
+        <div class="parallax-container" data-parallax-img="{% static 'static_images/bukhara.jpg' %}">
+            <div class="parallax-content section-xl context-dark bg-overlay-26">
+                <div class="container">
+                    <div class="row row-50 justify-content-center border-classic">
+                        <div class="col-sm-6 col-md-5 col-lg-3">
+                            <div class="counter-classic">
+                                <div class="counter-classic-number"><span class="counter">{{ about_data.award_count }}</span>
+                                </div>
+                                <h5 class="counter-classic-title">Awards</h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-5 col-lg-3">
+                            <div class="counter-classic">
+                                <div class="counter-classic-number"><span class="counter">{{ about_data.tour_count }}</span>
+                                </div>
+                                <h5 class="counter-classic-title">Tours</h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-5 col-lg-3">
+                            <div class="counter-classic">
+                                <div class="counter-classic-number"><span class="counter">{{ about_data.travel_count }}</span>
+                                </div>
+                                <h5 class="counter-classic-title">Travelers</h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-5 col-lg-3">
+                            <div class="counter-classic">
+                                <div class="counter-classic-number"><span class="counter">{{ about_data.team_member_count }}</span>
+                                </div>
+                                <h5 class="counter-classic-title">Team members</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

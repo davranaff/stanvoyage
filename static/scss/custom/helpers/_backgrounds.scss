@@ -1,0 +1,249 @@
+/*
+*
+* Backgrounds
+*/
+
+.context-dark {
+	@extend %context-dark;
+}
+
+%context-dark {
+	@include context-dark;
+
+	// Logo
+	.brand {
+		.brand-logo-dark {
+			display: none;
+		}
+		.brand-logo-light {
+			display: block;
+		}
+	}
+}
+
+%context-light {
+	@include context-light;
+
+	// Logo
+	.brand {
+		.brand-logo-dark {
+			display: block;
+		}
+		.brand-logo-light {
+			display: none;
+		}
+	}
+}
+
+/**
+* Light Backgrounds
+*/
+.bg-default {
+	@include bg-behaviour($body-bg);
+}
+
+.bg-gray-100 {
+	@include bg-behaviour($gray-100);
+}
+
+.bg-gray-2 {
+	@include bg-behaviour($gray-2);
+
+	.owl-classic {
+		.owl-prev,
+		.owl-next {
+			&:hover {
+				&::before { background-color: $secondary;	}
+
+				&::after {
+					border-left-color: $secondary;
+					border-right-color: $secondary;
+				}
+			}
+		}
+	}
+}
+
+.bg-gray-4 {
+	@include bg-behaviour($gray-4);
+
+	.box-icon-modern { box-shadow: none; }
+	.box-icon-modern:hover { box-shadow: 0 0 20px 0 rgba($black, 0.17); }
+}
+
+.bg-gray-36 {
+	@include bg-behaviour($gray-36);
+}
+
+/**
+* Dark Backgrounds
+*/
+.bg-gray-dark {
+	@extend %context-dark;
+	@include bg-behaviour($gray-700);
+}
+
+/** 
+* Accent Backgrounds
+*/
+.bg-primary {
+	@extend %context-dark;
+	& + & {
+		padding-top: 0;
+	}
+}
+
+/**
+* Background Image
+*/
+.bg-image {
+
+}
+
+[class*='bg-'] {
+	background-size: cover;
+	background-position: center center;
+}
+
+// Desktop only
+//
+html:not(.tablet):not(.mobile) {
+	.bg-fixed {
+		@include media-breakpoint-up(lg) {
+			background-attachment: fixed;
+		}
+	}
+}
+
+
+
+$overlay: #2b313b;
+$overlay-2: #181a23;
+$overlay-3: #01172a;
+$overlay-4: #182632;
+
+// Background overlay
+
+[class*='bg-overlay-'] {
+	position: relative;
+
+	&::before {
+		position: absolute;
+		content: '';
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		pointer-events: none;
+	}
+
+	.section-single-inner,
+	.container {
+		position: relative;
+	}
+}
+
+[class*='bg-second-overlay-'] {
+
+	&::after {
+		position: absolute;
+		content: '';
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		pointer-events: none;
+		z-index: -1;
+	}
+}
+
+.bg-overlay-68 {
+	&::before { background: rgba($overlay, .68); }
+}
+
+.bg-overlay-64 {
+	&::before { background: rgba($overlay, .64); }
+}
+
+.bg-overlay-60 {
+	&::before { background: rgba($overlay, 0.025); }
+}
+
+.bg-overlay-59 {
+	&::before { background: rgba($overlay, .59); }
+}
+
+.bg-overlay-55 {
+	&::before { background: rgba($overlay, .55); }
+}
+
+.bg-overlay-53 {
+	&::before { background: rgba($overlay, .53); }
+}
+.bg-overlay-54 {
+
+	&::before { background: rgba($overlay, .53); z-index: 1; }
+}
+.bg-overlay-49 {
+	&::before { background: rgba($overlay, .49); }
+}
+
+.bg-overlay-48 {
+	&::before { background: rgba($overlay, .48); }
+}
+
+.bg-overlay-46 {
+	&::before { background: rgba($overlay, .046); }
+}
+
+.bg-overlay-43 {
+	&::before { background: rgba($overlay, .43); }
+}
+
+.bg-overlay-3-41 {
+	&::before { background: rgba($overlay-3, .41); }
+}
+
+.bg-overlay-41 {
+	&::before { background: rgba($overlay, .41); }
+}
+
+.bg-overlay-40 {
+	&::before { background: rgba($overlay, .4); }
+}
+
+.bg-overlay-39 {
+	&::before { background: rgba($overlay, .39); }
+}
+
+.bg-overlay-37 {
+	&::before { background: rgba($overlay, .37); }
+}
+
+.bg-overlay-33 {
+	&::before { background: rgba($overlay, .33); }
+}
+
+.bg-overlay-26 {
+	&::before { background: rgba($overlay, .26); }
+}
+
+.bg-overlay-24 {
+	&::before { background: rgba($overlay, .24); }
+}
+
+.bg-second-overlay-4-22 {
+	&::after { background: rgba($overlay-2, .21); }
+}
+
+.bg-overlay-2-21 {
+	&::before { background: rgba($overlay-2, .21); }
+}
+
+.bg-overlay-2-14 {
+	&::before { background: rgba($overlay-2, .14); }
+}
+
+.bg-overlay-4-60 {
+	&::before { background: rgba($overlay-4, .6); }
+}

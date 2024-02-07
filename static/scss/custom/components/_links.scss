@@ -1,0 +1,136 @@
+/*
+*
+* Links
+*/
+
+// Standard link style
+a {
+	transition: $transition-base;
+
+	&,
+	&:focus,
+	&:active,
+	&:hover {
+		text-decoration: $link-decoration;
+	}
+
+	@include link($link-color, $link-hover-color);
+
+	&[href*='tel'],
+	&[href*='mailto'] {
+		white-space: nowrap;
+	}
+}
+
+.link-hover {
+	color: $link-hover-color;
+}
+
+.link-press {
+	color: $link-press-color;
+}
+
+.privacy-link {
+	display: inline-block;
+}
+
+* + .privacy-link {
+	margin-top: 40px;
+}
+
+
+
+.link-classic {
+	display: inline-block;
+	font-size: 18px;
+	line-height: 1.334;
+	letter-spacing: normal;
+	text-transform: uppercase;
+	font-family: $font-family-sec;
+	@include link(rgba($gray-800, .4), $gray-800);
+
+	span {
+		display: inline-flex;
+		vertical-align: middle;
+		align-items: center;
+		justify-content: space-between;
+		margin: 0 0 3px 10px;
+		line-height: 24px;
+		width: 25px;
+		opacity: .13;
+		transition: all .3s ease;
+
+		&::before,
+		&::after {
+			display: inline-block;
+			vertical-align: middle;
+			content: '';
+			transition: inherit;
+		}
+
+		&::before {
+			height: 2px;
+			flex-grow: 1;
+			background-color: $gray-800;
+		}
+
+		&::after {
+			width: 0;
+			height: 0;
+			margin-left: 3px;
+			border-style: solid;
+			border-width: 3px 0 3px 6px;
+			border-color: transparent transparent transparent $gray-800;
+		}
+	}
+
+	&:hover {
+		span {
+			width: 40px;
+			opacity: 1;
+		}
+	}
+}
+
+* + .link-classic { margin-top: 30px; }
+
+// Large ≥768px
+@include media-breakpoint-up(md) {
+	* + .link-classic { margin-top: 40px; }
+}
+
+// Large ≥992px
+@include media-breakpoint-up(lg) {
+	.container + .link-classic { margin-top: 56px; }
+}
+
+
+
+// Link Instafeed
+.gallery-title,
+.link-instafeed-3 {
+	display: inline-block;
+	min-width: 210px;
+	padding: 8px 40px 10px;
+	font-weight: 400;
+	letter-spacing: .05em;
+	background: $white;
+
+	a {
+		@include link($secondary, $primary);
+	}
+}
+.gallery-title{
+	font-weight: 500;
+	font-size: 14px;
+	a {
+		color: $primary;
+		text-transform: uppercase;
+		display: inline-block;
+		margin-left: 6px;
+		font-weight: 500;
+		&:hover {
+			color: $secondary;
+		}
+	}
+}

@@ -1,0 +1,109 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-quote
+include ../sections/_header-corporate
+include ../components/_ui-posts
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Testimonials'
+
+block page 
+	// Page Header
+	+header-corporate({})
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		mod: 'bg-overlay-49',
+		bgImage: 'breadcrumbs-bg'
+	})
+
+	// Testimonials #1
+	section.section.section-sm.section-first.bg-default
+		.container
+			h3 #1
+			.row.row-50.row-sm
+				.col-md-6
+					+quote-modern({
+						img: 'user-5-87x87',
+						author: 'Rupert Wood',
+						status: 'Regular Client',
+						text: 'Ut venenatis tellus in metus. Sed odio morbi quis commodo odio aenean. Ut ornare lectus sit amet est. Tellus orci ac auctor augue mauris augue neque gravida ullamcorper a lacus.'
+					})
+				.col-md-6
+					+quote-modern({
+						img: 'user-6-87x87',
+						author: 'Catherine Williams',
+						status: 'Regular Client',
+						text: 'Fermentum dui faucibus in ornare quam viverra. Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero. Cursus in hac habitasse platea dictumst quisque.'
+					})
+
+	// Testimonials #2
+	section.section.section-sm.bg-default
+		.container
+			h3 #2
+			.row.row-xxl.row-70.justify-content-center
+				.col-sm-10.col-md-6.col-lg-5.col-xl-4.wow.fadeInRight
+					+quote-creative({
+						img: 'user-5-87x87',
+						author: 'Rupert Wood',
+						text: 'Just wanted to say many, many thanks for helping me set up an amazing Costa Rican adventure! My nephew and I had a great time! All of the accommodations were perfect, thank you!'
+					})
+				.col-sm-10.col-md-6.col-lg-5.col-xl-4.wow.fadeInRight(data-wow-delay='.1s')
+					+quote-creative({
+						img: 'user-6-87x87',
+						author: 'Catherine Williams',
+						text: 'I wanted to thank you very much for planning the trip to France for my sister and me. It was amazing and exceeded my expectations! We had a wonderful time and were very pleased.'
+					})
+				.col-sm-10.col-md-6.col-lg-5.col-xl-4.wow.fadeInRight(data-wow-delay='.2s')
+					+quote-creative({
+						img: 'user-7-87x87',
+						author: 'Sam Peterson',
+						text: 'We had a marvelous time in our travels to Madagascar, Zimbabwe, and Botswana, we had just wonderful experiences. Your service was amazing and everyone was very attentive!'
+					})
+	// Testimonials #3
+	section.section.section-sm.bg-default
+		.container
+			h3 #3
+			.row.row-sm.row-30.justify-content-center
+				.col-sm-9.col-md-6.col-lg-5.col-xl-4
+					+quote-nancy({
+						img: 'post-10-370x307',
+						quote: 'Thank you for a great journey!',
+						text: 'Pretium quam vulputate dignissim suspendisse in est ante in. Bibendum ut tristique et egestas quis ipsum. Donec enim diam vulputate ut. Sapien pellentesque habitant morbi tristique senectus. Adipiscing tristique risus nec feugiat in fermentum posuere urna nec.',
+						imgUser: 'user-13-87x87',
+						author: 'Rupert Wood',
+						status: 'Regular Client'
+					})
+
+				.col-sm-9.col-md-6.col-lg-5.col-xl-4
+					+quote-nancy({
+						img: 'post-11-370x307',
+						quote: 'This team is very experienced!',
+						text: 'Tempor nec feugiat nisl pretium fusce id velit ut tortor. Dui accumsan sit amet nulla facilisi morbi tempus. Gravida quis blandit turpis cursus in hac habitasse platea dictumst. Eu ultrices vitae auctor eu augue ut lectus arcu dictumst porttitor amet.',
+						imgUser: 'user-14-87x87',
+						author: 'Catherine Williams',
+						status: 'Regular Client'
+					})
+
+				.col-sm-9.col-md-6.col-lg-5.col-xl-4
+					+quote-nancy({
+						img: 'post-12-370x307',
+						quote: 'The greatest experts in tourism',
+						text: 'Pharetra vel turpis nunc eget lorem dolor sed viverra ipsum. Diam phasellus vestibulum lorem sed risus ultricies. Aenean et tortor at risus viverra adipiscing. Aliquet enim tortor at auctor urna. Tortor aliquam nulla facilisi cras fermentum fermentum.',
+						imgUser: 'user-15-87x87',
+						author: 'Sam Peterson',
+						status: 'Regular Client'
+					})
+
+
+
+	// Testimonials #4
+	section.section.section-sm.section-last.bg-default
+		.container
+			h3 #4
+			include ../sections/_carousel-testimonials
+
+	// Page Footer
+	include ../sections/_footer-corporate

@@ -1,0 +1,78 @@
+mixin product(obj)
+  // Product
+  article.product(class=obj.mod)&attributes(attributes)
+    .product-figure
+      +png(obj.img)
+      .product-button
+        a.button.button-md.button-white.button-ujarak(href='cart-page.html') Add to cart
+    h5.product-title: a(href='single-product.html')=obj.title
+    .product-price-wrap
+      if(obj.priceOld)
+        .product-price.product-price-old= '$' + obj.priceOld + '.00'
+      .product-price= '$' + obj.price + '.00'
+
+mixin product-2(obj)
+  // Product
+  article.product.product-2(class=obj.mod)&attributes(attributes)
+    .unit(class=obj.unit)
+      .unit-left: .product-figure
+        +png(obj.img)
+        .product-button
+          a.button.button-md.button-white.button-ujarak(href='cart-page.html') Add to cart
+      .unit-body
+        h5.product-title: a(href='single-product.html')=obj.title
+        .product-price-wrap
+          if(obj.priceOld)
+            .product-price.product-price-old= '$' + obj.priceOld + '.00'
+          .product-price= '$' + obj.price + '.00'
+        a.button.button-sm.button-secondary.button-ujarak(href='cart-page.html') Add to cart
+
+mixin product-minimal(obj)
+  // Product Minimal
+  article.product-minimal.unit.unit-spacing-md(class=obj.mod)
+    .unit-left
+      a.product-minimal-figure(href='single-product.html'): +png(obj.img)
+    .unit-body
+      h6.product-minimal-title: a(href='single-product.html')=obj.title
+      .product-minimal-price= '$' + obj.price + '.00'
+
+mixin product-big(obj)
+  // Product Big
+  article.product-big(class=obj.mod)&attributes(attributes)
+    .unit.flex-column.flex-md-row.align-items-md-stretch
+      .unit-left
+        a.product-big-figure(href='single-tour.html'): +jpg(obj.img)
+      .unit-body
+        .product-big-body
+          h5.product-big-title: a(href='single-tour.html')=obj.title
+          .group-sm.group-middle.justify-content-start
+            .product-big-rating
+              span.icon.material-icons-star
+              span.icon.material-icons-star
+              span.icon.material-icons-star
+              span.icon.material-icons-star
+              span.icon.material-icons-star_half
+            a.product-big-reviews(href='#')=obj.review
+          p.product-big-text=obj.text
+          a.button.button-black-outline.button-ujarak(href='single-tour.html') Buy This Tour
+          .product-big-price-wrap
+            span.product-big-price= '$' + obj.price
+
+mixin box-sportlight(obj)
+  // box Spotlight
+  article.box-sportlight(class=obj.mod)&attributes(attributes)
+    a.box-sportlight-figure(href='#'): +jpg(obj.img)
+    .box-sportlight-caption
+      h5.box-sportlight-title: a(href='#')=obj.title
+      .box-sportlight-arrow
+
+    if(obj.badgeSale)
+      .box-sportlight-badge.box-sportlight-sale= '-' + obj.badgeSale + '%'
+    if(obj.badgeNew == true)
+      .box-sportlight-badge.box-sportlight-new New
+
+mixin product-categories(obj)
+  a.product-categories(href= obj.link ? obj.link : '#')&attributes(attributes)
+    .product-categories-body
+      .product-categories-figure: +png(obj.img)
+      h6.product-categories-title=obj.title

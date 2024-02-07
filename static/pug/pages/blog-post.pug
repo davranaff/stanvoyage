@@ -1,0 +1,88 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-posts
+include ../components/_ui-pagination
+include ../components/_ui-quote
+include ../components/_ui-box-comment
+include ../components/_form-comments
+include ../sections/_header-corporate
+block variables
+  - var activeCategory = 'blog'
+  - var pageName = 'Blog post'
+
+block page 
+  // Page Header
+  +header-corporate({})
+
+  +breadcrumbs({
+    category: activeCategory,
+    path: [pageName],
+    mod: 'bg-overlay-39',
+    bgImage: 'breadcrumbs-bg'
+  })
+
+  // Blog Post
+  section.section.section-xl.bg-default.text-start
+    .container: .row.row-70
+      .col-lg-8
+        .blog-post
+          +post-classic({
+            blogPost: true,
+            title: 'Top 10 Hotels: Rating by Our Travel Experts',
+            badge: { mod: 'badge-secondary', text: 'News' },
+            time: { datetime: '2022-11-30', dateText: 'Nov 30, 2022' },
+            text: 'Facilisis gravida neque convallis a cras semper auctor neque. Morbi leo urna molestie at elementum eu facilisis sed. Duis tristique sollicitudin nibh sit amet commodo nulla. Hac habitasse platea dictumst vestibulum rhoncus est.',
+            img: 'post-1-770x430'
+          })
+          +quote-classic({
+            mod: 'quote-classic-big',
+            text: 'Tincidunt eget nullam non nisi est sit amet facilisis magna. Imperdiet nulla malesuada pellentesque elit eget. Dictum fusce ut placerat orci nulla pellentesque.'
+          })
+
+          p Dictum non consectetur a erat nam. Leo in vitae turpis massa sed elementum tempus egestas. Integer enim neque volutpat ac tincidunt. Imperdiet proin fermentum leo vel orci porta. Posuere urna nec tincidunt praesent semper feugiat nibh sed. Dui ut ornare lectus sit amet est placerat in. Elementum tempus egestas sed sed. Amet luctus venenatis lectus magna fringilla urna porttitor.
+          .blog-post-bottom-panel.group-md.group-justify
+            .blog-post-tags
+              a(href='#') News
+              a(href='#') Traveling
+              a(href='#') Tips
+            div: .group-md.group-middle
+              span.social-title Share
+              div: +widget-list([], '', 'list-inline-sm social-list')
+
+        .blog-post-comments
+          h5.text-spacing-100.fw-normal 3 Comments
+          +box-comment({
+            postComment: true,
+            img: 'user-1-119x119',
+            author: 'John Doe',
+            text: 'Accumsan lacus vel facilisis volutpat est. Vulputate mi sit amet mauris commodo quis imperdiet. Lobortis elementum nibh tellus molestie nunc non blandit massa enim. Mauris pharetra et ultrices neque ornare aenean.',
+            datetime: '2022-11-30',
+            time: 'Nov 30, 2022'
+          })
+            +box-comment({
+              postComment: true,
+              img: 'user-2-119x119',
+              author: 'Jessica Brown',
+              text: 'Ut tristique et egestas quis ipsum suspendisse. Id leo in vitae turpis massa sed elementum tempus. Nisl nisi scelerisque eu ultrices vitae auctor eu augue.',
+              datetime: '2022-11-30',
+              time: 'Nov 30, 2022'
+            })
+          +box-comment({
+            postComment: true,
+            img: 'user-3-119x119',
+            author: 'Nick Stevens',
+            text: 'Risus nullam eget felis eget nunc lobortis mattis. Vel pretium lectus quam id leo in. Amet est placerat in egestas. Donec ultrices tincidunt arcu non sodales. Amet volutpat consequat mauris nunc congue nisi vitae .',
+            datetime: '2022-11-30',
+            time: 'Nov 30, 2022'
+          })
+
+        .blog-post-comments
+          +form-comments({customUnique: '5'})
+
+      .col-lg-4
+        include ../sections/_post-sidebar
+  ='\n'
+
+  // Page Footer
+  include ../sections/_footer-corporate

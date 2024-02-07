@@ -1,0 +1,40 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+block variables
+  - var activeCategory = 'gallery'
+  - var pageName = 'Full-width masonry gallery '
+
+block page 
+  // Page Header
+  +header-corporate({})
+
+  +breadcrumbs({
+    category: activeCategory,
+    path: [pageName],
+    mod: 'bg-overlay-48',
+    bgImage: 'breadcrumbs-bg'
+  })
+
+  // Grid Gallery
+  section.section.section-xl.section-fluid.bg-default.text-center.isotope-wrap
+    .container-fluid
+      .isotope-filters.isotope-filters-horizontal
+        //- Isotope Filters
+        button.isotope-filters-toggle.button.button-md.button-icon.button-icon-right.button-black-outline.button-wapasha(data-custom-toggle='#isotope-6', data-custom-toggle-hide-on-blur='true')
+          span.icon.fa.fa-caret-down
+          | Filter
+        ul#isotope-6.isotope-filters-list
+          li: a.active(href='#', data-isotope-filter='*', data-isotope-group='gallery') All
+          li: a(href='#', data-isotope-filter='Type 1', data-isotope-group='gallery') Destinations
+          li: a(href='#', data-isotope-filter='Type 2', data-isotope-group='gallery') Excursions
+          li: a(href='#', data-isotope-filter='Type 3', data-isotope-group='gallery') Tours
+      include ../sections/_section-full-width-masonry-gallery
+
+      .button-wrap: button.button.button-md.button-black-outline.button-wapasha Load More
+  ='\n'
+
+  // Page Footer
+  include ../sections/_footer-corporate

@@ -1,0 +1,75 @@
+.isotope-filters.isotope-filters-horizontal
+	//- Isotope Filters
+	button.isotope-filters-toggle.button.button-md.button-icon.button-icon-right.button-black-outline.button-wapasha(data-custom-toggle='#isotope-3', data-custom-toggle-hide-on-blur='true')
+		span.icon.fa.fa-caret-down
+		| Filter
+	ul#isotope-3.isotope-filters-list
+		li: a.active(href='#', data-isotope-filter='*', data-isotope-group='gallery') All
+		li: a(href='#', data-isotope-filter='Type 1', data-isotope-group='gallery') Destinations
+		li: a(href='#', data-isotope-filter='Type 2', data-isotope-group='gallery') Excursions
+		li: a(href='#', data-isotope-filter='Type 3', data-isotope-group='gallery') Tours
+.row.row-30.isotope(data-isotope-layout='fitRows', data-isotope-group='gallery', data-lightgallery='group')
+	.col-sm-6.col-lg-4.col-xxl-3.isotope-item.wow.fadeInLeft(data-filter='Type 3')
+		+thumbnail-classic({
+			mod: 'thumbnail-md',
+			nameImg: 'fullwidth-gallery',
+			sizeImg: '420x350',
+			numberImg: '1',
+			thumbnailText: 'Lacus vestibulum sed arcu non odio euismod lacinia. Pellentesque elit ullamcorper dignissim cras.'
+				})
+	.col-sm-6.col-lg-4.col-xxl-3.isotope-item.wow.fadeInLeft(data-filter='Type 2' data-wow-delay='.1s')
+		+thumbnail-classic({
+			mod: 'thumbnail-md',
+			nameImg: 'fullwidth-gallery',
+			sizeImg: '420x350',
+			numberImg: '2',
+			thumbnailText: 'Amet est placerat in egestas erat imperdiet sed euismod. Facilisis gravida neque convallis a cras neque.'
+		})
+	.col-sm-6.col-lg-4.col-xxl-3.isotope-item.wow.fadeInLeft(data-filter='Type 1' data-wow-delay='.2s')
+		+thumbnail-classic({
+			mod: 'thumbnail-md',
+			nameImg: 'fullwidth-gallery',
+			sizeImg: '420x350',
+			numberImg: '3',
+			thumbnailText: 'Ut venenatis tellus in metus. Sed odio morbi quis commodo odio aenean. Ut ornare lectus sit amet est.'
+		})
+	.col-sm-6.col-lg-4.col-xxl-3.isotope-item.wow.fadeInLeft(data-filter='Type 3' data-wow-delay='.3s')
+		+thumbnail-classic({
+			mod: 'thumbnail-md',
+			nameImg: 'fullwidth-gallery',
+			sizeImg: '420x350',
+			numberImg: '4',
+			thumbnailText: 'Tempor commodo ullamcorper a lacus. Fermentum dui faucibus in ornare quam viverra pulvinar ipsum.'
+		})
+	.col-sm-6.col-lg-4.col-xxl-3.isotope-item.wow.fadeInRight(data-filter='Type 2')
+		+thumbnail-classic({
+			mod: 'thumbnail-md',
+			nameImg: 'fullwidth-gallery',
+			sizeImg: '420x350',
+			numberImg: '5',
+			thumbnailText: 'Urna porttitor rhoncus dolor purus. Platea dictumst quisque sagittis purus proin nibh nisl id venenatis a.'
+		})
+	.col-sm-6.col-lg-4.col-xxl-3.isotope-item.wow.fadeInRight(data-filter='Type 1' data-wow-delay='.1s')
+		+thumbnail-classic({
+			mod: 'thumbnail-md',
+			nameImg: 'fullwidth-gallery',
+			sizeImg: '420x350',
+			numberImg: '6',
+			thumbnailText: 'Tempor nec feugiat nisl pretium fusce id velit ut tortor. Dui accumsan sit amet nulla facilisi morbi tempus.'
+		})
+	.col-sm-6.col-lg-4.col-xxl-3.isotope-item.wow.fadeInRight(data-filter='Type 3' data-wow-delay='.2s')
+		+thumbnail-classic({
+			mod: 'thumbnail-md',
+			nameImg: 'fullwidth-gallery',
+			sizeImg: '420x350',
+			numberImg: '7',
+			thumbnailText: 'Gravida quis blandit turpis cursus in hac habitasse platea dictumst. Eu ultrices vitae auctor lectus arcu.'
+		})
+	.col-sm-6.col-lg-4.col-xxl-3.isotope-item.wow.fadeInRight(data-filter='Type 2' data-wow-delay='.3s')
+		+thumbnail-classic({
+			mod: 'thumbnail-md',
+			nameImg: 'fullwidth-gallery',
+			sizeImg: '420x350',
+			numberImg: '8',
+			thumbnailText: 'Pharetra vel turpis nunc eget lorem dolor sed viverra ipsum. Diam phasellus vestibulum lorem ultricies.'
+		})

@@ -1,0 +1,65 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-progress-bar-linear
+include ../sections/_header-corporate
+include ../components/_ui-posts
+include ../components/_ui-progress-circle
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Progress Bars'
+
+block page
+	// Page Header
+	+header-corporate({})
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		mod: 'bg-overlay-59',
+		bgImage: 'breadcrumbs-bg'
+	})
+
+	// Section Skill Bars and Circle Progress Bars
+	section.section.section-xl.bg-default
+		.container
+			.row.row-50.justify-content-center
+				.col-md-10.col-lg-5.col-xl-6
+					+progress-bar-linear({
+						mod: 'progress-secondary',
+						title: "Tours",
+						valueTo: "79"
+					})
+
+					+progress-bar-linear({
+						mod: 'progress-orange',
+						title: "Excursions",
+						valueTo: "72",
+					})
+
+					+progress-bar-linear({
+						title: "Hotel Bookings",
+						valueTo: "88"
+					})
+
+				.col-md-10.col-lg-7.col-xl-6
+					.row.row-50.justify-content-center
+						.col-sm-4
+							+progress-circle({
+								title: 'Tours',
+								value: 90
+							})
+						.col-sm-4
+							+progress-circle({
+								title: 'Excursions',
+								value: 60
+							})
+						.col-sm-4
+							+progress-circle({
+								title: 'Hotel Booking',
+								value: 87
+							})
+
+
+	// Page Footer
+	include ../sections/_footer-corporate

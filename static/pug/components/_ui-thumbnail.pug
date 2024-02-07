@@ -1,0 +1,96 @@
+mixin thumbnail-classic(obj)
+	// Thumbnail Classic
+	article.thumbnail.thumbnail-classic(class=obj.mod)
+		.thumbnail-classic-figure
+			+jpg(obj.nameImg + '-' + obj.numberImg + '-' + obj.sizeImg)
+
+		.thumbnail-classic-caption
+			.thumbnail-classic-title-wrap
+				a.icon.fl-bigmug-line-zoom60(href='images/' + (obj.nameImgOriginal ? obj.nameImgOriginal : obj.nameImg + '-' + (obj.numberImgOriginal ? obj.numberImgOriginal : obj.numberImg)) + '-1200x800-original.jpg' data-lightgallery='item')
+					+jpg(obj.nameImg + '-' + obj.numberImg + '-' + obj.sizeImg)
+				h5.thumbnail-classic-title: a(href='single-tour.html')= 'Tour #' + (obj.numberProject ? obj.numberProject : obj.numberImg)
+				if(obj.thumbnailText)
+					p(class='thumbnail-classic-text')=obj.thumbnailText
+				else
+					p.thumbnail-classic-text thumbnail-classic-text We work hard on every project to deliver top-notch interior design concepts that satisfy your wishes.
+mixin thumbnail-info(obj)
+	// Thumbnail-info
+	article.thumbnail-info
+		+jpg(obj.nameImg + '-' + obj.numberImg + '-' + obj.sizeImg)
+		.thumbnail-info-figure
+			.counter-classic(class=obj.mod)
+				.counter-classic-number
+					span.counter=obj.number
+					if(obj.symbol)
+						span.symbol=obj.symbol
+				.info-description=obj.description
+mixin thumbnail-modern(obj)
+	// Thumbnail Modern
+	article.thumbnail.thumbnail-modern(class=obj.mod)
+		a.thumbnail-modern-figure(href='images/' + (obj.nameImgOriginal ? obj.nameImgOriginal : obj.nameImg + '-' + (obj.numberImgOriginal ? obj.numberImgOriginal : obj.numberImg)) + '-1200x800-original.jpg' data-lightgallery='item')
+			+jpg(obj.nameImg + '-' + obj.numberImg + '-' + obj.sizeImg)
+
+		.thumbnail-modern-caption
+			h5.thumbnail-modern-title: a(href='single-tour.html')=obj.title
+			p.thumbnail-modern-subtitle=obj.subtitle
+
+mixin thumbnail-creative(obj)
+	// Thumbnail Modern
+	article.thumbnail.thumbnail-creative(class=obj.mod)&attributes(attributes)
+		a.thumbnail-creative-figure(href='images/' + (obj.nameImgOriginal ? obj.nameImgOriginal : obj.nameImg + '-' + (obj.numberImgOriginal ? obj.numberImgOriginal : obj.numberImg)) + '-1200x800-original.jpg' data-lightgallery='item')
+			+jpg(obj.nameImg + '-' + obj.numberImg + '-' + obj.sizeImg)
+
+		.thumbnail-creative-caption
+			h5.thumbnail-creative-title: a(href='single-project.html')=obj.title
+			.thumbnail-creative-time
+				time(datetime=obj.time.datetime)=obj.time.dateText
+			.thumbnail-creative-button
+				a.button.button-md.button-white(href='#') Read more
+
+mixin thumbnail-mary(obj)
+	// Thumbnail Classic
+	article.thumbnail.thumbnail-mary(class=obj.mod)&attributes(attributes)
+		.thumbnail-mary-figure: +jpg(obj.nameImg + '-' + obj.numberImg + '-' + obj.sizeImg)
+
+		.thumbnail-mary-caption
+			a.icon.fl-bigmug-line-zoom60(href='images/' + (obj.nameImgOriginal ? obj.nameImgOriginal : obj.nameImg + '-' + (obj.numberImgOriginal ? obj.numberImgOriginal : obj.numberImg)) + '-1200x800-original.jpg' data-lightgallery='item')
+				+jpg(obj.nameImg + '-' + obj.numberImg + '-' + obj.sizeImg)
+			if(obj.titleNone == true)
+			else
+				if(obj.thumbnailSmall == true)
+					h6.thumbnail-mary-title: a(href='single-tour.html')= 'Tour #' + (obj.numberProject ? obj.numberProject : obj.numberImg)
+				else
+					h5.thumbnail-mary-title: a(href='single-tour.html')= 'Tour #' + (obj.numberProject ? obj.numberProject : obj.numberImg)
+	if(obj.nameProject)
+		.thumbnail-mary-description
+			h5.thumbnail-mary-project: a(href='single-tour.html')=obj.nameProject
+			span.thumbnail-mary-decor
+			h5.thumbnail-mary-time
+				if(obj.time)
+					time(datetime=obj.datetime)=obj.time
+
+mixin thumbnail-joan(obj)
+	// Thumbnail Joan
+	article.thumbnail.thumbnail-joan(class=obj.mod)&attributes(attributes)
+		a.thumbnail-joan-figure(href='images/' + (obj.nameImgOriginal ? obj.nameImgOriginal : obj.nameImg + '-' + (obj.numberImgOriginal ? obj.numberImgOriginal : obj.numberImg)) + '-1200x800-original.jpg' data-lightgallery='item')
+			+jpg(obj.nameImg + '-' + obj.numberImg + '-' + obj.sizeImg)
+
+		.thumbnail-joan-caption
+			h5.thumbnail-joan-title= 'Photo name #' + (obj.numberPhoto ? obj.numberPhoto : obj.numberImg)
+
+mixin thumbnail-instafeed(obj)
+	// Thumbnail Instafeed
+	article.thumbnail.thumbnail-mary(class=obj.className)&attributes(attributes)
+		.thumbnail-mary-figure
+			img(src='images/' + obj.img + '.jpg', alt='', data-images-low_resolution-url='src')
+		.thumbnail-mary-caption
+			a.icon.fl-bigmug-line-zoom60(href='images/' + obj.nameImgOriginal + '-1200x800-original.jpg' data-images-standard_resolution-url='href' data-lightgallery='item')
+				img(src='images/' + obj.img + '.jpg', alt='', data-images-low_resolution-url='src')
+
+mixin project-minimal(obj)
+	.project-minimal
+		.unit.unit-spacing-lg.align-items-center(class=obj.unit)
+			.unit-left: a.project-minimal-figure(href=obj.href): +jpg(obj.img)
+			.unit-body
+				p.project-minimal-text=obj.text
+				.project-minimal-title: a(href=obj.href)!=obj.title

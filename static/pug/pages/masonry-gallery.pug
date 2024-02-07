@@ -1,0 +1,88 @@
+extends  ../_skeleton
+
+//- Includes
+include ../sections/_header-corporate
+include ../components/_ui-posts
+block variables
+	- var activeCategory = 'gallery'
+	- var pageName = 'Masonry gallery'
+
+block page 
+	// Page Header
+	+header-corporate({})
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		mod: 'bg-overlay-48',
+		bgImage: 'breadcrumbs-bg'
+	})
+
+	// Grid Gallery
+	section.section.section-xl.bg-default.text-center.isotope-wrap
+		.container
+			.isotope-filters.isotope-filters-horizontal
+				//- Isotope Filters
+				button.isotope-filters-toggle.button.button-md.button-icon.button-icon-right.button-black-outline.button-wapasha(data-custom-toggle='#isotope-8', data-custom-toggle-hide-on-blur='true')
+					span.icon.fa.fa-caret-down
+					| Filter
+				ul#isotope-8.isotope-filters-list
+					li: a.active(href='#', data-isotope-filter='*', data-isotope-group='gallery') All
+					li: a(href='#', data-isotope-filter='Type 1', data-isotope-group='gallery') Destinations
+					li: a(href='#', data-isotope-filter='Type 2', data-isotope-group='gallery') Excursions
+					li: a(href='#', data-isotope-filter='Type 3', data-isotope-group='gallery') Tours
+			.row.row-30.isotope(data-isotope-layout='fitRows', data-isotope-group='gallery', data-lightgallery='group')
+				.col-sm-4.col-lg-3.isotope-item(data-filter='Type 3')
+					+thumbnail-mary({
+						mod: 'thumbnail-xs',
+						nameImg: 'masonry-gallery',
+						sizeImg: '270x300',
+						numberImg: '1',
+						nameImgOriginal: 'fullwidth-gallery-1'
+					})
+				.col-sm-8.col-lg-6.isotope-item(data-filter='Type 2')
+					+thumbnail-mary({
+						mod: 'thumbnail-lg thumbnail-custom-mobile',
+						nameImg: 'masonry-gallery',
+						sizeImg: '570x300',
+						numberImg: '2',
+						nameImgOriginal: 'fullwidth-gallery-2'
+					})
+				.col-sm-4.col-lg-3.isotope-item(data-filter='Type 1')
+					+thumbnail-mary({
+						mod: 'thumbnail-xs',
+						nameImg: 'masonry-gallery',
+						sizeImg: '270x300',
+						numberImg: '3',
+						nameImgOriginal: 'fullwidth-gallery-3'
+					})
+				.col-sm-8.col-lg-6.isotope-item(data-filter='Type 3')
+					+thumbnail-mary({
+						mod: 'thumbnail-lg thumbnail-custom-mobile',
+						nameImg: 'masonry-gallery',
+						sizeImg: '570x300',
+						numberImg: '4',
+						nameImgOriginal: 'fullwidth-gallery-4'
+					})
+				.col-sm-6.col-md-4.col-lg-3.isotope-item(data-filter='Type 2')
+					+thumbnail-mary({
+						mod: 'thumbnail-xs',
+						nameImg: 'masonry-gallery',
+						sizeImg: '270x300',
+						numberImg: '5',
+						nameImgOriginal: 'fullwidth-gallery-5'
+					})
+				.col-sm-6.col-md-4.col-lg-3.isotope-item(data-filter='Type 1')
+					+thumbnail-mary({
+						mod: 'thumbnail-xs',
+						nameImg: 'masonry-gallery',
+						sizeImg: '270x300',
+						numberImg: '6',
+						nameImgOriginal: 'fullwidth-gallery-6'
+					})
+
+			.button-wrap: button.button.button-md.button-black-outline.button-wapasha Load More
+
+
+	// Page Footer
+	include ../sections/_footer-corporate

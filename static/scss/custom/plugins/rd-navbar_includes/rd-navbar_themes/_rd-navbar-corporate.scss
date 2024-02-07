@@ -1,0 +1,279 @@
+/**
+*
+* RD Navbar Corporate
+* =====================================================
+*/
+.rd-navbar-corporate {
+
+	// Static
+	&.rd-navbar-static {
+
+    .rd-navbar-aside-outer,
+    .rd-navbar-main-outer {
+      padding-left: $grid-gutter-width / 2;
+      padding-right: $grid-gutter-width / 2;
+    }
+
+    .rd-navbar-aside,
+    .rd-navbar-main {
+      max-width: $rd-navbar-width;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .rd-navbar-aside {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+      font-size: 12px;
+      line-height: 2;
+      font-weight: 500;
+      letter-spacing: .025em;
+      padding: 10px 0;
+
+      > * + * { margin-left: 20px; }
+
+			// Extra large ≥1200px
+			@include media-breakpoint-up(xl) {
+				padding-top: 15px;
+				padding-bottom: 15px;
+			}
+
+			// Mega large ≥1600px
+			@include media-breakpoint-up(xxl) {
+				padding-top: 28px;
+				padding-bottom: 28px;
+			}
+    }
+
+		.rd-navbar-aside-right {
+			display: flex;
+			align-items: center;
+		}
+
+		.rd-navbar-main-outer {
+			background: $blue-2;
+		}
+
+		.rd-navbar-nav-wrap {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.rd-navbar-nav {
+			order: -1;
+			margin-right: 25px;
+		}
+
+		// RD Navbar Brand
+		.rd-navbar-brand {
+			img {
+				width: auto;
+				height: auto;
+				max-width: 170px;
+				max-height: 170px;
+			}
+
+			// Extra large ≥1200px
+			@include media-breakpoint-up(xl) {
+			  img {
+					max-width: 190px;
+					max-height: 190px;
+				}
+			}
+		}
+
+		.rd-navbar-submenu {
+			&.focus,
+			&.opened {
+				.rd-navbar-megamenu {
+					transform: translate3d(-50%, 0, 0);
+				}
+			}
+		}
+
+		.rd-menu {
+			margin-top: 0;
+			box-shadow: 0 0 10px 0 rgba($black, 0.1);
+		}
+
+		.rd-navbar-megamenu {
+			left: 50%;
+			transform: translate3d(-50%, 30px, 0);
+		}
+
+		&.rd-navbar--is-stuck,
+		&.rd-navbar--is-clone {
+			box-shadow: 0 0 10px 0 rgba($black, 0.1);
+
+			.rd-navbar-aside-outer { display: none; }
+		}
+
+		.rd-nav-item {
+			&.focus,
+			&.opened {
+				.rd-nav-link {
+					color: $white;
+
+					&::before {
+						opacity: 1;
+						visibility: visible;
+						transform: translate3d(0, 0, 0);
+					}
+
+					> .rd-navbar-submenu-toggle {
+						color: $gray-800;
+					}
+				}
+			}
+
+			&.active {
+				.rd-nav-link {
+					color: $white;
+
+					&::before {
+						height: 100%;
+						opacity: 1;
+						visibility: visible;
+						transform: translate3d(0, 0, 0);
+						transition-delay: 0s, .2s;
+					}
+				}
+			}
+		}
+
+		.rd-nav-link {
+			padding: 20px 15px;
+			font-size: 16px;
+			letter-spacing: .05em;
+			font-family: $font-family-sec;
+			color: $white;
+			z-index: 1;
+
+			&::before {
+			  position: absolute;
+			  content: '';
+			  top: 0;
+			  left: 0;
+				height: 0;
+				width: 100%;
+				background: rgba($white,.11);
+				border-top: 3px solid $primary;
+				transform: translate3d(-100%, 0, 0);
+				transition: all 0.35s cubic-bezier(0.05, 0.29, 0.11, 1.54), height .3s ease;
+				visibility: hidden;
+				opacity: 0;
+				z-index: -1;
+			}
+			
+			&:hover {
+				color: $white;
+				background: rgba($white,.11);
+				transition: all ease 0.35s;
+				&::before {
+					opacity: 1;
+					visibility: visible;
+					transform: translate3d(0, 0, 0);
+				}
+			}
+		}
+
+		.rd-nav-item + .rd-nav-item { margin-left: 16px; }
+
+		.rd-navbar-corporate-contacts {
+			li { display: inline-block; }
+
+			li + li {
+				margin-top: 0;
+				margin-left: 25px;
+				padding-left: 25px;
+				border-left: 1px solid $gray-3;
+			}
+		}
+		* + .button {
+			margin-top: 0;
+			margin-left: 65px;
+		}
+	}
+
+	// Fixed 
+	&.rd-navbar-fixed {
+		.rd-navbar-corporate-list-social {
+			color: $gray-800;
+		}
+
+		.rd-navbar-brand {
+			img { max-width: 170px; }
+		}
+
+		.button {
+			display: block;
+			width: 100%;
+		}
+
+		* + .button { margin-top: 20px; }
+	}
+}
+
+
+
+//
+// Navbar Corporate Contacts
+//
+.rd-navbar-corporate-contacts {
+	text-align: left;
+	font-size: 0;
+	line-height: 0;
+	font-family: $font-family-sec;
+	text-transform: uppercase;
+  max-width: 100%;
+  color: $gray-800;
+	flex: 0 0 auto;
+
+	.icon {
+		vertical-align: middle;
+		text-align: center;
+		font-size: 24px;
+		line-height: 1;
+		color: $primary;
+	}
+
+	p,
+  a {
+		margin-top: 2px;
+		font-size: 14px;
+		line-height: 1;
+		font-weight: 500;
+		letter-spacing: .075em;
+	}
+
+	p > span { font-size: 16px; }
+
+	a {
+		display: inline-block;
+		vertical-align: middle;
+		@include link($gray-800, $secondary);
+	}
+
+	li + li {	margin-top: 14px; }
+}
+
+
+
+//
+// Navbar Corporate List Social
+//
+.rd-navbar-corporate-list-social {
+  font-size: 0;
+  line-height: 0;
+	color: $white;
+
+  a {
+    @include link(inherit, $secondary);
+  }
+
+  .icon {
+		font-size: 18px;
+  }
+}

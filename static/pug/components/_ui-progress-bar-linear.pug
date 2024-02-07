@@ -1,0 +1,10 @@
+//- progress - object{progress}
+mixin progress-bar-linear(progress)
+	// Linear progress bar
+	article.progress-linear(data-duration= progress.duration class=progress.mod)&attributes(attributes)
+		.progress-header
+			p= progress.title
+		.progress-bar-linear-wrap
+			.progress-bar-linear(data-gradient="")
+				span.progress-value= progress.valueTo
+				span.progress-marker
