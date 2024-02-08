@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from app.models import Tour, Blog, Gallery, BlogTag, PeopleSay, About
+from app.models import Tour, Blog, Gallery, BlogTag, PeopleSay, About, Menu, Country
 
 
 # Create your views here.
@@ -8,10 +8,10 @@ from app.models import Tour, Blog, Gallery, BlogTag, PeopleSay, About
 
 def home(request):
 
-    hot_tours = Tour.objects.filter(is_hot=True).order_by('-created_at')[:3]
-    latest_blogs = Blog.objects.order_by('-created_at').all()[:6]
-    galleries = Gallery.objects.order_by('-created_at').all()[:6]
-    people_says = PeopleSay.objects.all()[:3]
+    hot_tours = Tour.objects.filter(is_hot=True, language__name=request.LANGUAGE_CODE).order_by('-created_at')[:3]
+    latest_blogs = Blog.objects.filter(language__name=request.LANGUAGE_CODE).order_by('-created_at').all()[:6]
+    galleries = Gallery.objects.filter(language__name=request.LANGUAGE_CODE).order_by('-created_at').all()[:6]
+    people_says = PeopleSay.objects.filter(language__name=request.LANGUAGE_CODE)[:3]
 
     return render(request, 'index.html', {
         'hot_tours': hot_tours,
@@ -35,7 +35,14 @@ def about(request):
 
 
 def contact_us(request):
-    return render(request, 'contact-us.html', {})
+
+    about_data = About.objects.filter(is_active=True).first()
+    menu = Menu.objects.filter(is_active=True).first()
+
+    return render(request, 'contact-us.html', {
+        'about_data': about_data,
+        "menu": menu
+    })
 
 
 def tours(request):
@@ -49,7 +56,9 @@ def tours(request):
 
 def tour_detail(request, slug):
 
-    tour = Tour.objects.select_related('country', 'type').get(slug=slug)
+    tour = Tour.objects.select_related('country', 'type').prefetch_related('events').get(slug=slug)
+
+    events = tour.events.all()
 
     prev_tour = Tour.objects.select_related('country', 'type').filter(id__lt=tour.id).first()
     next_tour = Tour.objects.select_related('country', 'type').filter(id__gt=tour.id).first()
@@ -58,6 +67,7 @@ def tour_detail(request, slug):
         'tour': tour,
         'prev_tour': prev_tour,
         'next_tour': next_tour,
+        'events': events,
     })
 
 
@@ -115,4 +125,24 @@ def page_not_found(request, exception):
 
 def privacy(request):
     return render(request, 'privacy-policy.html', {})
+
+
+def countries(request):
+
+    ct = Country.objects.all()
+
+    return render(request, 'countries.html', {
+        'countries': ct
+    })
+
+
+def country_detail(request, slug):
+
+    ct = Country.objects.prefetch_related('tours').get(slug=slug)
+    trs = Tour.objects.select_related('type').all()
+
+    return render(request, 'country_detail.html', {
+        'country': ct,
+        'tours': trs,
+    })
 

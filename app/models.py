@@ -37,6 +37,9 @@ class Menu(BaseModel):
 
 class Country(BaseModel):
     name = models.CharField(max_length=50)
+    description = RichTextField()
+    image = models.ImageField(upload_to='countries/', null=True)
+
     slug = models.SlugField()
 
     language = models.ForeignKey('Language', on_delete=models.PROTECT, related_name='countries')
@@ -47,6 +50,8 @@ class Country(BaseModel):
 
 class TourType(BaseModel):
     type = models.CharField(max_length=100, unique=True)
+
+    language = models.ForeignKey(Language, on_delete=models.PROTECT, related_name='types')
 
     def __str__(self):
         return self.type
@@ -72,6 +77,8 @@ class Tour(BaseModel):
 class TourEvent(BaseModel):
     name = models.CharField(max_length=100)
     description = RichTextField()
+
+    image = models.ImageField(upload_to='tours/event_images/', null=True)
 
     language = models.ForeignKey('Language', on_delete=models.PROTECT, related_name='events')
     tour = models.ForeignKey('Tour', on_delete=models.PROTECT, related_name='events')
@@ -128,6 +135,8 @@ class Blog(BaseModel):
 
 class About(BaseModel):
     description = RichTextField()
+    address = models.TextField(null=True)
+    address_google = models.URLField(null=True)
 
     image = models.ImageField(upload_to='about/', blank=True, null=True)
     award_count = models.CharField(max_length=3)

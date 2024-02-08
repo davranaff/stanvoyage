@@ -27,6 +27,14 @@
                         <ul class="rd-navbar-corporate-contacts">
                             <li>
                                 <div class="unit unit-spacing-xs">
+                                    <div class="unit-left"><span class="icon fa fa-language"></span></div>
+                                    <div class="unit-body">
+                                        <p><a href="/uz/">Uzb</a> - <a href="/ru/">Rus</a> - <a href="/en/">Eng</a></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="unit unit-spacing-xs">
                                     <div class="unit-left"><span class="icon fa fa-clock-o"></span></div>
                                     <div class="unit-body">
                                         <p>{{ info.start_time }} — {{ info.end_time }}</p>
@@ -55,18 +63,30 @@
                         </ul>
                         <!-- RD Navbar Nav-->
                         <ul class="rd-navbar-nav">
-                            <li class="rd-nav-item {% if path == 'ru' or path == 'en' or path == 'uz' %}active{% endif %}"><a class="rd-nav-link" href="{% url 'home' %}">Home</a>
+                            <li class="rd-nav-item {% if path == 'ru' or path == 'en' or path == 'uz' %}active{% endif %}">
+                                <a class="rd-nav-link" href="{% url 'home' %}">Home</a>
                             </li>
-                            <li class="rd-nav-item {% if path == 'about' %}active{% endif %}"><a class="rd-nav-link" href="{% url 'about' %}">About</a>
+                            <li class="rd-nav-item {% if path == 'about' %}active{% endif %}"><a class="rd-nav-link"
+                                                                                                 href="{% url 'about' %}">About</a>
                             </li>
-                            <li class="rd-nav-item {% if path == 'tours' %}active{% endif %}"><a class="rd-nav-link" href="{% url 'tours' %}">Our Tours</a>
+                            <li class="rd-nav-item {% if path == 'tours' %}active{% endif %}"><a class="rd-nav-link"
+                                                                                                 href="{% url 'tours' %}">Our
+                                Tours</a>
                             </li>
-                            <li class="rd-nav-item {% if path == 'gallery' %}active{% endif %}"><a class="rd-nav-link" href="{% url 'gallery' %}">Gallery</a>
+                            <li class="rd-nav-item {% if path == 'countries' %}active{% endif %}"><a class="rd-nav-link"
+                                                                                                     href="{% url 'countries' %}">Countries</a>
                             </li>
-                            <li class="rd-nav-item {% if path == 'blogs' %}active{% endif %}"><a class="rd-nav-link" href="{% url 'blog' %}">Blog</a>
+                            <li class="rd-nav-item {% if path == 'gallery' %}active{% endif %}"><a class="rd-nav-link"
+                                                                                                   href="{% url 'gallery' %}">Gallery</a>
                             </li>
-                            <li class="rd-nav-item {% if path == 'contact' %}active{% endif %}"><a class="rd-nav-link" href="{% url 'contact_us' %}">Contact Us</a>
+                            <li class="rd-nav-item {% if path == 'blogs' %}active{% endif %}"><a class="rd-nav-link"
+                                                                                                 href="{% url 'blog' %}">Blog</a>
                             </li>
+                            <li class="rd-nav-item {% if path == 'contact' %}active{% endif %}"><a class="rd-nav-link"
+                                                                                                   href="{% url 'contact_us' %}">Contact
+                                Us</a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>

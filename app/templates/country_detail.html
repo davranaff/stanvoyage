@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+        <section class="breadcrumbs-custom-inset">
+        <div class="breadcrumbs-custom context-dark bg-overlay-39">
+            <div class="container">
+                <h2 class="breadcrumbs-custom-title">Blog post</h2>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'countries' %}">Countries</a></li>
+                    <li class="active">{{ country.name }}</li>
+                </ul>
+            </div>
+            <div class="box-position" style="background-image: url({% static 'static_images/samarkand.jpg' %});"></div>
+        </div>
+    </section>
+    <!-- Blog Post-->
+    <section class="section section-xl bg-default text-start">
+        <div class="container">
+            <div class="row row-70">
+                <div class="col-lg-8">
+                    <div class="blog-post">
+                        <!-- Post Classic-->
+                        <article class="post post-classic">
+                            <h4 class="post-classic-title">{{ country.name }}
+                            </h4>
+                            <div class="post-classic-panel group-middle justify-content-start"><a
+                                    class="badge badge-secondary" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="16px" height="27px"
+                                     viewbox="0 0 16 27" enable-background="new 0 0 16 27" xml:space="preserve">
+                        <path d="M0,0v6c4.142,0,7.5,3.358,7.5,7.5S4.142,21,0,21v6h16V0H0z"></path>
+                      </svg>
+                            </a>
+                            </div>
+                            <div class="post-classic-figure"><img src="{{ country.image.url }}" alt="" width="770"
+                                                                  height="430"/>
+                            </div>
+                            <p class="post-classic-text">{{ country.description|safe }}</p>
+
+                        </article>
+                        <div class="blog-post-bottom-panel group-md group-justify">
+                            <div>
+                                <div class="group-md group-middle"><span class="social-title">Share</span>
+                                    <div>
+                                        <ul class="list-inline list-inline-sm social-list">
+                                            <li><a class="icon fa fa-facebook" href="#"></a></li>
+                                            <li><a class="icon fa fa-twitter" href="#"></a></li>
+                                            <li><a class="icon fa fa-google-plus" href="#"></a></li>
+                                            <li><a class="icon fa fa-instagram" href="#"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <!-- Post Sidebar-->
+                    <div class="post-sidebar post-sidebar-inset">
+                        <div class="row row-lg row-60">
+                            <div class="col-sm-6 col-lg-12">
+                                <div class="post-sidebar-item">
+                                    <h5>Tours</h5>
+                                    <div class="post-sidebar-item-inset">
+                                        <ul class="list list-categories">
+                                            {% for tour in tours %}
+                                                <li><a href="{% url 'tour_detail' tour.slug %}">{{ tour.name }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

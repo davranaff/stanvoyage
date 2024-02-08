@@ -2,15 +2,14 @@
 {% load static %}
 
 {% block content %}
-
     <!-- Breadcrumbs -->
     <section class="breadcrumbs-custom-inset">
         <div class="breadcrumbs-custom context-dark bg-overlay-48">
             <div class="container">
-                <h2 class="breadcrumbs-custom-title">Gallery</h2>
+                <h2 class="breadcrumbs-custom-title">Countries</h2>
                 <ul class="breadcrumbs-custom-path">
                     <li><a href="{% url 'home' %}">Home</a></li>
-                    <li class="active">Gallery</li>
+                    <li class="active">Countries</li>
                 </ul>
             </div>
             <div class="box-position" style="background-image: url({% static 'static_images/bukhara.jpg' %});"></div>
@@ -27,26 +26,23 @@
             </div>
             <div class="row row-50 isotope" data-isotope-layout="fitRows" data-isotope-group="gallery"
                  data-lightgallery="group">
-                {% for gallery in galleries %}
-                    <div class="col-md-6 col-lg-4 isotope-item" data-filter="Type 3">
+                {% for country in countries %}
+                    <div class="col-md-6 col-lg-4 isotope-item">
                         <!-- Thumbnail Modern-->
                         <article class="thumbnail thumbnail-modern thumbnail-sm"><a class="thumbnail-modern-figure"
-                                                                                    href="{{ gallery.image.url }}"
-                                                                                    data-lightgallery="item"><img
-                                src="{{ gallery.image.url }}" alt="" width="420" height="350"/></a>
+                                                                                    href="{% url 'country_detail' country.slug %}"><img
+                                src="{{ country.image.url }}" alt="" width="420" height="350"/></a>
                             <div class="thumbnail-modern-caption">
-                                <h5 class="thumbnail-modern-title">{{ gallery.name }}</h5>
-                                <p class="thumbnail-modern-subtitle">{{ gallery.country.name }}</p>
+                                <h5 class="thumbnail-modern-title">{{ country.name }}</h5>
                             </div>
                         </article>
                     </div>
                 {% endfor %}
 
             </div>
-{#            <div class="button-wrap">#}
-{#                <button class="button button-md button-black-outline button-wapasha">Load More</button>#}
-{#            </div>#}
+            {#            <div class="button-wrap">#}
+            {#                <button class="button button-md button-black-outline button-wapasha">Load More</button>#}
+            {#            </div>#}
         </div>
     </section>
-
-{% endblock content %}
+{% endblock %}
