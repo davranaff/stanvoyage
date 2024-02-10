@@ -11,6 +11,8 @@ db.sqlite3
 db.sqlite3-journal
 media
 
+config/settings_dev.py
+
 # Backup files #
 *.bak
 

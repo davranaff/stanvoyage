@@ -7,7 +7,6 @@ from app.models import Tour, Blog, Gallery, BlogTag, PeopleSay, About, Menu, Cou
 
 
 def home(request):
-
     hot_tours = Tour.objects.filter(is_hot=True, language__name=request.LANGUAGE_CODE).order_by('-created_at')[:3]
     latest_blogs = Blog.objects.filter(language__name=request.LANGUAGE_CODE).order_by('-created_at').all()[:6]
     galleries = Gallery.objects.filter(language__name=request.LANGUAGE_CODE).order_by('-created_at').all()[:6]
@@ -22,10 +21,10 @@ def home(request):
 
 
 def about(request):
-
-    about_data = About.objects.prefetch_related('destinations').filter(is_active=True).first()
+    about_data = About.objects.prefetch_related('destinations').filter(is_active=True,
+                                                                       language__name=request.LANGUAGE_CODE).first()
     destinations = about_data.destinations.all()
-    people_says = PeopleSay.objects.all()
+    people_says = PeopleSay.objects.filter(language__name=request.LANGUAGE_CODE)
 
     return render(request, 'about.html', {
         'about_data': about_data,
@@ -35,9 +34,8 @@ def about(request):
 
 
 def contact_us(request):
-
-    about_data = About.objects.filter(is_active=True).first()
-    menu = Menu.objects.filter(is_active=True).first()
+    about_data = About.objects.filter(is_active=True, language__name=request.LANGUAGE_CODE).first()
+    menu = Menu.objects.filter(is_active=True, language__name=request.LANGUAGE_CODE).first()
 
     return render(request, 'contact-us.html', {
         'about_data': about_data,
@@ -46,8 +44,7 @@ def contact_us(request):
 
 
 def tours(request):
-
-    all_tours = Tour.objects.select_related('country', 'type').all()
+    all_tours = Tour.objects.select_related('country', 'type').filter(language__name=request.LANGUAGE_CODE)
 
     return render(request, 'our-tours.html', {
         'all_tours': all_tours,
@@ -55,13 +52,15 @@ def tours(request):
 
 
 def tour_detail(request, slug):
-
-    tour = Tour.objects.select_related('country', 'type').prefetch_related('events').get(slug=slug)
+    tour = (Tour.objects.select_related('country', 'type').prefetch_related('events')
+            .get(slug=slug, language__name=request.LANGUAGE_CODE))
 
     events = tour.events.all()
 
-    prev_tour = Tour.objects.select_related('country', 'type').filter(id__lt=tour.id).first()
-    next_tour = Tour.objects.select_related('country', 'type').filter(id__gt=tour.id).first()
+    prev_tour = (Tour.objects.select_related('country', 'type')
+                 .filter(id__lt=tour.id, language__name=request.LANGUAGE_CODE).first())
+    next_tour = (Tour.objects.select_related('country', 'type')
+                 .filter(id__gt=tour.id, language__name=request.LANGUAGE_CODE).first())
 
     return render(request, 'single-tour.html', {
         'tour': tour,
@@ -72,8 +71,7 @@ def tour_detail(request, slug):
 
 
 def gallery(request):
-
-    galleries = Gallery.objects.select_related('country').all()
+    galleries = Gallery.objects.select_related('country').filter(language__name=request.LANGUAGE_CODE)
 
     return render(request, 'grid-gallery.html', {
         'galleries': galleries,
@@ -83,11 +81,11 @@ def gallery(request):
 def blog(request):
     tag = request.GET.get('tag')
 
-    tags = BlogTag.objects.all()
+    tags = BlogTag.objects.filter(language__name=request.LANGUAGE_CODE)
 
     if tag:
-
-        blogs = Blog.objects.select_related('tags').filter(tags__name__icontains=tag).order_by('-created_at')
+        blogs = (Blog.objects.select_related('tags')
+                 .filter(tags__name__icontains=tag, language__name=request.LANGUAGE_CODE).order_by('-created_at'))
 
         return render(request, 'classic-blog.html', {
             'blogs': blogs,
@@ -95,7 +93,7 @@ def blog(request):
             'current_tag': tag,
         })
 
-    blogs = Blog.objects.select_related('tags').order_by('-created_at')
+    blogs = Blog.objects.select_related('tags').filter(language__name=request.LANGUAGE_CODE).order_by('-created_at')
 
     return render(request, 'classic-blog.html', {
         'blogs': blogs,
@@ -105,12 +103,11 @@ def blog(request):
 
 
 def blog_detail(request, slug):
+    bl = Blog.objects.select_related('tags').get(slug=slug, language__name=request.LANGUAGE_CODE)
 
-    bl = Blog.objects.select_related('tags').get(slug=slug)
+    popular_blogs = Blog.objects.order_by('-created_at').filter(language__name=request.LANGUAGE_CODE)[:2]
 
-    popular_blogs = Blog.objects.order_by('-created_at').all()[:2]
-
-    tags = BlogTag.objects.all()
+    tags = BlogTag.objects.filter(language__name=request.LANGUAGE_CODE)
 
     return render(request, 'blog-post.html', {
         'blog': bl,
@@ -128,8 +125,7 @@ def privacy(request):
 
 
 def countries(request):
-
-    ct = Country.objects.all()
+    ct = Country.objects.filter(language__name=request.LANGUAGE_CODE)
 
     return render(request, 'countries.html', {
         'countries': ct
@@ -137,12 +133,17 @@ def countries(request):
 
 
 def country_detail(request, slug):
-
-    ct = Country.objects.prefetch_related('tours').get(slug=slug)
-    trs = Tour.objects.select_related('type').all()
+    ct = Country.objects.prefetch_related('tours').get(slug=slug, language__name=request.LANGUAGE_CODE)
+    trs = Tour.objects.select_related('type').filter(language__name=request.LANGUAGE_CODE)
 
     return render(request, 'country_detail.html', {
         'country': ct,
         'tours': trs,
     })
 
+
+def payment(request):
+
+
+
+    return render(request, 'payment.html', {})
