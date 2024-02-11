@@ -60,17 +60,22 @@
                             <h4 class="title-decoration-lines-bottom">{{ tour.name }}, <br class="d-none d-lg-block">
                                 {{ tour.country.name }}<span></span></h4>
                         </div>
-                        <div class="single-tour-price">
-                            <div class="product-big-price-wrap"><span class="product-big-price">${{ tour.price }}</span>
+                        {% if tour.show_price %}
+                            <div class="single-tour-price">
+                                <div class="product-big-price-wrap"><span
+                                        class="product-big-price">${{ tour.price }}</span>
+                                </div>
                             </div>
-                        </div>
+                        {% endif %}
                         <p class="text-gray-500">
                             {{ tour.description|safe }}
                         </p>
                         <div class="divider divider-30"></div>
                         <ul class="list list-description d-inline-block d-md-block">
                             <li><span>Country:</span><span>{{ tour.country.name }}</span></li>
-                            <li><span>Cost:</span><span>{{ tour.price }}$</span></li>
+                            {% if tour.show_price %}
+                            	<li><span>Cost:</span><span>{{ tour.price }}$</span></li>
+                            {% endif %}
                             <li><span>Type:</span><span>{{ tour.type.type }}</span></li>
                             <li><span>Category:</span><span>Tour Category</span></li>
                         </ul>

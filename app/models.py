@@ -64,6 +64,7 @@ class Tour(BaseModel):
     preview_image = models.ImageField(upload_to='tours/preview_images/', null=True)
 
     is_hot = models.BooleanField(default=False)
+    show_price = models.BooleanField(default=False)
     slug = models.SlugField(unique=True, null=True)
 
     language = models.ForeignKey('Language', on_delete=models.PROTECT, related_name='tours')
@@ -174,6 +175,19 @@ class PeopleSay(BaseModel):
 
     def __str__(self):
         return "{} {}".format(self.first_name, self.last_name)
+
+
+class Payment(BaseModel):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    price = models.PositiveBigIntegerField()
+    email = models.EmailField()
+    phone = models.CharField(max_length=13)
+
+    comment = models.TextField()
+
+    def __str__(self):
+        return '{} {} ({})'.format(self.first_name, self.last_name, self.created_at)
 
 
 # class Request(BaseModel):

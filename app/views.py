@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from app.models import Tour, Blog, Gallery, BlogTag, PeopleSay, About, Menu, Country
+from app.models import Tour, Blog, Gallery, BlogTag, PeopleSay, About, Menu, Country, Payment
 
 
 # Create your views here.
@@ -134,7 +134,7 @@ def countries(request):
 
 def country_detail(request, slug):
     ct = Country.objects.prefetch_related('tours').get(slug=slug, language__name=request.LANGUAGE_CODE)
-    trs = Tour.objects.select_related('type').filter(language__name=request.LANGUAGE_CODE)
+    trs = Tour.objects.select_related('type').filter(language__name=request.LANGUAGE_CODE, country=ct)
 
     return render(request, 'country_detail.html', {
         'country': ct,
@@ -143,7 +143,38 @@ def country_detail(request, slug):
 
 
 def payment(request):
+    country = request.GET.get('country')
+
+    all_countries = Country.objects.filter(language__name=request.LANGUAGE_CODE)
+    popular_blogs = Blog.objects.order_by('-created_at').filter(language__name=request.LANGUAGE_CODE)[:2]
+
+    return render(request, 'payment.html', {
+        'popular_blogs': popular_blogs,
+        'all_countries': all_countries,
+        'country': country,
+    })
 
 
+def create_payment(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        price = request.POST.get('price')
+        country = request.POST.get('country')
+        comment = request.POST.get('comment')
 
-    return render(request, 'payment.html', {})
+        payment_is_created = Payment.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            price=price,
+            country=country,
+            comment=comment,
+        )
+
+        return redirect('payment')
+
+    return redirect('payment')

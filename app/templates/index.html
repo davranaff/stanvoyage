@@ -200,11 +200,13 @@
                                         </div>
                                         <p class="product-big-text">{{ hot_tour.description|safe }}</p><a
                                             class="button button-black-outline button-ujarak"
-                                            href="{% url 'tour_detail' hot_tour.slug %}">Buy
+                                            href="{% url 'tour_detail' hot_tour.slug %}">Book
                                         This Tour</a>
-                                        <div class="product-big-price-wrap"><span
-                                                class="product-big-price">${{ hot_tour.price }}</span>
-                                        </div>
+                                        {% if hot_tour.show_price %}
+                                            <div class="product-big-price-wrap"><span
+                                                    class="product-big-price">${{ hot_tour.price }}</span>
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>

@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="breadcrumbs-custom-inset">
+        <div class="breadcrumbs-custom context-dark bg-overlay-39">
+            <div class="container">
+                <h2 class="breadcrumbs-custom-title">Blog post</h2>
+                <ul class="breadcrumbs-custom-path">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                    <li class="active">{{ blog.title }}</li>
+                </ul>
+            </div>
+            <div class="box-position" style="background-image: url({% static 'static_images/samarkand.jpg' %});"></div>
+        </div>
+    </section>
+    <!-- Blog Post-->
+    <section class="section section-xl bg-default text-start">
+        <div class="container">
+            <div class="row row-70">
+                <div class="col-lg-8">
+                    <div class="blog-post-comments">
+                        <h5 class="text-spacing-100 fw-normal">Payment</h5>
+                        <form class="rd-form rd-mailform" method="GET" action="{% url 'create_payment' %}">
+                            <div class="row row-14 gutters-14">
+                                <div class="col-sm-6">
+                                    <div class="form-wrap">
+                                        <input class="form-input" id="first_name" type="text" name="first_name"
+                                               data-constraints="@Required" placeholder="Your First Name"/>
+                                        <label class="form-label" for="first_name"></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-wrap">
+                                        <input class="form-input" id="last_name" type="text" name="last_name"
+                                               data-constraints="@Required" placeholder="Your Last Name"/>
+                                        <label class="form-label" for="last_name"></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-wrap">
+                                        <input class="form-input" id="email" type="email" name="email"
+                                               data-constraints="@Email @Required" placeholder="Your E-mail"/>
+                                        <label class="form-label" for="email"></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-wrap">
+                                        <input class="form-input" id="phone" type="text" name="phone"
+                                               data-constraints="@Required" minlength="13" maxlength="13"
+                                            placeholder="Your Telephone Number"/>
+                                        <label class="form-label" for="phone"></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-wrap">
+                                        <select class="form-select" id="countries" name="country">
+                                            {% for all_country in all_countries %}
+                                                <option value="{{ all_country.slug }}" {% if country == all_country.name %}selected{% endif %}>{{ all_country.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <label class="form-label" for="countries">Countries</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-wrap">
+                                        <input class="form-input" id="price" type="number" name="price"
+                                               data-constraints="@Required" placeholder="Price ($)" min="0"/>
+                                        <label class="form-label" for="price"></label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-wrap">
+                                        <label class="form-label" for="contact-message-5"></label>
+                                        <textarea class="form-input textarea-lg" id="contact-message-5"
+                                                  name="comment" placeholder="Comment"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="button button-primary button-pipaluk" type="submit">Pay</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <!-- Post Sidebar-->
+                    <div class="post-sidebar post-sidebar-inset">
+                        <div class="row row-lg row-60">
+                            <div class="col-sm-6 col-lg-12">
+                                <div class="post-sidebar-item">
+                                    <h5>Countries</h5>
+                                    <div class="post-sidebar-item-inset">
+                                        <ul class="list list-categories">
+                                            {% for country in all_countries %}
+                                                <li>
+                                                    <a href="{% url 'blog' %}?country={{ country.name }}">{{ country.name }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="post-sidebar-item">
+                                    <h5>Popular posts</h5>
+                                    <div class="post-sidebar-item-inset">
+                                        {% for popular_blog in popular_blogs %}
+                                            <!-- Post Minimal-->
+                                            <article class="post post-minimal"><a class="post-minimal-figure"
+                                                                                  href="{% url 'blog_detail' popular_blog.slug %}"><img
+                                                    src="{{ popular_blog.image.url }}" alt="" width="232" height="138"/></a>
+                                                <p class="post-minimal-title"><a
+                                                        href="blog-post.html">{{ popular_blog.title }}</a></p>
+                                            </article>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

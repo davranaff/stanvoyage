@@ -37,7 +37,8 @@
                                                                   height="430"/>
                             </div>
                             <p class="post-classic-text">{{ country.description|safe }}</p>
-
+                            <hr>
+                            <a href="{% url 'payment' %}?country={{ country.name }}" class="button button-primary button-pipaluk">Book</a>
                         </article>
                         <div class="blog-post-bottom-panel group-md group-justify">
                             <div>
