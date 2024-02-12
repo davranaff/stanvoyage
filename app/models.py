@@ -183,6 +183,7 @@ class Payment(BaseModel):
     price = models.PositiveBigIntegerField()
     email = models.EmailField()
     phone = models.CharField(max_length=13)
+    country = models.CharField(max_length=50)
 
     comment = models.TextField()
 

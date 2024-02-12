@@ -21,8 +21,9 @@
             <div class="row row-70">
                 <div class="col-lg-8">
                     <div class="blog-post-comments">
-                        <h5 class="text-spacing-100 fw-normal">Payment</h5>
-                        <form class="rd-form rd-mailform" method="GET" action="{% url 'create_payment' %}">
+                        <h5 class="text-spacing-100 fw-normal">Payment {% if error == 'true' %}<span style="color: red">something went wrong, try again later</span>{% endif %} </h5>
+                        <form class="rd-form rd-mailform" method="POST" action="{% url 'create_payment' %}">
+                            {% csrf_token %}
                             <div class="row row-14 gutters-14">
                                 <div class="col-sm-6">
                                     <div class="form-wrap">

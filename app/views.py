@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-
 from app.models import Tour, Blog, Gallery, BlogTag, PeopleSay, About, Menu, Country, Payment
+import requests as axios
+import json
 
 
 # Create your views here.
@@ -144,6 +145,7 @@ def country_detail(request, slug):
 
 def payment(request):
     country = request.GET.get('country')
+    error = request.GET.get('error', False)
 
     all_countries = Country.objects.filter(language__name=request.LANGUAGE_CODE)
     popular_blogs = Blog.objects.order_by('-created_at').filter(language__name=request.LANGUAGE_CODE)[:2]
@@ -152,6 +154,7 @@ def payment(request):
         'popular_blogs': popular_blogs,
         'all_countries': all_countries,
         'country': country,
+        'error': error,
     })
 
 
@@ -175,6 +178,34 @@ def create_payment(request):
             comment=comment,
         )
 
-        return redirect('payment')
+        country = Country.objects.get(slug=country)
+
+        auth = dict(email="maruf.tairov@gmail.com", password="2Gv!G5RpdmQccB5")
+
+        data = axios.post('https://api.mel.store/api/mel-store/auth/login', json=auth)
+
+        booking_data = {
+            "thumbnail_type": "button",
+            "button_title": "Check offer",
+            "has_promo_codes": False,
+            "prices": [
+                {
+                    "is_discount_price": False,
+                    "price": payment_is_created.price,
+                    "currency_id": 2
+                }
+            ],
+            "product_title": country.name,
+            "product_description": f'{country.description[:50]}...',
+        }
+
+        book = axios.patch('https://api.mel.store/api/mel-store/products/85791',
+                           json=booking_data,
+                           headers={'Authorization': f'Bearer {data.json().get("access_token")}'})
+
+        if book.status_code == 200:
+            return redirect('https://mel.store/odamlar.tv/85791')
+
+        return redirect('payment?error=true')
 
     return redirect('payment')
