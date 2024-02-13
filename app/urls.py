@@ -15,5 +15,4 @@ urlpatterns = [
     path('countries/', views.countries, name='countries'),
     path('countries/<slug>', views.country_detail, name='country_detail'),
     path('payment/', views.payment, name='payment'),
-    path('create_payment/', views.create_payment, name='create_payment'),
 ]

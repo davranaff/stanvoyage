@@ -5,11 +5,10 @@
     <section class="breadcrumbs-custom-inset">
         <div class="breadcrumbs-custom context-dark bg-overlay-39">
             <div class="container">
-                <h2 class="breadcrumbs-custom-title">Blog post</h2>
+                <h2 class="breadcrumbs-custom-title">Payment</h2>
                 <ul class="breadcrumbs-custom-path">
                     <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'blog' %}">Blog</a></li>
-                    <li class="active">{{ blog.title }}</li>
+                    <li class="active">Payment</li>
                 </ul>
             </div>
             <div class="box-position" style="background-image: url({% static 'static_images/samarkand.jpg' %});"></div>
@@ -21,8 +20,9 @@
             <div class="row row-70">
                 <div class="col-lg-8">
                     <div class="blog-post-comments">
-                        <h5 class="text-spacing-100 fw-normal">Payment {% if error == 'true' %}<span style="color: red">something went wrong, try again later</span>{% endif %} </h5>
-                        <form class="rd-form rd-mailform" method="POST" action="{% url 'create_payment' %}">
+                        <h5 class="text-spacing-100 fw-normal">Payment {% if error == 'true' %}
+                            <span style="color: red">something went wrong, try again later</span>{% endif %} </h5>
+                        <form class="rd-form rd-mailform" method="POST" action="{% url 'payment' %}">
                             {% csrf_token %}
                             <div class="row row-14 gutters-14">
                                 <div class="col-sm-6">
@@ -50,7 +50,7 @@
                                     <div class="form-wrap">
                                         <input class="form-input" id="phone" type="text" name="phone"
                                                data-constraints="@Required" minlength="13" maxlength="13"
-                                            placeholder="Your Telephone Number"/>
+                                               placeholder="Your Telephone Number"/>
                                         <label class="form-label" for="phone"></label>
                                     </div>
                                 </div>
@@ -58,7 +58,8 @@
                                     <div class="form-wrap">
                                         <select class="form-select" id="countries" name="country">
                                             {% for all_country in all_countries %}
-                                                <option value="{{ all_country.slug }}" {% if country == all_country.name %}selected{% endif %}>{{ all_country.name }}</option>
+                                                <option value="{{ all_country.slug }}"
+                                                        {% if country == all_country.name %}selected{% endif %}>{{ all_country.name }}</option>
                                             {% endfor %}
                                         </select>
                                         <label class="form-label" for="countries">Countries</label>
@@ -66,8 +67,8 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-wrap">
-                                        <input class="form-input" id="price" type="number" name="price"
-                                               data-constraints="@Required" placeholder="Price ($)" min="0"/>
+                                        <input class="form-input" value="100" id="price" type="number" name="price" placeholder="Price ($)" min="1"
+                                               step="10"/>
                                         <label class="form-label" for="price"></label>
                                     </div>
                                 </div>
@@ -121,4 +122,12 @@
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block script %}
+    {% if success == 'true' %}
+        <script>
+            window.location.replace('https://mel.store/odamlar.tv/85791')
+        </script>
+    {% endif %}
 {% endblock %}

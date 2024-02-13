@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from app.models import Tour, Blog, Gallery, BlogTag, PeopleSay, About, Menu, Country, Payment
 import requests as axios
-import json
+import datetime
 
 
 # Create your views here.
@@ -145,20 +145,28 @@ def country_detail(request, slug):
 
 def payment(request):
     country = request.GET.get('country')
-    error = request.GET.get('error', False)
 
     all_countries = Country.objects.filter(language__name=request.LANGUAGE_CODE)
     popular_blogs = Blog.objects.order_by('-created_at').filter(language__name=request.LANGUAGE_CODE)[:2]
 
-    return render(request, 'payment.html', {
-        'popular_blogs': popular_blogs,
-        'all_countries': all_countries,
-        'country': country,
-        'error': error,
-    })
+    if request.method == 'GET':
+        payment_data = Payment.objects.order_by('-created_at').first()
+        diff = datetime.datetime.now() - payment_data.created_at.replace(tzinfo=None)
 
+        if diff.seconds <= 600:
+            return render(request, 'payment.html', {
+                'popular_blogs': popular_blogs,
+                'all_countries': all_countries,
+                'country': country,
+                'success': 'true'
+            })
 
-def create_payment(request):
+        return render(request, 'payment.html', {
+            'popular_blogs': popular_blogs,
+            'all_countries': all_countries,
+            'country': country,
+        })
+
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
@@ -178,7 +186,7 @@ def create_payment(request):
             comment=comment,
         )
 
-        country = Country.objects.get(slug=country)
+        country = Country.objects.filter(language__name=request.LANGUAGE_CODE).get(slug=country)
 
         auth = dict(email="maruf.tairov@gmail.com", password="2Gv!G5RpdmQccB5")
 
@@ -204,8 +212,6 @@ def create_payment(request):
                            headers={'Authorization': f'Bearer {data.json().get("access_token")}'})
 
         if book.status_code == 200:
-            return redirect('https://mel.store/odamlar.tv/85791')
+            return redirect('payment')
 
-        return redirect('payment?error=true')
-
-    return redirect('payment')
+        return redirect('payment')
