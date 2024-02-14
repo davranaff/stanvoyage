@@ -151,15 +151,17 @@ def payment(request):
 
     if request.method == 'GET':
         payment_data = Payment.objects.order_by('-created_at').first()
-        diff = datetime.datetime.now() - payment_data.created_at.replace(tzinfo=None)
 
-        if diff.seconds <= 600:
-            return render(request, 'payment.html', {
-                'popular_blogs': popular_blogs,
-                'all_countries': all_countries,
-                'country': country,
-                'success': 'true'
-            })
+        if payment_data:
+            diff = datetime.datetime.now() - payment_data.created_at.replace(tzinfo=None)
+
+            if diff.seconds <= 600:
+                return render(request, 'payment.html', {
+                    'popular_blogs': popular_blogs,
+                    'all_countries': all_countries,
+                    'country': country,
+                    'success': 'true'
+                })
 
         return render(request, 'payment.html', {
             'popular_blogs': popular_blogs,
