@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from app.models import Tour, Blog, Gallery, BlogTag, PeopleSay, About, Menu, Country, Payment
 import requests as axios
-import datetime
 
 
 # Create your views here.
@@ -149,26 +148,14 @@ def payment(request):
     all_countries = Country.objects.filter(language__name=request.LANGUAGE_CODE)
     popular_blogs = Blog.objects.order_by('-created_at').filter(language__name=request.LANGUAGE_CODE)[:2]
 
-    if request.method == 'GET':
-        payment_data = Payment.objects.order_by('-created_at').first()
+    return render(request, 'payment.html', {
+        'popular_blogs': popular_blogs,
+        'all_countries': all_countries,
+        'country': country,
+    })
 
-        if payment_data:
-            diff = datetime.datetime.now() - payment_data.created_at.replace(tzinfo=None)
 
-            if diff.seconds <= 600:
-                return render(request, 'payment.html', {
-                    'popular_blogs': popular_blogs,
-                    'all_countries': all_countries,
-                    'country': country,
-                    'success': 'true'
-                })
-
-        return render(request, 'payment.html', {
-            'popular_blogs': popular_blogs,
-            'all_countries': all_countries,
-            'country': country,
-        })
-
+def create_payment(request):
     if request.method == 'POST':
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')

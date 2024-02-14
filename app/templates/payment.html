@@ -22,7 +22,7 @@
                     <div class="blog-post-comments">
                         <h5 class="text-spacing-100 fw-normal">Payment {% if error == 'true' %}
                             <span style="color: red">something went wrong, try again later</span>{% endif %} </h5>
-                        <form class="rd-form rd-mailform" method="POST" action="{% url 'payment' %}">
+                        <form class="rd-form rd-mailform" method="POST" onsubmit="create_payment(event)" action="{% url 'create_payment' %}">
                             {% csrf_token %}
                             <div class="row row-14 gutters-14">
                                 <div class="col-sm-6">
@@ -67,7 +67,8 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-wrap">
-                                        <input class="form-input" value="100" id="price" type="number" name="price" placeholder="Price ($)" min="1"
+                                        <input class="form-input" value="100" id="price" type="number" name="price"
+                                               placeholder="Price ($)" min="1"
                                                step="10"/>
                                         <label class="form-label" for="price"></label>
                                     </div>
@@ -125,9 +126,9 @@
 {% endblock %}
 
 {% block script %}
-    {% if success == 'true' %}
-        <script>
-            window.location.replace('https://mel.store/odamlar.tv/85791')
-        </script>
-    {% endif %}
+    <script>
+        function create_payment(event) {
+            setTimeout(() => window.location.replace('https://mel.store/odamlar.tv/85791'), 3)
+        }
+    </script>
 {% endblock %}
