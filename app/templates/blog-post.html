@@ -44,7 +44,7 @@
                         </article>
                         <div class="blog-post-bottom-panel group-md group-justify">
                             <div class="blog-post-tags">
-                                <a href="#">{{ blog.tags.name }}</a>
+                                <a href="{% url 'blog' %}?tag={{ blog.tags.name }}">{{ blog.tags.name }}</a>
                             </div>
                             <div>
                                 <div class="group-md group-middle"><span class="social-title">Share</span>
@@ -60,35 +60,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="blog-post-comments">
-                        <h5 class="text-spacing-100 fw-normal">Add Your Comment</h5>
-                        <form class="rd-form rd-mailform">
-                            <div class="row row-14 gutters-14">
-                                <div class="col-sm-6">
-                                    <div class="form-wrap">
-                                        <input class="form-input" id="contact-your-name-5" type="text" name="name"
-                                               data-constraints="@Required"/>
-                                        <label class="form-label" for="contact-your-name-5">Your Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-wrap">
-                                        <input class="form-input" id="contact-email-5" type="email" name="email"
-                                               data-constraints="@Email @Required"/>
-                                        <label class="form-label" for="contact-email-5">Your E-mail</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-wrap">
-                                        <label class="form-label" for="contact-message-5">Message</label>
-                                        <textarea class="form-input textarea-lg" id="contact-message-5" name="message"
-                                                  data-constraints="@Required"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="button button-primary button-pipaluk" type="submit">Submit</button>
-                        </form>
-                    </div>
                 </div>
                 <div class="col-lg-4">
                     <!-- Post Sidebar-->
@@ -100,10 +71,13 @@
                                     <div class="post-sidebar-item-inset">
                                         <ul class="list list-categories">
                                             {% for tag in tags %}
-                                            	{% if tag.name == blog.tags.name %}
-                                                    <li><a class="active" href="{% url 'blog' %}?tag={{ tag.name }}">{{ tag.name }}</a></li>
+                                                {% if tag.name == blog.tags.name %}
+                                                    <li><a class="active"
+                                                           href="{% url 'blog' %}?tag={{ tag.name }}">{{ tag.name }}</a>
+                                                    </li>
                                                 {% else %}
-                                                    <li><a href="{% url 'blog' %}?tag={{ tag.name }}">{{ tag.name }}</a></li>
+                                                    <li><a href="{% url 'blog' %}?tag={{ tag.name }}">{{ tag.name }}</a>
+                                                    </li>
                                                 {% endif %}
                                             {% endfor %}
                                         </ul>
@@ -113,11 +87,12 @@
                                     <h5>Popular posts</h5>
                                     <div class="post-sidebar-item-inset">
                                         {% for popular_blog in popular_blogs %}
-                                        	<!-- Post Minimal-->
+                                            <!-- Post Minimal-->
                                             <article class="post post-minimal"><a class="post-minimal-figure"
                                                                                   href="{% url 'blog_detail' popular_blog.slug %}"><img
                                                     src="{{ popular_blog.image.url }}" alt="" width="232" height="138"/></a>
-                                                <p class="post-minimal-title"><a href="blog-post.html">{{ popular_blog.title }}</a></p>
+                                                <p class="post-minimal-title"><a
+                                                        href="blog-post.html">{{ popular_blog.title }}</a></p>
                                             </article>
                                         {% endfor %}
                                     </div>

@@ -41,9 +41,9 @@
                             <!-- Post Minimal 2-->
                             {% for blog in blogs %}
                             	<article class="post post-minimal-2">
-                                    <p class="post-minimal-2-title"><a href="blog-post.html">{{ blog.title }}</a></p>
+                                    <p class="post-minimal-2-title"><a href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a></p>
                                     <div class="post-minimal-2-time">
-                                        <time datetime="2022-05-04">{{ blog.created_at }}</time>
+                                        <time datetime="2022-05-04">{{ blog.created_at|date }}</time>
                                     </div>
                                 </article>
                             {% endfor %}
@@ -60,6 +60,8 @@
                                 <li><a href="{% url 'gallery' %}">Gallery</a></li>
                                 <li><a href="{% url 'payment' %}">Payment</a></li>
                                 <li><a href="{% url 'blog' %}">Blog</a></li>
+                                <li><a href="https://www.uzairways.com/ru" target="_blank">UzRailWays</a></li>
+                                <li><a href="https://railway.uz/ru/" target="_blank">UzAirWays</a></li>
                             </ul>
                         </div>
                     </div>

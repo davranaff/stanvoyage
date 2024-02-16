@@ -41,7 +41,7 @@
                                         </div>
                                         <p class="product-big-text">{{ tour.description|safe }}</p><a
                                             class="button button-black-outline button-ujarak"
-                                            href="{% url 'tour_detail' tour.slug %}">Book this tour</a>
+                                            href="{% url 'tour_detail' tour.slug %}">More</a>
                                         {% if tour.show_price %}
                                             <div class="product-big-price-wrap"><span
                                                     class="product-big-price">${{ tour.price }}</span>
@@ -53,21 +53,21 @@
                         </article>
                     </div>
                 {% endfor %}
-                <!-- Bootstrap Pagination-->
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li class="page-item page-item-control disabled"><a class="page-link" href="#"
-                                                                            aria-label="Previous"><span class="icon"
-                                                                                                        aria-hidden="true"></span></a>
-                        </li>
-                        <li class="page-item active"><span class="page-link">1</span></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item page-item-control"><a class="page-link" href="#" aria-label="Next"><span
-                                class="icon" aria-hidden="true"></span></a></li>
-                    </ul>
-                </nav>
+{#                <!-- Bootstrap Pagination-->#}
+{#                <nav aria-label="Page navigation">#}
+{#                    <ul class="pagination">#}
+{#                        <li class="page-item page-item-control disabled"><a class="page-link" href="#"#}
+{#                                                                            aria-label="Previous"><span class="icon"#}
+{#                                                                                                        aria-hidden="true"></span></a>#}
+{#                        </li>#}
+{#                        <li class="page-item active"><span class="page-link">1</span></li>#}
+{#                        <li class="page-item"><a class="page-link" href="#">2</a></li>#}
+{#                        <li class="page-item"><a class="page-link" href="#">3</a></li>#}
+{#                        <li class="page-item"><a class="page-link" href="#">4</a></li>#}
+{#                        <li class="page-item page-item-control"><a class="page-link" href="#" aria-label="Next"><span#}
+{#                                class="icon" aria-hidden="true"></span></a></li>#}
+{#                    </ul>#}
+{#                </nav>#}
             </div>
         </div>
     </section>

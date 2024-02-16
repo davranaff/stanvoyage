@@ -79,6 +79,7 @@
                             <li><span>Type:</span><span>{{ tour.type.type }}</span></li>
                             <li><span>Category:</span><span>Tour Category</span></li>
                         </ul>
+                        <a href="{% url 'payment' %}?country={{ tour.country.name }}" class="button button-primary button-pipaluk">Book</a>
                         <div class="divider divider-30"></div>
                         <div class="group-md group-middle justify-content-sm-start"><span
                                 class="social-title">Share</span>

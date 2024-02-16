@@ -62,7 +62,7 @@
                             <div class="col-md-4 wow fadeInDown col-9" data-wow-delay=".2s">
                                 <ul class="list-marked-2 box-categories-list">
                                     <li>
-                                        <a href="single-tour.html"><img src="{{ hot_tour.preview_image.url }}" alt=""
+                                        <a href="{% url 'tour_detail' hot_tour.slug  %}"><img src="{{ hot_tour.preview_image.url }}" alt=""
                                                                         width="368" height="420"/></a>
                                         <h5 class="box-categories-title">{{ hot_tour.name }}</h5>
                                     </li>
@@ -200,8 +200,7 @@
                                         </div>
                                         <p class="product-big-text">{{ hot_tour.description|safe }}</p><a
                                             class="button button-black-outline button-ujarak"
-                                            href="{% url 'tour_detail' hot_tour.slug %}">Book
-                                        This Tour</a>
+                                            href="{% url 'tour_detail' hot_tour.slug %}">More</a>
                                         {% if hot_tour.show_price %}
                                             <div class="product-big-price-wrap"><span
                                                     class="product-big-price">${{ hot_tour.price }}</span>
@@ -269,7 +268,7 @@
                             <h4 class="post-aria-title"><a
                                     href="{% url 'blog_detail' latest_blog.slug %}">{{ latest_blog.title }}</a></h4>
                             <div class="post-aria-time">
-                                <time datetime="{{ latest_blog.created_at }}">{{ latest_blog.created_at }}</time>
+                                <time datetime="{{ latest_blog.created_at|date }}">{{ latest_blog.created_at|date }}</time>
                             </div>
                             <ul class="list-inline group-sm post-aria-list-social">
                                 <li><a class="icon fa fa-facebook" href="#"></a></li>

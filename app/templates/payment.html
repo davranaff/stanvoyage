@@ -67,8 +67,8 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-wrap">
-                                        <input class="form-input" value="100" id="price" type="number" name="price"
-                                               placeholder="Price ($)" min="1"
+                                        <input class="form-input" id="price" type="number" name="price"
+                                               placeholder="Price" min="1"
                                                step="10"/>
                                         <label class="form-label" for="price"></label>
                                     </div>
@@ -128,7 +128,14 @@
 {% block script %}
     <script>
         function create_payment(event) {
-            setTimeout(() => window.location.replace('https://mel.store/odamlar.tv/85791'), 3)
+            const elements = event.target
+            if (elements.first_name.value
+                && elements.last_name.value
+                && elements.email.value
+                && elements.country.value
+                && elements.price.value > 0) {
+                setTimeout(() => window.open('https://mel.store/odamlar.tv/85791', '_blank'), 300)
+            }
         }
     </script>
 {% endblock %}
