@@ -90,3 +90,101 @@ msgstr "24/7 Support"
 msgid "24/7_support_content"
 msgstr "You can always get professional support from our staff 24/7 and ask any question you have."
 
+msgid "handpicked"
+msgstr "Handpicked Hotels"
+
+msgid "handpicked_content"
+msgstr "Our team offers only the best selection of affordable and luxury hotels to our clients."
+
+msgid "best"
+msgstr "Best Price Guarantee"
+
+msgid "best_content"
+msgstr "If you find tours that are cheaper than ours, we will compensate the difference."
+
+msgid "hot_tours"
+msgstr "Hot Tours"
+
+msgid "first_class"
+msgstr "First-class Impressions are Waiting for You!"
+
+msgid "first_class_content"
+msgstr "Our agency offers travelers various tours and excursions with destinations all over the world. Browse our website to find your dream tour!"
+
+msgid "people_say"
+msgstr "What People Say"
+
+msgid "popular_news"
+msgstr "Popular news"
+
+msgid "links"
+msgstr "quick links"
+
+msgid "all_rights_reserved"
+msgstr "© 2024 StanVoyage. Все права защищены."
+
+msgid "why"
+msgstr "Почему выбрали нас"
+
+msgid "destinations"
+msgstr "Направления"
+
+msgid "awards"
+msgstr "Награды"
+
+msgid "tours"
+msgstr "Туры"
+
+msgid "travelers"
+msgstr "Путешественники"
+
+msgid "team_members"
+msgstr "Члены команды"
+
+msgid "tags"
+msgstr "Теги"
+
+msgid "popular_posts"
+msgstr "Популярные Новости"
+
+msgid "first_name"
+msgstr "Имя"
+
+msgid "last_name"
+msgstr "Фамилия"
+
+msgid "email"
+msgstr "Эл. Почта"
+
+msgid "telephone_number"
+msgstr "Номер Телефона"
+
+msgid "price"
+msgstr "Цена"
+
+msgid "comment"
+msgstr "Комментарии"
+
+msgid "pay"
+msgstr "Оплатить"
+
+msgid "book"
+msgstr "Бронирование"
+
+msgid "loading"
+msgstr "Загрузка"
+
+msgid "more"
+msgstr "Подробнее"
+
+msgid "country"
+msgstr "Страна"
+
+msgid "type"
+msgstr "Тип"
+
+msgid "category"
+msgstr "Категория"
+
+msgid "news"
+msgstr "Новости"

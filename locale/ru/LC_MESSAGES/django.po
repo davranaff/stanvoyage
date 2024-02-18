@@ -19,3 +19,175 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+
+msgid "home"
+msgstr "Главная Страница"
+
+msgid "about"
+msgstr "О нас"
+
+msgid "out_tours"
+msgstr "Наши Туры"
+
+msgid "countries"
+msgstr "Страны"
+
+msgid "gallery"
+msgstr "Галлерея"
+
+msgid "blog"
+msgstr "Новости"
+
+msgid "contact_us"
+msgstr "Контакты"
+
+msgid "payment"
+msgstr "Оплата"
+
+msgid "banner_1_title"
+msgstr "НАСЛАЖДАЙТЕСЬ ЛУЧШИМИ НАПРАВЛЕНИЯМИ С НАШИМ ТУРИСТИЧЕСКИМ АГЕНТСТВОМ"
+
+msgid "banner_1_subtitle"
+msgstr "Исследовать мир"
+
+msgid "banner_2_title"
+msgstr "КОМАНДА ПРОФЕССИОНАЛЬНЫХ ТУРИСТИЧЕСКИХ ЭКСПЕРТОВ"
+
+msgid "banner_2_subtitle"
+msgstr "Доверьтесь нашему опыту"
+
+msgid "banner_3_title"
+msgstr "СОЗДАЙТЕ СВОЙ СЛЕДУЮЩИЙ ОТПУСК С НАМИ"
+
+msgid "banner_3_subtitle"
+msgstr "Создайте свой тур"
+
+msgid "other_tours"
+msgstr "Другие туры"
+
+msgid "our_services"
+msgstr "Наши Сервисы"
+
+msgid "personalized_matching"
+msgstr "Персонализированное соответствие"
+
+msgid "personalized_matching_content"
+msgstr "Наша уникальная система подбора позволяет вам найти именно тот тур, который вам нужен для вашего следующего отпуска."
+
+msgid "wide_variety_of_tours"
+msgstr "Широкий выбор туров"
+
+msgid "wide_variety_of_tours_content"
+msgstr "Мы предлагаем широкий выбор индивидуально подобранных туров по всему миру."
+
+msgid "highly_qualified_service"
+msgstr "Высококвалифицированный сервис"
+
+msgid "highly_qualified_service_content"
+msgstr "Наши тур-менеджеры квалифицированы, опытны и дружелюбны, чтобы предоставить вам лучший сервис."
+
+msgid "24/7_support"
+msgstr "24/7 Поддержка"
+
+msgid "24/7_support_content"
+msgstr "Вы всегда можете получить профессиональную поддержку наших сотрудников 24/7 и задать любой интересующий Вас вопрос."
+
+msgid "handpicked"
+msgstr "Отобранные отели"
+
+msgid "handpicked_content"
+msgstr "Наша команда предлагает нашим клиентам только лучший выбор доступных и роскошных отелей."
+
+msgid "best"
+msgstr "Гарантия лучшей цены"
+
+msgid "best_content"
+msgstr "Если вы найдете туры дешевле наших, мы компенсируем разницу."
+
+msgid "hot_tours"
+msgstr "Горячие Туры"
+
+msgid "first_class"
+msgstr "Вас ждут первоклассные впечатления!"
+
+msgid "first_class_content"
+msgstr "Наше агентство предлагает путешественникам различные туры и экскурсии по всему миру. Посетите наш сайт и найдите тур своей мечты!"
+
+msgid "people_say"
+msgstr "Что говорят люди"
+
+msgid "popular_news"
+msgstr "Популярные новости"
+
+msgid "links"
+msgstr "Быстрые ссылки"
+
+msgid "all_rights_reserved"
+msgstr "© 2024 StanVoyage. All rights reserved."
+
+msgid "why"
+msgstr "Why choose us"
+
+msgid "destinations"
+msgstr "Destinations"
+
+msgid "awards"
+msgstr "Awards"
+
+msgid "tours"
+msgstr "Tours"
+
+msgid "travelers"
+msgstr "Travelers"
+
+msgid "team_members"
+msgstr "Team Members"
+
+msgid "tags"
+msgstr "Tags"
+
+msgid "popular_posts"
+msgstr "Popular Posts"
+
+msgid "first_name"
+msgstr "First Name"
+
+msgid "last_name"
+msgstr "Last Name"
+
+msgid "email"
+msgstr "Email"
+
+msgid "telephone_number"
+msgstr "Telephone Number"
+
+msgid "price"
+msgstr "Price"
+
+msgid "comment"
+msgstr "Comment"
+
+msgid "pay"
+msgstr "Pay"
+
+msgid "book"
+msgstr "Book"
+
+msgid "loading"
+msgstr "Loading"
+
+msgid "more"
+msgstr "More"
+
+msgid "country"
+msgstr "Country"
+
+msgid "type"
+msgstr "Type"
+
+msgid "category"
+msgstr "Category"
+
+msgid "news"
+msgstr "News"
