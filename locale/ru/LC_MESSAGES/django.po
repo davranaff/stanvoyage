@@ -191,3 +191,12 @@ msgstr "Category"
 
 msgid "news"
 msgstr "News"
+
+msgid "not_found"
+msgstr "Страница не найдена"
+
+msgid "not_found_content"
+msgstr "Возможно, вы ошиблись в вводе адреса или страница переместилась."
+
+msgid "go_home"
+msgstr "Вернуться на домашнюю страницу"

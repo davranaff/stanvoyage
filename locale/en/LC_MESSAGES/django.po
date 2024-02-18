@@ -188,3 +188,12 @@ msgstr "Категория"
 
 msgid "news"
 msgstr "Новости"
+
+msgid "not_found"
+msgstr "Page not found"
+
+msgid "not_found_content"
+msgstr "You may have mistyped the address or the page may have moved."
+
+msgid "go_home"
+msgstr "Go to home page"
