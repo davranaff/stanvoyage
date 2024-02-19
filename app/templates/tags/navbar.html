@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <!-- Page Header-->
 <header class="section page-header">
     <!-- RD Navbar-->
@@ -61,27 +63,25 @@
                                 <a class="rd-nav-link" href="{% url 'home' %}">Home</a>
                             </li>
                             <li class="rd-nav-item {% if path == 'about' %}active{% endif %}"><a class="rd-nav-link"
-                                                                                                 href="{% url 'about' %}">About</a>
+                                                                                                 href="{% url 'about' %}">{% trans "about" %}</a>
                             </li>
                             <li class="rd-nav-item {% if path == 'tours' %}active{% endif %}"><a class="rd-nav-link"
-                                                                                                 href="{% url 'tours' %}">Our
-                                Tours</a>
+                                                                                                 href="{% url 'tours' %}">{% trans "our_tours" %}</a>
                             </li>
                             <li class="rd-nav-item {% if path == 'countries' %}active{% endif %}"><a class="rd-nav-link"
-                                                                                                     href="{% url 'countries' %}">Countries</a>
+                                                                                                     href="{% url 'countries' %}">{% trans "countries" %}</a>
                             </li>
                             <li class="rd-nav-item {% if path == 'gallery' %}active{% endif %}"><a class="rd-nav-link"
-                                                                                                   href="{% url 'gallery' %}">Gallery</a>
+                                                                                                   href="{% url 'gallery' %}">{% trans "gallery" %}</a>
                             </li>
                             <li class="rd-nav-item {% if path == 'blogs' %}active{% endif %}"><a class="rd-nav-link"
-                                                                                                 href="{% url 'blog' %}">Blog</a>
+                                                                                                 href="{% url 'blog' %}">{% trans "news" %}</a>
                             </li>
                             <li class="rd-nav-item {% if path == 'contact' %}active{% endif %}"><a class="rd-nav-link"
-                                                                                                   href="{% url 'contact_us' %}">Contact
-                                Us</a>
+                                                                                                   href="{% url 'contact_us' %}">{% trans "contact_us" %}</a>
                             </li>
                             <li class="rd-nav-item {% if path == 'payment' %}active{% endif %}"><a class="rd-nav-link"
-                                                                                                   href="{% url 'payment' %}">Payment</a>
+                                                                                                   href="{% url 'payment' %}">{% trans "payment" %}</a>
                             </li>
                         </ul>
                     </div>

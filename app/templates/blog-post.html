@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
     <section class="breadcrumbs-custom-inset">
         <div class="breadcrumbs-custom context-dark bg-overlay-39">
             <div class="container">
-                <h2 class="breadcrumbs-custom-title">Blog post</h2>
+                <h2 class="breadcrumbs-custom-title">{% trans "blog" %}</h2>
                 <ul class="breadcrumbs-custom-path">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'blog' %}">Blog</a></li>
+                    <li><a href="{% url 'home' %}">{% trans "home" %}</a></li>
+                    <li><a href="{% url 'blog' %}">{% trans "blog" %}</a></li>
                     <li class="active">{{ blog.title }}</li>
                 </ul>
             </div>
@@ -31,7 +32,7 @@
                                      viewbox="0 0 16 27" enable-background="new 0 0 16 27" xml:space="preserve">
                         <path d="M0,0v6c4.142,0,7.5,3.358,7.5,7.5S4.142,21,0,21v6h16V0H0z"></path>
                       </svg>
-                                <div>News</div>
+                                <div>{% trans "news" %}</div>
                             </a>
                                 <div class="post-classic-time"><span class="icon fa fa-clock-o"></span>
                                     <time datetime="{{ blog.created_at }}">{{ blog.created_at|date }}</time>
@@ -46,18 +47,6 @@
                             <div class="blog-post-tags">
                                 <a href="{% url 'blog' %}?tag={{ blog.tags.name }}">{{ blog.tags.name }}</a>
                             </div>
-                            <div>
-                                <div class="group-md group-middle"><span class="social-title">Share</span>
-                                    <div>
-                                        <ul class="list-inline list-inline-sm social-list">
-                                            <li><a class="icon fa fa-facebook" href="#"></a></li>
-                                            <li><a class="icon fa fa-twitter" href="#"></a></li>
-                                            <li><a class="icon fa fa-google-plus" href="#"></a></li>
-                                            <li><a class="icon fa fa-instagram" href="#"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -67,7 +56,7 @@
                         <div class="row row-lg row-60">
                             <div class="col-sm-6 col-lg-12">
                                 <div class="post-sidebar-item">
-                                    <h5>Tags</h5>
+                                    <h5>{% trans "tags" %}</h5>
                                     <div class="post-sidebar-item-inset">
                                         <ul class="list list-categories">
                                             {% for tag in tags %}
@@ -84,7 +73,7 @@
                                     </div>
                                 </div>
                                 <div class="post-sidebar-item">
-                                    <h5>Popular posts</h5>
+                                    <h5>{% trans "popular_posts" %}</h5>
                                     <div class="post-sidebar-item-inset">
                                         {% for popular_blog in popular_blogs %}
                                             <!-- Post Minimal-->

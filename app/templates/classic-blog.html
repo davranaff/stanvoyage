@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
     <!-- Breadcrumbs -->
     <section class="breadcrumbs-custom-inset">
         <div class="breadcrumbs-custom context-dark bg-overlay-39">
             <div class="container">
-                <h2 class="breadcrumbs-custom-title">Classic blog</h2>
+                <h2 class="breadcrumbs-custom-title">{% trans "news" %}</h2>
                 <ul class="breadcrumbs-custom-path">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li class="active">Blog</li>
+                    <li><a href="{% url 'home' %}">{% trans "home" %}</a></li>
+                    <li class="active">{% trans "news" %}</li>
                 </ul>
             </div>
             <div class="box-position" style="background-image: url({% static 'static_images/samarkand.jpg' %});"></div>
@@ -49,7 +50,7 @@
                         <div class="row row-lg row-60">
                             <div class="col-sm-6 col-lg-12">
                                 <div class="post-sidebar-item">
-                                    <h5>tags</h5>
+                                    <h5>{% trans "tags" %}</h5>
                                     <div class="post-sidebar-item-inset">
                                         <ul class="list list-categories">
                                             {% for tag in tags %}

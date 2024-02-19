@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block head %}
-    <title>404 Page not found</title>
+    <title>404 {% trans "not_found" %}</title>
 {% endblock head %}
 
 {% block content %}
@@ -18,9 +19,9 @@
 
             <div class="section-single-main">
                 <div class="container">
-                    <h1 class="title-modern text-uppercase"><span>404</span></h1><span class="subtitle-404">Page not found</span>
-                    <p class="big text-spacing-25">You may have mistyped the address or the page may have moved.</p><a
-                        class="button button-primary button-ujarak" href="{% url 'home' %}">Go to home page</a>
+                    <h1 class="title-modern text-uppercase"><span>404</span></h1><span class="subtitle-404">{% trans "not_found" %}</span>
+                    <p class="big text-spacing-25">{% trans "not_found_content" %}</p><a
+                        class="button button-primary button-ujarak" href="{% url 'home' %}">{% trans "go_home" %}</a>
                 </div>
             </div>
             <div class="section-single-footer">

@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
     <section class="breadcrumbs-custom-inset">
         <div class="breadcrumbs-custom context-dark bg-overlay-39">
             <div class="container">
-                <h2 class="breadcrumbs-custom-title">Blog post</h2>
+                <h2 class="breadcrumbs-custom-title">{% trans "Country" %}</h2>
                 <ul class="breadcrumbs-custom-path">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'countries' %}">Countries</a></li>
+                    <li><a href="{% url 'home' %}">{% trans "home" %}</a></li>
+                    <li><a href="{% url 'countries' %}">{% trans "countries" %}</a></li>
                     <li class="active">{{ country.name }}</li>
                 </ul>
             </div>
@@ -39,7 +40,7 @@
                             <p class="post-classic-text">{{ country.description|safe }}</p>
                             <hr>
                             <a href="{% url 'payment' %}?country={{ country.name }}"
-                               class="button button-primary button-pipaluk">Book</a>
+                               class="button button-primary button-pipaluk">{% trans "book" %}</a>
                         </article>
                     </div>
                 </div>
@@ -49,7 +50,7 @@
                         <div class="row row-lg row-60">
                             <div class="col-sm-6 col-lg-12">
                                 <div class="post-sidebar-item">
-                                    <h5>Tours</h5>
+                                    <h5>{% trans "tours" %}</h5>
                                     <div class="post-sidebar-item-inset">
                                         <ul class="list list-categories">
                                             {% for tour in tours %}

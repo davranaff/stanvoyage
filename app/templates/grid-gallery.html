@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -7,10 +8,10 @@
     <section class="breadcrumbs-custom-inset">
         <div class="breadcrumbs-custom context-dark bg-overlay-48">
             <div class="container">
-                <h2 class="breadcrumbs-custom-title">Gallery</h2>
+                <h2 class="breadcrumbs-custom-title">{% trans "gallery" %}</h2>
                 <ul class="breadcrumbs-custom-path">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li class="active">Gallery</li>
+                    <li><a href="{% url 'home' %}">{% trans "home" %}</a></li>
+                    <li class="active">{% trans "gallery" %}</li>
                 </ul>
             </div>
             <div class="box-position" style="background-image: url({% static 'static_images/bukhara.jpg' %});"></div>
@@ -19,12 +20,6 @@
     <!-- Grid Gallery-->
     <section class="section section-xl bg-default text-center isotope-wrap">
         <div class="container">
-            <div class="isotope-filters isotope-filters-horizontal">
-                <button class="isotope-filters-toggle button button-md button-icon button-icon-right button-black-outline button-wapasha"
-                        data-custom-toggle="#isotope-1" data-custom-toggle-hide-on-blur="true"><span
-                        class="icon fa fa-caret-down"></span>Filter
-                </button>
-            </div>
             <div class="row row-50 isotope" data-isotope-layout="fitRows" data-isotope-group="gallery"
                  data-lightgallery="group">
                 {% for gallery in galleries %}
@@ -43,9 +38,6 @@
                 {% endfor %}
 
             </div>
-{#            <div class="button-wrap">#}
-{#                <button class="button button-md button-black-outline button-wapasha">Load More</button>#}
-{#            </div>#}
         </div>
     </section>
 

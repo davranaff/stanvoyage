@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
     <section class="breadcrumbs-custom-inset">
         <div class="breadcrumbs-custom context-dark bg-overlay-39">
             <div class="container">
-                <h2 class="breadcrumbs-custom-title">Payment</h2>
+                <h2 class="breadcrumbs-custom-title">{% trans "payment" %}</h2>
                 <ul class="breadcrumbs-custom-path">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li class="active">Payment</li>
+                    <li><a href="{% url 'home' %}">{% trans "home" %}</a></li>
+                    <li class="active">{% trans "payment" %}</li>
                 </ul>
             </div>
             <div class="box-position" style="background-image: url({% static 'static_images/samarkand.jpg' %});"></div>
@@ -20,7 +21,7 @@
             <div class="row row-70">
                 <div class="col-lg-8">
                     <div class="blog-post-comments">
-                        <h5 class="text-spacing-100 fw-normal">Payment {% if error == 'true' %}
+                        <h5 class="text-spacing-100 fw-normal">{% trans "payment" %} {% if error == 'true' %}
                             <span style="color: red">something went wrong, try again later</span>{% endif %} </h5>
                         <form class="rd-form rd-mailform" method="POST" onsubmit="create_payment(event)"
                               action="{% url 'create_payment' %}">
@@ -29,21 +30,21 @@
                                 <div class="col-sm-6">
                                     <div class="form-wrap">
                                         <input class="form-input" id="first_name" type="text" name="first_name"
-                                               data-constraints="@Required" placeholder="Your First Name"/>
+                                               data-constraints="@Required" placeholder="{% trans 'first_name' %}"/>
                                         <label class="form-label" for="first_name"></label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-wrap">
                                         <input class="form-input" id="last_name" type="text" name="last_name"
-                                               data-constraints="@Required" placeholder="Your Last Name"/>
+                                               data-constraints="@Required" placeholder="{% trans 'last_name' %}"/>
                                         <label class="form-label" for="last_name"></label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-wrap">
                                         <input class="form-input" id="email" type="email" name="email"
-                                               data-constraints="@Email @Required" placeholder="Your E-mail"/>
+                                               data-constraints="@Email @Required" placeholder="{% trans 'email' %}"/>
                                         <label class="form-label" for="email"></label>
                                     </div>
                                 </div>
@@ -51,7 +52,7 @@
                                     <div class="form-wrap">
                                         <input class="form-input" id="phone" type="text" name="phone"
                                                data-constraints="@Required" minlength="13" maxlength="13"
-                                               placeholder="Your Telephone Number"/>
+                                               placeholder="{% trans 'telephone_number' %}"/>
                                         <label class="form-label" for="phone"></label>
                                     </div>
                                 </div>
@@ -69,7 +70,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-wrap">
                                         <input class="form-input" id="price" type="number" name="price"
-                                               placeholder="Price" min="1"
+                                               placeholder="{% trans 'price' %}" min="1"
                                                step="10"/>
                                         <label class="form-label" for="price"></label>
                                     </div>
@@ -78,11 +79,11 @@
                                     <div class="form-wrap">
                                         <label class="form-label" for="contact-message-5"></label>
                                         <textarea class="form-input textarea-lg" id="contact-message-5"
-                                                  name="comment" placeholder="Comment"></textarea>
+                                                  name="comment" placeholder="{% trans 'comment' %}"></textarea>
                                     </div>
                                 </div>
                             </div>
-                            <button class="button button-primary button-pipaluk" type="submit">Pay</button>
+                            <button class="button button-primary button-pipaluk" type="submit">{% trans "pay" %}</button>
                         </form>
                     </div>
                 </div>
@@ -92,7 +93,7 @@
                         <div class="row row-lg row-60">
                             <div class="col-sm-6 col-lg-12">
                                 <div class="post-sidebar-item">
-                                    <h5>Countries</h5>
+                                    <h5>{% trans "countries" %}</h5>
                                     <div class="post-sidebar-item-inset">
                                         <ul class="list list-categories">
                                             {% for country in all_countries %}
@@ -104,7 +105,7 @@
                                     </div>
                                 </div>
                                 <div class="post-sidebar-item">
-                                    <h5>Popular posts</h5>
+                                    <h5>{% trans "popular_posts" %}</h5>
                                     <div class="post-sidebar-item-inset">
                                         {% for popular_blog in popular_blogs %}
                                             <!-- Post Minimal-->

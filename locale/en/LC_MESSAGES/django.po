@@ -24,7 +24,7 @@ msgstr "Home"
 msgid "about"
 msgstr "About"
 
-msgid "out_tours"
+msgid "our_tours"
 msgstr "Our Tours"
 
 msgid "countries"
@@ -197,3 +197,9 @@ msgstr "You may have mistyped the address or the page may have moved."
 
 msgid "go_home"
 msgstr "Go to home page"
+
+msgid "latest"
+msgstr "Latest News Posts"
+
+msgid "cost"
+msgstr "Cost"
