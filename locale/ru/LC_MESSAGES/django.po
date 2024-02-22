@@ -49,7 +49,7 @@ msgid "banner_1_title"
 msgstr "НАСЛАЖДАЙТЕСЬ ЛУЧШИМИ НАПРАВЛЕНИЯМИ С НАШИМ ТУРИСТИЧЕСКИМ АГЕНТСТВОМ"
 
 msgid "banner_1_subtitle"
-msgstr "Исследовать мир"
+msgstr "Исследуйте Центральную Азию"
 
 msgid "banner_2_title"
 msgstr "КОМАНДА ПРОФЕССИОНАЛЬНЫХ ТУРИСТИЧЕСКИХ ЭКСПЕРТОВ"
@@ -124,73 +124,73 @@ msgid "links"
 msgstr "Быстрые ссылки"
 
 msgid "all_rights_reserved"
-msgstr "© 2024 StanVoyage. All rights reserved."
+msgstr "© 2024 StanVoyage. Все права защищены."
 
 msgid "why"
-msgstr "Why choose us"
+msgstr "Почему выбрали нас"
 
 msgid "destinations"
-msgstr "Destinations"
+msgstr "Направления"
 
 msgid "awards"
-msgstr "Awards"
+msgstr "Награды"
 
 msgid "tours"
-msgstr "Tours"
+msgstr "Туры"
 
 msgid "travelers"
-msgstr "Travelers"
+msgstr "Путешественники"
 
 msgid "team_members"
-msgstr "Team Members"
+msgstr "Члены команды"
 
 msgid "tags"
-msgstr "Tags"
+msgstr "Теги"
 
 msgid "popular_posts"
-msgstr "Popular Posts"
+msgstr "Популярные Новости"
 
 msgid "first_name"
-msgstr "First Name"
+msgstr "Имя"
 
 msgid "last_name"
-msgstr "Last Name"
+msgstr "Фамилия"
 
 msgid "email"
-msgstr "Email"
+msgstr "Эл. Почта"
 
 msgid "telephone_number"
-msgstr "Telephone Number"
+msgstr "Номер Телефона"
 
 msgid "price"
-msgstr "Price"
+msgstr "Цена"
 
 msgid "comment"
-msgstr "Comment"
+msgstr "Комментарии"
 
 msgid "pay"
-msgstr "Pay"
+msgstr "Оплатить"
 
 msgid "book"
-msgstr "Book"
+msgstr "Бронирование"
 
 msgid "loading"
-msgstr "Loading"
+msgstr "Загрузка"
 
 msgid "more"
-msgstr "More"
+msgstr "Подробнее"
 
 msgid "country"
-msgstr "Country"
+msgstr "Страна"
 
 msgid "type"
-msgstr "Type"
+msgstr "Тип"
 
 msgid "category"
-msgstr "Category"
+msgstr "Категория"
 
 msgid "news"
-msgstr "News"
+msgstr "Новости"
 
 msgid "not_found"
 msgstr "Страница не найдена"

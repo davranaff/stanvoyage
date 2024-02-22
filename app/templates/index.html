@@ -85,9 +85,6 @@
                 <div class="col-sm-6 col-lg-4">
                     <article class="box-icon-classic">
                         <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
-                            <div class="unit-left">
-                                <div class="box-icon-classic-icon fl-bigmug-line-equalization3"></div>
-                            </div>
                             <div class="unit-body">
                                 <h5 class="box-icon-classic-title"><a href="#">{% trans "personalized_matching" %}</a>
                                 </h5>
@@ -99,9 +96,6 @@
                 <div class="col-sm-6 col-lg-4">
                     <article class="box-icon-classic">
                         <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
-                            <div class="unit-left">
-                                <div class="box-icon-classic-icon fl-bigmug-line-circular220"></div>
-                            </div>
                             <div class="unit-body">
                                 <h5 class="box-icon-classic-title"><a href="#">{% trans "wide_variety_of_tours" %}</a>
                                 </h5>
@@ -113,9 +107,6 @@
                 <div class="col-sm-6 col-lg-4">
                     <article class="box-icon-classic">
                         <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
-                            <div class="unit-left">
-                                <div class="box-icon-classic-icon fl-bigmug-line-favourites5"></div>
-                            </div>
                             <div class="unit-body">
                                 <h5 class="box-icon-classic-title"><a href="#">{% trans "highly_qualified_service" %}</a></h5>
                                 <p class="box-icon-classic-text">{% trans "highly_qualified_service_content" %}</p>
@@ -126,9 +117,6 @@
                 <div class="col-sm-6 col-lg-4">
                     <article class="box-icon-classic">
                         <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
-                            <div class="unit-left">
-                                <div class="box-icon-classic-icon fl-bigmug-line-headphones32"></div>
-                            </div>
                             <div class="unit-body">
                                 <h5 class="box-icon-classic-title"><a href="#">{% trans "24/7_support" %}</a></h5>
                                 <p class="box-icon-classic-text">{% trans "24/7_support_content" %}</p>
@@ -139,9 +127,6 @@
                 <div class="col-sm-6 col-lg-4">
                     <article class="box-icon-classic">
                         <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
-                            <div class="unit-left">
-                                <div class="box-icon-classic-icon fl-bigmug-line-hot67"></div>
-                            </div>
                             <div class="unit-body">
                                 <h5 class="box-icon-classic-title"><a href="#">{% trans "handpicked" %}</a>
                                 </h5>
@@ -153,13 +138,28 @@
                 <div class="col-sm-6 col-lg-4">
                     <article class="box-icon-classic">
                         <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
-                            <div class="unit-left">
-                                <div class="box-icon-classic-icon fl-bigmug-line-wallet26"></div>
-                            </div>
                             <div class="unit-body">
                                 <h5 class="box-icon-classic-title"><a href="#">{% trans "best" %}</a>
                                 </h5>
                                 <p class="box-icon-classic-text">{% trans "best_content" %}</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="box-icon-classic">
+                        <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left justify-content-center flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                            <div class="unit-body">
+                                <h5 class="box-icon-classic-title"><a href="https://www.uzairways.com" target="_blank">UzAirWays</a></h5>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <article class="box-icon-classic">
+                        <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left justify-content-center flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                            <div class="unit-body">
+                                <h5 class="box-icon-classic-title"><a href="https://railway.uz" target="_blank">UzRailWays</a></h5>
                             </div>
                         </div>
                     </article>
@@ -192,7 +192,7 @@
                                                     class="icon material-icons-star"></span><span
                                                     class="icon material-icons-star"></span></div>
                                         </div>
-                                        <p class="product-big-text">{{ hot_tour.description|safe|truncatechars_html:7 }}</p><a
+                                        <p class="product-big-text">{{ hot_tour.description|safe|truncatechars_html:100 }}</p><a
                                             class="button button-black-outline button-ujarak"
                                             href="{% url 'tour_detail' hot_tour.slug %}">{% trans "more" %}</a>
                                         {% if hot_tour.show_price %}
