@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
     <section class="breadcrumbs-custom-inset">
         <div class="breadcrumbs-custom context-dark bg-overlay-46">
             <div class="container">
-                <h2 class="breadcrumbs-custom-title">Our tours</h2>
+                <h2 class="breadcrumbs-custom-title">{% trans "our_tours" %}</h2>
                 <ul class="breadcrumbs-custom-path">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li class="active">Our tours</li>
+                    <li><a href="{% url 'home' %}">{% trans "home" %}</a></li>
+                    <li class="active">{% trans "our_tours" %}</li>
                 </ul>
             </div>
             <div class="box-position" style="background-image: url({% static 'static_images/bukhara.jpg' %});"></div>
@@ -39,9 +40,9 @@
                                                     class="icon material-icons-star"></span></div>
                                             <a class="product-big-reviews" href="#"></a>
                                         </div>
-                                        <p class="product-big-text">{{ tour.description|safe }}</p><a
+                                        <p class="product-big-text">{{ tour.description|safe|truncatechars_html:7 }}</p><a
                                             class="button button-black-outline button-ujarak"
-                                            href="{% url 'tour_detail' tour.slug %}">More</a>
+                                            href="{% url 'tour_detail' tour.slug %}">{% trans "more" %}</a>
                                         {% if tour.show_price %}
                                             <div class="product-big-price-wrap"><span
                                                     class="product-big-price">${{ tour.price }}</span>
@@ -53,21 +54,6 @@
                         </article>
                     </div>
                 {% endfor %}
-{#                <!-- Bootstrap Pagination-->#}
-{#                <nav aria-label="Page navigation">#}
-{#                    <ul class="pagination">#}
-{#                        <li class="page-item page-item-control disabled"><a class="page-link" href="#"#}
-{#                                                                            aria-label="Previous"><span class="icon"#}
-{#                                                                                                        aria-hidden="true"></span></a>#}
-{#                        </li>#}
-{#                        <li class="page-item active"><span class="page-link">1</span></li>#}
-{#                        <li class="page-item"><a class="page-link" href="#">2</a></li>#}
-{#                        <li class="page-item"><a class="page-link" href="#">3</a></li>#}
-{#                        <li class="page-item"><a class="page-link" href="#">4</a></li>#}
-{#                        <li class="page-item page-item-control"><a class="page-link" href="#" aria-label="Next"><span#}
-{#                                class="icon" aria-hidden="true"></span></a></li>#}
-{#                    </ul>#}
-{#                </nav>#}
             </div>
         </div>
     </section>

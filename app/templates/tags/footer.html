@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <!-- Page Footer-->
 <footer class="section footer-corporate context-dark">
     <div class="footer-corporate-inset">
@@ -6,7 +8,7 @@
                 <div class="col-sm-6 col-md-12 col-lg-3 col-xl-4">
                     <div class="oh-desktop">
                         <div class="wow slideInRight" data-wow-delay="0s">
-                            <h6 class="text-spacing-100 text-uppercase">Contact us</h6>
+                            <h6 class="text-spacing-100 text-uppercase">{% trans "contact_us" %}</h6>
                             <ul class="footer-contacts d-inline-block d-sm-block">
                                 <li>
                                     <div class="unit">
@@ -37,7 +39,7 @@
                 <div class="col-sm-6 col-md-5 col-lg-3 col-xl-4">
                     <div class="oh-desktop">
                         <div class="wow slideInDown" data-wow-delay="0s">
-                            <h6 class="text-spacing-100 text-uppercase">Popular news</h6>
+                            <h6 class="text-spacing-100 text-uppercase">{% trans "popular_news" %}</h6>
                             <!-- Post Minimal 2-->
                             {% for blog in blogs %}
                             	<article class="post post-minimal-2">
@@ -53,14 +55,14 @@
                 <div class="col-sm-11 col-md-7 col-lg-5 col-xl-4">
                     <div class="oh-desktop">
                         <div class="wow slideInLeft" data-wow-delay="0s">
-                            <h6 class="text-spacing-100 text-uppercase">Quick links</h6>
+                            <h6 class="text-spacing-100 text-uppercase">{% trans "links" %}</h6>
                             <ul class="row-6 list-0 list-marked list-marked-md list-marked-secondary list-custom-2">
-                                <li><a href="{% url 'about' %}">About us</a></li>
-                                <li><a href="{% url 'tours' %}">Our Tours</a></li>
-                                <li><a href="{% url 'gallery' %}">Gallery</a></li>
-                                <li><a href="{% url 'payment' %}">Payment</a></li>
-                                <li><a href="{% url 'blog' %}">Blog</a></li>
-                                <li><a href="https://www.uzairways.com/ru" target="_blank">UzAirWays</a></li>
+                                <li><a href="{% url 'about' %}">{% trans "about" %}</a></li>
+                                <li><a href="{% url 'tours' %}">{% trans "our_tours" %}</a></li>
+                                <li><a href="{% url 'gallery' %}">{% trans "gallery" %}</a></li>
+                                <li><a href="{% url 'payment' %}">{% trans "payment" %}</a></li>
+                                <li><a href="{% url 'blog' %}">{% trans "news" %}</a></li>
+                                <li><a href="https://www.uzairways.com" target="_blank">UzAirWays</a></li>
                                 <li><a href="https://railway.uz" target="_blank">UzRailWays</a></li>
                             </ul>
                         </div>
@@ -74,9 +76,7 @@
             <div class="row justfy-content-xl-space-berween row-10 align-items-md-center2">
                 <div class="col-sm-6 col-md-4 order-sm-first">
                     <!-- Rights-->
-                    <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span> <span>Tour</span>.
-                        All rights reserved<span>.</span>
-                    </p>
+                    <p class="rights">{% trans "all_rights_reserved" %}</p>
                 </div>
             </div>
         </div>
