@@ -49,13 +49,16 @@
                                         </div>
                                     </article>
                                 </div>
+                                <div class="text-black-500" style="text-align: left">
+                                    {{ event.description|safe }}
+                                </div>
                             </div>
                         {% endfor %}
 
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-5 position-relative">
-                    <div class="single-project single-project-4">
+                <div class="col-md-6 col-lg-5 position-relative" style="height: 100% !important;">
+                    <div class="single-project single-project-4" style="position: sticky; top: 0;">
                         <div class="single-tour-title">
                             <h4 class="title-decoration-lines-bottom">{{ tour.name }}, <br class="d-none d-lg-block">
                                 {{ tour.country.name }}<span></span></h4>
@@ -67,9 +70,9 @@
                                 </div>
                             </div>
                         {% endif %}
-                        <p class="text-gray-500">
+                        <div class="text-gray-500">
                             {{ tour.description|safe }}
-                        </p>
+                        </div>
                         <div class="divider divider-30"></div>
                         <ul class="list list-description d-inline-block d-md-block">
                             <li><span>Country:</span><span>{{ tour.country.name }}</span></li>
@@ -80,18 +83,6 @@
                             <li><span>Category:</span><span>Tour Category</span></li>
                         </ul>
                         <a href="{% url 'payment' %}?country={{ tour.country.name }}" class="button button-primary button-pipaluk">Book</a>
-                        <div class="divider divider-30"></div>
-                        <div class="group-md group-middle justify-content-sm-start"><span
-                                class="social-title">Share</span>
-                            <div>
-                                <ul class="list-inline list-inline-sm social-list">
-                                    <li><a class="icon fa fa-facebook" href="#"></a></li>
-                                    <li><a class="icon fa fa-twitter" href="#"></a></li>
-                                    <li><a class="icon fa fa-google-plus" href="#"></a></li>
-                                    <li><a class="icon fa fa-instagram" href="#"></a></li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
