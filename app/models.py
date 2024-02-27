@@ -31,9 +31,6 @@ class Menu(BaseModel):
     def __str__(self):
         return f'#{self.id} / {self.is_active} / {self.language}'
 
-    class Meta:
-        unique_together = ('language', )
-
 
 class Country(BaseModel):
     name = models.CharField(max_length=50)
@@ -145,7 +142,7 @@ class About(BaseModel):
     travel_count = models.IntegerField()
     team_member_count = models.CharField(max_length=5)
 
-    is_active = models.BooleanField(default=False, unique=True)
+    is_active = models.BooleanField(default=False)
 
     language = models.ForeignKey('Language', on_delete=models.PROTECT, related_name='abouts')
 
