@@ -136,7 +136,7 @@ msgid "awards"
 msgstr "Награды"
 
 msgid "tours"
-msgstr "Туры"
+msgstr "Посещаемые места"
 
 msgid "travelers"
 msgstr "Путешественники"
@@ -172,7 +172,7 @@ msgid "pay"
 msgstr "Оплатить"
 
 msgid "book"
-msgstr "Бронирование"
+msgstr "Запрос"
 
 msgid "loading"
 msgstr "Загрузка"

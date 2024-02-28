@@ -133,7 +133,7 @@ msgid "awards"
 msgstr "Awards"
 
 msgid "tours"
-msgstr "Tours"
+msgstr "Places visited"
 
 msgid "travelers"
 msgstr "Travelers"
@@ -169,7 +169,7 @@ msgid "pay"
 msgstr "Pay"
 
 msgid "book"
-msgstr "Book"
+msgstr "Request"
 
 msgid "loading"
 msgstr "Loading"
