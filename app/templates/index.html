@@ -59,13 +59,13 @@
             <div class="box-categories cta-box-wrap">
                 <div class="box-categories-content">
                     <div class="row justify-content-center">
-                        {% for hot_tour in hot_tours %}
+                        {% for country in countries_list %}
                             <div class="col-md-4 wow fadeInDown col-9" data-wow-delay=".2s">
                                 <ul class="list-marked-2 box-categories-list">
                                     <li>
-                                        <a href="{% url 'tour_detail' hot_tour.slug  %}"><img src="{{ hot_tour.preview_image.url }}" alt=""
+                                        <a href="{% url 'country_detail' country.slug %}"><img src="{{ country.image.url }}" alt=""
                                                                         width="368" height="420"/></a>
-                                        <h5 class="box-categories-title">{{ hot_tour.name }}</h5>
+                                        <h5 class="box-categories-title">{{ country.name }}</h5>
                                     </li>
                                 </ul>
                             </div>

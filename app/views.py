@@ -7,12 +7,14 @@ import requests as axios
 
 
 def home(request):
+    countries_list = Country.objects.filter(language__name=request.LANGUAGE_CODE).order_by('-created_at')[:3]
     hot_tours = Tour.objects.filter(is_hot=True, language__name=request.LANGUAGE_CODE).order_by('-created_at')[:3]
     latest_blogs = Blog.objects.filter(language__name=request.LANGUAGE_CODE).order_by('-created_at').all()[:6]
     galleries = Gallery.objects.filter(language__name=request.LANGUAGE_CODE).order_by('-created_at').all()[:6]
     people_says = PeopleSay.objects.filter(language__name=request.LANGUAGE_CODE)[:3]
 
     return render(request, 'index.html', {
+        'countries_list': countries_list,
         'hot_tours': hot_tours,
         'latest_blogs': latest_blogs,
         'galleries': galleries,
