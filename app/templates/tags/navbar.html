@@ -24,7 +24,7 @@
                             <span></span></button>
                         <!-- RD Navbar Brand-->
                         <div class="rd-navbar-brand"><a class="brand" href="{% url 'home' %}"><img
-                                src="{% static 'logo/logo.svg' %}" alt="logo" style="width: 100px;"/></a></div>
+                                src="{% static 'logo/logo(2).jpg' %}" alt="logo" style="width: 300px;"/></a></div>
                     </div>
                     <div class="rd-navbar-aside-right rd-navbar-collapse">
                         <ul class="rd-navbar-corporate-contacts">
@@ -47,7 +47,8 @@
                             <li>
                                 <div class="unit unit-spacing-xs">
                                     <div class="unit-left"><span class="icon fa fa-phone"></span></div>
-                                    <div class="unit-body"><a class="link-phone" href="tel:{{ info.phone }}">{{ info.phone }}</a>
+                                    <div class="unit-body"><a class="link-phone"
+                                                              href="tel:{{ info.phone }}">{{ info.phone }}</a>
                                     </div>
                                 </div>
                             </li>
@@ -58,6 +59,11 @@
             <div class="rd-navbar-main-outer">
                 <div class="rd-navbar-main">
                     <div class="rd-navbar-nav-wrap">
+                        <ul class="list-inline list-inline-md rd-navbar-corporate-list-social">
+                            <li><a class="icon fa fa-telegram" href="https://t.me/StanVoyage"></a></li>
+                            <li><a class="icon fa fa-whatsapp" href="https://wa.me/+998993535755"></a></li>
+                            <li><a class="icon fa fa-google" href="mailto:info@stanvoyage.com"></a></li>
+                        </ul>
                         <!-- RD Navbar Nav-->
                         <ul class="rd-navbar-nav">
                             <li class="rd-nav-item {% if path == 'en' or path == 'ru' %}active{% endif %}">
