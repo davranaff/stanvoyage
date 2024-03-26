@@ -34,28 +34,27 @@
                                         <h5 class="thumbnail-joan-title">{{ tour.name }}</h5>
                                     </div>
                                 </article>
+                                {% for event in events %}
+                                    <div class="col-12">
+                                        <div class="oh-desktop">
+                                            <!-- Thumbnail Joan-->
+                                            <article class="thumbnail thumbnail-joan wow slideInRight"><a
+                                                    class="thumbnail-joan-figure"
+                                                    href="{{ event.image.url }}"
+                                                    data-lightgallery="item"><img src="{{ event.image.url }}" alt=""
+                                                                                  width="700" height="518"/></a>
+                                                <div class="thumbnail-joan-caption">
+                                                    <h5 class="thumbnail-joan-title">{{ event.name }}</h5>
+                                                </div>
+                                            </article>
+                                        </div>
+                                        <div class="text-black-500" style="text-align: left">
+                                            {{ event.description|safe }}
+                                        </div>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
-                        {% for event in events %}
-                            <div class="col-12">
-                                <div class="oh-desktop">
-                                    <!-- Thumbnail Joan-->
-                                    <article class="thumbnail thumbnail-joan wow slideInRight"><a
-                                            class="thumbnail-joan-figure"
-                                            href="{{ event.image.url }}"
-                                            data-lightgallery="item"><img src="{{ event.image.url }}" alt=""
-                                                                          width="700" height="518"/></a>
-                                        <div class="thumbnail-joan-caption">
-                                            <h5 class="thumbnail-joan-title">{{ event.name }}</h5>
-                                        </div>
-                                    </article>
-                                </div>
-                                <div class="text-black-500" style="text-align: left">
-                                    {{ event.description|safe }}
-                                </div>
-                            </div>
-                        {% endfor %}
-
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-5 position-relative" style="height: 100% !important;">
@@ -78,15 +77,16 @@
                         <ul class="list list-description d-inline-block d-md-block">
                             <li><span>{% trans "country" %}:</span><span>{{ tour.country.name }}</span></li>
                             {% if tour.show_price %}
-                            	<li><span>{% trans "cost" %}:</span><span>{{ tour.price }}$</span></li>
+                                <li><span>{% trans "cost" %}:</span><span>{{ tour.price }}$</span></li>
                             {% endif %}
                             <li><span>{% trans "type" %}:</span><span>{{ tour.type.type }}</span></li>
                         </ul>
-                        <a href="{% url 'payment' %}?country={{ tour.country.name }}" class="button button-primary button-pipaluk">{% trans "book" %}</a>
-                        </div>
+                        <a href="{% url 'payment' %}?country={{ tour.country.name }}"
+                           class="button button-primary button-pipaluk">{% trans "book" %}</a>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <!-- Project Links-->
