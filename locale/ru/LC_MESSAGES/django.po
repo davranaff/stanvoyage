@@ -34,7 +34,7 @@ msgid "countries"
 msgstr "Страны"
 
 msgid "gallery"
-msgstr "Галлерея"
+msgstr "Галерея"
 
 msgid "blog"
 msgstr "Новости"

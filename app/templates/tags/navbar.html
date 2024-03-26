@@ -67,7 +67,7 @@
                         <!-- RD Navbar Nav-->
                         <ul class="rd-navbar-nav">
                             <li class="rd-nav-item {% if path == 'en' or path == 'ru' %}active{% endif %}">
-                                <a class="rd-nav-link" href="{% url 'home' %}">Home</a>
+                                <a class="rd-nav-link" href="{% url 'home' %}">{% trans "home" %}</a>
                             </li>
                             <li class="rd-nav-item {% if path == 'about' %}active{% endif %}"><a class="rd-nav-link"
                                                                                                  href="{% url 'about' %}">{% trans "about" %}</a>
